@@ -42,7 +42,7 @@ const Navbar = () => {
   ];
 
   return (
-    <nav className="w-full border-b bg-black  dark:bg-black">
+   <nav className="w-full border-b bg-[#101010] sticky top-0 z-50">
       <div className=" flex items-center justify-between px-4 py-4">
         <div className=" flex items-center justify-between w-full ">
           {/* mobile menu */}

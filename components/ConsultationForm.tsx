@@ -13,6 +13,7 @@ import {
 } from "@/components/ui/select";
 import Image from "next/image";
 import Link from "next/link";
+import ReCAPTCHA from "react-google-recaptcha";
 
 type FormState = {
   errors: {
@@ -56,29 +57,33 @@ const ConsultationForm = () => {
   return (
     <section className="py-10 px-4">
       <form action={formAction}>
-        <div className="max-w-6xl mx-auto grid grid-cols-1 lg:grid-cols-2 gap-10 lg:gap-20">
+        <div className="max-w-6xl mx-auto grid grid-cols-1 lg:grid-cols-2 gap-10 lg:gap-x-40">
           {/* col-1 */}
           <div>
-           <div className="mt-8">
-  <label className="font-medium">First Name</label>
+            <div className="my-8">
+              <div className="mb-5">
+                <label className="font-medium">First Name</label>
+              </div>
 
-  <Input
-    name="firstName"
-    type="text"
-    placeholder="First Name"
-    className="bg-[#EAEAEA] dark:bg-[#101010] font-medium px-5 py-5 w-full mt-4"
-  />
-
-  {state?.errors?.firstName && (
-    <p className="text-red-500 text-sm mt-2">
-      {state.errors.firstName}
-    </p>
-  )}
-</div>
-            <div className="mt-8">
-              <label className="font-medium">Last Name</label>
               <Input
-            
+                name="firstName"
+                type="text"
+                placeholder="First Name"
+                className="bg-[#EAEAEA] dark:bg-[#101010] font-medium px-5 py-5 w-full mt-4"
+              />
+
+              {state?.errors?.firstName && (
+                <p className="text-red-500 text-sm mt-2">
+                  {state.errors.firstName}
+                </p>
+              )}
+            </div>
+            <div className="my-8">
+              <div className="mb-5">
+                <label className="font-medium">Last Name</label>
+              </div>
+
+              <Input
                 name="lastName"
                 type="text"
                 placeholder="Last Name"
@@ -92,10 +97,13 @@ const ConsultationForm = () => {
               )}
             </div>
 
-            <div className="mt-8">
-              <label className="font-medium">Email Address</label>
+            <div className="my-8">
+              <div className="mb-5">
+                {" "}
+                <label className="font-medium">Email Address</label>
+              </div>
+
               <Input
-             
                 name="email"
                 type="email"
                 placeholder="Email Address"
@@ -108,10 +116,13 @@ const ConsultationForm = () => {
               )}
             </div>
 
-            <div className="mt-8">
-              <label className="font-medium">Phone Number</label>
+            <div className="my-8">
+              <div className="mb-5">
+                {" "}
+                <label className="font-medium">Phone Number</label>
+              </div>
+
               <Input
-            
                 name="phone"
                 type="tel"
                 placeholder="Phone Number"
@@ -127,10 +138,13 @@ const ConsultationForm = () => {
 
           {/* col-2 */}
           <div>
-            <div className="mt-8">
-              <label className="font-medium">Select Date</label>
-              <Input
+            <div className="my-8">
+              <div className="m-5">
+                {" "}
+                <label className="font-medium">Select Date</label>
+              </div>
 
+              <Input
                 name="date"
                 type="date"
                 className=" px-5 py-5 bg-[#eaeaea]  font-medium w-full mt-4"
@@ -142,124 +156,109 @@ const ConsultationForm = () => {
             </div>
 
             <div className="mt-8">
-              <label className="font-medium">Select Time Zone</label>
-              <Select name="timeZone">
-                <SelectTrigger  className="w-full mt-4 bg-[#eaeaea] px-5 py-6">
-                  <SelectValue
-                    placeholder="Select time"
-                    className="  font-medium"
-                  />
-                </SelectTrigger>
+              <div className="mb-5">
+                {" "}
+                <label className="font-medium">Select Time Zone</label>
+              </div>
 
-                <SelectContent side="bottom">
-                  <SelectItem value="-12:00">
-                    (GMT -12:00) Eniwetok, Kwajalein
-                  </SelectItem>
-                  <SelectItem value="-11:00">
-                    (GMT -11:00) Midway Island, Samoa
-                  </SelectItem>
-                  <SelectItem value="-10:00">(GMT -10:00) Hawaii</SelectItem>
-                  <SelectItem value="-09:50">(GMT -9:30) Taiohae</SelectItem>
-                  <SelectItem value="-09:00">(GMT -9:00) Alaska</SelectItem>
-                  <SelectItem value="-08:00">
-                    (GMT -8:00) Pacific Time (US &amp; Canada)
-                  </SelectItem>
-                  <SelectItem value="-07:00">
-                    (GMT -7:00) Mountain Time (US &amp; Canada)
-                  </SelectItem>
-                  <SelectItem value="-06:00">
-                    (GMT -6:00) Central Time (US &amp; Canada), Mexico City
-                  </SelectItem>
-                  <SelectItem value="-05:00">
-                    (GMT -5:00) Eastern Time (US &amp; Canada), Bogota, Lima
-                  </SelectItem>
-                  <SelectItem value="-04:50">(GMT -4:30) Caracas</SelectItem>
-                  <SelectItem value="-04:00">
-                    (GMT -4:00) Atlantic Time (Canada), Caracas, La Paz
-                  </SelectItem>
-                  <SelectItem value="-03:50">
-                    (GMT -3:30) Newfoundland
-                  </SelectItem>
-                  <SelectItem value="-03:00">
-                    (GMT -3:00) Brazil, Buenos Aires, Georgetown
-                  </SelectItem>
-                  <SelectItem value="-02:00">
-                    (GMT -2:00) Mid-Atlantic
-                  </SelectItem>
-                  <SelectItem value="-01:00">
-                    (GMT -1:00) Azores, Cape Verde Islands
-                  </SelectItem>
-                  <SelectItem value="+00:00">
-                    (GMT) Western Europe Time, London, Lisbon, Casablanca
-                  </SelectItem>
-                  <SelectItem value="+01:00">
-                    (GMT +1:00) Brussels, Copenhagen, Madrid, Paris
-                  </SelectItem>
-                  <SelectItem value="+02:00">
-                    (GMT +2:00) Kaliningrad, South Africa
-                  </SelectItem>
-                  <SelectItem value="+03:00">
-                    (GMT +3:00) Baghdad, Riyadh, Moscow, St. Petersburg
-                  </SelectItem>
-                  <SelectItem value="+03:50">(GMT +3:30) Tehran</SelectItem>
-                  <SelectItem value="+04:00">
-                    (GMT +4:00) Abu Dhabi, Muscat, Baku, Tbilisi
-                  </SelectItem>
-                  <SelectItem value="+04:50">(GMT +4:30) Kabul</SelectItem>
-                  <SelectItem value="+05:00">
-                    (GMT +5:00) Ekaterinburg, Islamabad, Karachi, Tashkent
-                  </SelectItem>
-                  <SelectItem value="+05:50">
-                    (GMT +5:30) Bombay, Calcutta, Madras, New Delhi
-                  </SelectItem>
-                  <SelectItem value="+05:75">
-                    (GMT +5:45) Kathmandu, Pokhara
-                  </SelectItem>
-                  <SelectItem value="+06:00">
-                    (GMT +6:00) Almaty, Dhaka, Colombo
-                  </SelectItem>
-                  <SelectItem value="+06:50">
-                    (GMT +6:30) Yangon, Mandalay
-                  </SelectItem>
-                  <SelectItem value="+07:00">
-                    (GMT +7:00) Bangkok, Hanoi, Jakarta
-                  </SelectItem>
-                  <SelectItem value="+08:00">
-                    (GMT +8:00) Beijing, Perth, Singapore, Hong Kong
-                  </SelectItem>
-                  <SelectItem value="+08:75">(GMT +8:45) Eucla</SelectItem>
-                  <SelectItem value="+09:00">
-                    (GMT +9:00) Tokyo, Seoul, Osaka, Sapporo, Yakutsk
-                  </SelectItem>
-                  <SelectItem value="+09:50">
-                    (GMT +9:30) Adelaide, Darwin
-                  </SelectItem>
-                  <SelectItem value="+10:00">
-                    (GMT +10:00) Eastern Australia, Guam, Vladivostok
-                  </SelectItem>
-                  <SelectItem value="+10:50">
-                    (GMT +10:30) Lord Howe Island
-                  </SelectItem>
-                  <SelectItem value="+11:00">
-                    (GMT +11:00) Magadan, Solomon Islands, New Caledonia
-                  </SelectItem>
-                  <SelectItem value="+11:50">
-                    (GMT +11:30) Norfolk Island
-                  </SelectItem>
-                  <SelectItem value="+12:00">
-                    (GMT +12:00) Auckland, Wellington, Fiji, Kamchatka
-                  </SelectItem>
-                  <SelectItem value="+12:75">
-                    (GMT +12:45) Chatham Islands
-                  </SelectItem>
-                  <SelectItem value="+13:00">
-                    (GMT +13:00) Apia, Nukualofa
-                  </SelectItem>
-                  <SelectItem value="+14:00">
-                    (GMT +14:00) Line Islands, Tokelau
-                  </SelectItem>
-                </SelectContent>
-              </Select>
+              <select
+                dir="ltr"
+                name="timeZone"
+                className="w-full mt-4 bg-[#eaeaea] px-5 py-4 font-medium dark:bg-[#101010]"
+                defaultValue=""
+              >
+                <option value="" disabled>
+                  Select time
+                </option>
+
+                <option value="-12:00">(GMT -12:00) Eniwetok, Kwajalein</option>
+                <option value="-11:00">
+                  (GMT -11:00) Midway Island, Samoa
+                </option>
+                <option value="-10:00">(GMT -10:00) Hawaii</option>
+                <option value="-09:50">(GMT -9:30) Taiohae</option>
+                <option value="-09:00">(GMT -9:00) Alaska</option>
+                <option value="-08:00">
+                  (GMT -8:00) Pacific Time (US & Canada)
+                </option>
+                <option value="-07:00">
+                  (GMT -7:00) Mountain Time (US & Canada)
+                </option>
+                <option value="-06:00">
+                  (GMT -6:00) Central Time (US & Canada), Mexico City
+                </option>
+                <option value="-05:00">
+                  (GMT -5:00) Eastern Time (US & Canada), Bogota, Lima
+                </option>
+                <option value="-04:50">(GMT -4:30) Caracas</option>
+                <option value="-04:00">
+                  (GMT -4:00) Atlantic Time (Canada), Caracas, La Paz
+                </option>
+                <option value="-03:50">(GMT -3:30) Newfoundland</option>
+                <option value="-03:00">
+                  (GMT -3:00) Brazil, Buenos Aires, Georgetown
+                </option>
+                <option value="-02:00">(GMT -2:00) Mid-Atlantic</option>
+                <option value="-01:00">
+                  (GMT -1:00) Azores, Cape Verde Islands
+                </option>
+                <option value="+00:00">
+                  (GMT) Western Europe Time, London, Lisbon, Casablanca
+                </option>
+                <option value="+01:00">
+                  (GMT +1:00) Brussels, Copenhagen, Madrid, Paris
+                </option>
+                <option value="+02:00">
+                  (GMT +2:00) Kaliningrad, South Africa
+                </option>
+                <option value="+03:00">
+                  (GMT +3:00) Baghdad, Riyadh, Moscow, St. Petersburg
+                </option>
+                <option value="+03:50">(GMT +3:30) Tehran</option>
+                <option value="+04:00">
+                  (GMT +4:00) Abu Dhabi, Muscat, Baku, Tbilisi
+                </option>
+                <option value="+04:50">(GMT +4:30) Kabul</option>
+                <option value="+05:00">
+                  (GMT +5:00) Ekaterinburg, Islamabad, Karachi, Tashkent
+                </option>
+                <option value="+05:50">
+                  (GMT +5:30) Bombay, Calcutta, Madras, New Delhi
+                </option>
+                <option value="+05:75">(GMT +5:45) Kathmandu, Pokhara</option>
+                <option value="+06:00">
+                  (GMT +6:00) Almaty, Dhaka, Colombo
+                </option>
+                <option value="+06:50">(GMT +6:30) Yangon, Mandalay</option>
+                <option value="+07:00">
+                  (GMT +7:00) Bangkok, Hanoi, Jakarta
+                </option>
+                <option value="+08:00">
+                  (GMT +8:00) Beijing, Perth, Singapore, Hong Kong
+                </option>
+                <option value="+08:75">(GMT +8:45) Eucla</option>
+                <option value="+09:00">
+                  (GMT +9:00) Tokyo, Seoul, Osaka, Sapporo, Yakutsk
+                </option>
+                <option value="+09:50">(GMT +9:30) Adelaide, Darwin</option>
+                <option value="+10:00">
+                  (GMT +10:00) Eastern Australia, Guam, Vladivostok
+                </option>
+                <option value="+10:50">(GMT +10:30) Lord Howe Island</option>
+                <option value="+11:00">
+                  (GMT +11:00) Magadan, Solomon Islands, New Caledonia
+                </option>
+                <option value="+11:50">(GMT +11:30) Norfolk Island</option>
+                <option value="+12:00">
+                  (GMT +12:00) Auckland, Wellington, Fiji, Kamchatka
+                </option>
+                <option value="+12:75">(GMT +12:45) Chatham Islands</option>
+                <option value="+13:00">(GMT +13:00) Apia, Nukualofa</option>
+                <option value="+14:00">
+                  (GMT +14:00) Line Islands, Tokelau
+                </option>
+              </select>
+
               {state?.errors?.timeZone && (
                 <p className="text-red-500 text-sm mt-2">
                   {state.errors.timeZone}
@@ -267,7 +266,10 @@ const ConsultationForm = () => {
               )}
             </div>
             <div className="mt-8">
-              <label className="font-medium">Select Time</label>
+              <div className="mb-5">
+                {" "}
+                <label className="font-medium">Select Time</label>
+              </div>
 
               <div className="space-y-3 max-h-[300px] overflow-y-auto  mt-6 flex flex-col items-center">
                 {[
@@ -289,7 +291,7 @@ const ConsultationForm = () => {
                   <label
                     key={time}
                     className={`block p-3 border-black dark:border-white border md:w-[300px] w-[200px] text-center cursor-pointer 
-      hover:bg-gray-200 dark:hover:text-black
+      dark:hover:bg-[#929292] dark:hover:text-black
       ${time === "Select Time" ? "bg-[#EAEAEA] text-black cursor-not-allowed" : ""}`}
                   >
                     <Input
@@ -310,28 +312,9 @@ const ConsultationForm = () => {
             </div>
           </div>
           <div className="col-span-1 lg:col-span-2 mt-">
-            <div className="max-w-[300px] h-20 dark:bg-[#222] rounded dark:text-white  border border-[#d3d3d3] bg-[#f9f9f9] text-black flex justify-between items-center p-1.5 shadow">
-              {/* checkbox */}
-              <div className="flex items-center gap-3">
-                <Checkbox name="captcha" />
-                <p className="font-medium text-sm sm:text-base">
-                  I'm not a robot
-                </p>
-              </div>
-
-              {/* captcha logo */}
-              <div className="text-[#555] dark:text-white text-[10px] flex flex-col items-center">
-                <Image
-                  src={"/logo_48.png"}
-                  height={40}
-                  width={40}
-                  alt="captcha"
-                />
-                <span>reCAPTCHA</span>
-                <span>
-                  Privacy <span>-</span> Terms
-                </span>
-              </div>
+            {/* captcha logo */}
+            <div className="">
+              <ReCAPTCHA theme="dark" sitekey="6Le9lpQsAAAAAO0h298D3eJDXb65MTkU3C-pa-uz" />
             </div>
           </div>
         </div>
