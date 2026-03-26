@@ -89,11 +89,13 @@ const page = () => {
   return (
     <>
       {/*HERO*/}
-      <div className="relative  sm:h-[100vh] md:h-[100vh] lg:h-[100vh] overflow-hidden">
+      <div className="relative  sm:h-[100vh] md:h-[100vh] lg:-mt-20  lg:h-[100vh] overflow-hidden">
         {/* Background Image */}
-        <div className="absolute inset-0 overflow-hidden">
-          <HeroBackground />
-        </div>
+      <div className="absolute inset-0 overflow-hidden">
+  <div className="w-full h-[100%]">
+    <HeroBackground />
+  </div>
+</div>
 
         {/* Overlay */}
         {/* <div className="absolute inset-0 bg-gradient-to-b from-[#646060] via-black/60 to-black"></div> */}
@@ -108,8 +110,8 @@ const page = () => {
 
 dark:bg-gradient-to-t
     dark:from-black
-    dark:via-black/50
-    dark:to-black/30
+    dark:via-black/60
+    dark:to-black/40
   "
         ></div>
         {/* Content */}
@@ -277,7 +279,7 @@ dark:bg-gradient-to-t
                   <h3 className="text-lg sm:text-xl font-bold theme-text mb-2">
                     Proven Track Record
                   </h3>
-                  <p className="text-gray-500 theme-text text-sm sm:text-base leading-relaxed">
+                  <p className=" theme-text text-sm sm:text-base leading-relaxed">
                     With a successful track record of delivering high-quality
                     projects, we have earned the trust of numerous satisfied
                     clients.
@@ -305,7 +307,7 @@ dark:bg-gradient-to-t
                   <h3 className="text-lg sm:text-xl font-bold theme-text mb-2">
                     Expert Team
                   </h3>
-                  <p className="text-gray-500 theme-text text-sm sm:text-base leading-relaxed">
+                  <p className=" theme-text text-sm sm:text-base leading-relaxed">
                     Our team of seasoned professionals brings a wealth of
                     expertise and experience to ensure your project's success.
                   </p>

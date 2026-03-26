@@ -46,63 +46,60 @@ const page = () => {
     });
   };
 
- 
-
   return (
     <div>
       {/* ================= HERO ================= */}
-      <div className="relative sm:h-[85vh] md:h-[90vh] lg:h-[100vh] overflow-hidden">
-        {/* Background Image */}
-        <div className="absolute inset-0 overflow-hidden">
-          <div
-            className="
+      <div className="relative min-h-screen overflow-hidden">
+  {/* Background Image */}
+  <div className="absolute inset-0 overflow-hidden">
+    <div
+      className="
         absolute inset-0
-        w-full h-full
+        w-full h-[100%] lg:-mt-20
         bg-no-repeat
         bg-center
         bg-cover
         bg-[url('/bg.jpg')]
         dark:bg-[url('/bg.jpg')]
       "
-          ></div>
-        </div>
+    ></div>
+  </div>
 
-        {/* Overlay */}
-        <div className="absolute inset-0 bg-gradient-to-b from-[#646060] via-black/60 to-black"></div>
+  {/* Overlay */}
+  <div className="absolute inset-0 bg-gradient-to-b from-[#646060] via-black/60 to-black"></div>
 
-        {/* Content */}
-        <div
-          className="
+  {/* 🔥 STRONGER smudge blend */}
+  <div className="absolute bottom-0 left-0 w-full h-40 bg-gradient-to-b from-transparent via-black/70 to-black"></div>
+
+  {/* Content */}
+  <div
+    className="
       relative z-10 text-white
       px-6 sm:px-10 md:px-20 lg:px-40
       pt-24 sm:pt-28 md:pt-36 lg:pt-44
       text-left
     "
-        >
-          {/* Breadcrumb */}
-          <div className="mb-5 md:mt-15 text-sm sm:text-base md:text-lg lg:text-xl lg:-ml-[110px] text-[18px]">
-            <span className="hover:text-orange-400 cursor-pointer text-[18px]">
-              Home
-            </span>
-            <span className="mx-2 text-[18px]">.</span>
-            <span className="hover:text-orange-400 cursor-pointer text-[18px] -mt-3">
-              Services
-            </span>
-            <span className="mx-2 text-[18px]">.</span>
-            <span className="hover:text-orange-400 cursor-pointer text-[18px] -mt-3">
-              Services Details
-            </span>
-          </div>
+  >
+    {/* Breadcrumb */}
+    <div className="mb-5 text-sm sm:text-base md:text-lg lg:text-xl lg:-ml-[110px] text-[18px]">
+      <span className="hover:text-orange-400 cursor-pointer">Home</span>
+      <span className="mx-2">.</span>
+      <span className="hover:text-orange-400 cursor-pointer">Services</span>
+      <span className="mx-2">.</span>
+      <span className="hover:text-orange-400 cursor-pointer">
+        Services Details
+      </span>
+    </div>
 
-          {/* Hero Heading */}
-          <h1 className="text-4xl sm:text-2xl sm:font-bold md:text-5xl lg:text-6xl font-extrabold lg:-ml-[110px]">
-            AI Development
-          </h1>
-        </div>
-      </div>
+    {/* Heading */}
+    <h1 className="text-4xl sm:text-2xl sm:font-bold md:text-5xl lg:text-6xl font-extrabold lg:-ml-[110px]">
+      AI Development
+    </h1>
+  </div>
+</div>
 
       {/* 2 */}
-      <div className="bg-black py-10 px-5">
+      <div className="bg-black py-4 px-2">
         <div className="bg-black text-white px-6 py-16 sm:py-20 text-left mx-auto flex flex-col lg:flex-row gap-10 items-start max-w-7xl">
           {/* LEFT: Services List */}
           <div className="p-7 bg-[#101010] w-full lg:w-1/3 order-1">
@@ -311,10 +308,6 @@ const page = () => {
           </div>
         </div>
       </div>
-
-    
-
-   
     </div>
   );
 };
