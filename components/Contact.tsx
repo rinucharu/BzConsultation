@@ -31,11 +31,11 @@ const locations = [
 
 export default function ContactLocations() {
   return (
-    <section className="py-16 md:py-24 bg-white dark:bg-[#0101] transition-colors duration-300">
+    <section className="py-16 md:py-24 bg-white dark:bg-black transition-colors duration-300">
       <div className="max-w-6xl mx-auto px-4 sm:px-6">
         <div
           className="border border-black dark:border-[#101010] 
-                         dark:bg-[#101010] 
+                         dark:bg-neutral-900
                         p-6 sm:p-8 md:p-12 
                         grid grid-cols-1 md:grid-cols-2 
                         gap-12 md:gap-20 

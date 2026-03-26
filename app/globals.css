@@ -223,3 +223,16 @@ border: none;
   
 
 }
+.input {
+  @apply w-full px-4 py-3 rounded-md
+  
+  text-black dark:text-white
+  placeholder-gray-500 dark:placeholder-gray-400
+  focus:outline-none ;
+
+  background-color: #EAEAEA; 
+}
+
+.dark .input {
+  background-color: #101010; 
+}
