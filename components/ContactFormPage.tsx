@@ -148,20 +148,20 @@ export default function ContactFormPage() {
         <span className="absolute top-16 left-1/2 -translate-x-1/2 w-2 h-2 rounded-full bg-yellow-600" />
 
         <div className="max-w-4xl mx-auto px-4 sm:px-6">
-          <p className="text-sm tracking-widest text-gray-500 dark:text-gray-400 uppercase text-center mb-3">
+          <p className="text-sm tracking-widest   uppercase text-center mb-3 ">
             Contact with BZ
           </p>
 
-          <h2 className="text-3xl sm:text-4xl md:text-5xl font-extrabold text-center mb-6">
+          <h2 className="text-[45px] tracking-[0.5px] sm:text-4xl md:text-5xl font-extrabold text-center mb-6 leading-[54px]">
             Get in touch <br /> with Bz Team
           </h2>
 
-          <p className=" max-w-2xl mx-auto text-center mb-14">
+          <p className=" max-w-2xl mx-auto text-center text-[16px] mb-14 leading-[30px] tracking-[0.5px]">
             We’re ready to become your personal guide through the software
             experience as we bring your app or website to life.
           </p>
 
-          <h3 className="text-3xl font-bold mb-8 text-center">
+          <h3 className="text-[27.4864px] font-bold mb-8 text-center leading-[32.9837px] tracking-[0.5px]">
             Your Contact details
           </h3>
 
@@ -172,7 +172,7 @@ export default function ContactFormPage() {
                 name="firstName"
                 value={formData.firstName}
                 onChange={handleChange}
-                className={`input w-full h-[63px] ${
+                className={`input w-full h-[63px]  ${
                   errors.firstName ? "border-red-500" : ""
                 }`}
                 placeholder="First name"
@@ -239,7 +239,7 @@ export default function ContactFormPage() {
             </div>
           </form>
 
-          <h3 className=" font-extrabold  text-3xl text-center mb-4">
+          <h3 className=" font-extrabold  text-3xl text-center mb-4  leading-[32.9837px] tracking-[0.5px] text-[27.4864px]">
             Project Details
           </h3>
 
@@ -249,7 +249,7 @@ export default function ContactFormPage() {
               rows={6}
               value={formData.project}
               onChange={handleChange}
-              className={`input w-full h-[130px] font-bold px-1${
+              className={` dark:bg-[#101010] bg-[#EAEAEA]  w-full h-[130px] pt-[30px] ps-[30px] pe-[30px] pb-[20px] ${
                 errors.project ? "border-red-500" : ""
               }`}
               placeholder="Quick project overview"
@@ -268,11 +268,11 @@ export default function ContactFormPage() {
   <div className="max-w-3xl mx-auto px-4 sm:px-6 text-center">
 
     {/* TIMELINE */}
-    <h3 className="font-bold   mb-4">
+    <h3 className="font-bold text-[16px] tracking-[0.5px] leading-[30px]  mb-4">
       What's your timeline?
     </h3>
 
-    <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
+    <div className="grid grid-cols-1 md:grid-cols-3 gap-10">
       {[
         { title: "No timeline", sub: "(just researching)" },
         { title: "Planning", sub: "(looking to start in 6 months)" },
@@ -280,22 +280,22 @@ export default function ContactFormPage() {
       ].map((item) => (
         <label
           key={item.title}
-          className="flex items-center gap-5 justify-center cursor-pointer text-left"
+          className="flex items-center gap-5 justify-center cursor-pointer text-left "
         >
           <input
             type="radio"
             name="timeline"
             checked={timeline === item.title}
             onChange={() => setTimeline(item.title)}
-            className="hidden"
+            className="hidden "
           />
 
           {/* RADIO */}
           <span
             className={`w-4 h-4 rounded-full border flex items-center justify-center ${
               timeline === item.title
-                ? "bg-orange-500"
-                : "bg-gray-400"
+                ? "bg-orange-500  border-2 border-blue-500  peer-checked:ring-5 peer-checked:ring-orange-500 "
+                : "bg-white dark:border-none border-gray-500"
             }`}
           >
             {timeline === item.title && (
@@ -303,11 +303,11 @@ export default function ContactFormPage() {
             )}
           </span>
 
-          <div className="text-left">
-            <p className="font-medium text-black dark:text-white mt-2 text-center">
+          <div className="text-center">
+            <p className="font-medium text-black dark:text-white  text-center ">
               {item.title}
             </p>
-            <p className="text-sm text-gray-600 font-bold dark:text-gray-400">
+            <p className="text-sm  ">
               {item.sub}
             </p>
           </div>
@@ -351,8 +351,8 @@ export default function ContactFormPage() {
           <span
             className={`w-4 h-4 rounded-full border flex items-center justify-center ${
               businessType === type
-                ? "bg-orange-500"
-                : "bg-gray-400"
+                ? "bg-orange-500  border-blue-500  peer-checked:ring-8 peer-checked:ring-orange-500 "
+                : "bg-white dark:border-none border-gray-500"
             }`}
           >
             {businessType === type && (
@@ -362,7 +362,7 @@ export default function ContactFormPage() {
 
           <p className="font-medium text-black mt-2 text-center dark:text-white">
             {type}
-          </p>
+          </p>  
         </label>
       ))}
     </div>
