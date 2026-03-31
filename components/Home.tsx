@@ -1,6 +1,6 @@
 "use client";
 import React, { useEffect, useState } from "react";
-import { FaDotCircle } from "react-icons/fa";
+import { FaRegCircle } from "react-icons/fa";
 import { Button } from "./ui/button";
 import { RxDotFilled } from "react-icons/rx";
 import Marquee from "react-fast-marquee";
@@ -52,14 +52,14 @@ const Home = () => {
   return (
     <>
       {/* banner section */}
-      <section>
+      <section className="">
         <div className="w-full min-h-screen relative">
           <div
             style={{ backgroundImage: `url(${homeSlide[currentIndex].img})` }}
-            className="w-full h-[100vh] sm:h-screen bg-center bg-cover bg-no-repeat duration-500"
+            className="w-full h-[90vh] sm:h-screen bg-contain bg-cover lg:bg-no-repeat  duration-500"
           ></div>
 
-          <div className=" max-w-7xl mx-auto flex justify-start items-start">
+          <div className=" max-w-7xl mx-auto flex justify-center gap-x-10 items-start">
             <div className="absolute left-0 md:left-50 inset-0 flex flex-col justify-center items-start gap-y-[1rem] px-4">
               <h6
                 style={{ textShadow: "2px 2px 4px rgba(0 ,0 ,0 ,0.6)" }}
@@ -106,11 +106,11 @@ const Home = () => {
                 <div
                   key={slideIndex}
                   onClick={() => setCurrentIndex(slideIndex)}
-                  className={`lg:text-3xl text-lg cursor-pointer ${
-                    currentIndex === slideIndex ? "text-white" : "text-white/40"
+                  className={`lg:text-3xl text-lg cursor-pointer  w-7 h-7 rounded-full border-4 hover:text-white hover:bg-white ${
+                    currentIndex === slideIndex ? "text-white bg-white border-white" : "border-white/40"
                   }`}
                 >
-                  <FaDotCircle />
+                 
                 </div>
               ))}
             </div>

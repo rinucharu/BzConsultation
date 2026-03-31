@@ -19,10 +19,10 @@ export function ModeToggle() {
         onClick={toggleTheme}
         className="
   fixed bottom-[15px] left-[15px] z-[1000] 
-  bg-black text-white
-  text-[15px] font-extrabold
-  px-[7px] py-[5px]
-  border  border-black
+  bg-black text-white border-white
+  text-[15px] font-extrabold hover:border-black
+py-2  px-2
+  border-2
   overflow-hidden
   transition-all duration-500
   cursor-pointer

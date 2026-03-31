@@ -1,6 +1,6 @@
 "use client";
 
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import {
   NavigationMenu,
   NavigationMenuContent,
@@ -34,9 +34,6 @@ import { menuItems } from "@/lib/menu";
 import Image from "next/image";
 import LanguageSelect from "./LanguageDrop";
 
-
-
-
 const Navbar = () => {
   const menuItems = [
     { label: "Home", href: "/" },
@@ -48,12 +45,23 @@ const Navbar = () => {
     { label: "Contact Us", href: "/contact" },
   ];
 
- 
-
   const [openLang, setOpenLang] = useState(false);
-  
+  const [isScrolled, setIsScrolled] = useState(false);
+
+  useEffect(() => {
+    const handleScroll = () => {
+      setIsScrolled(window.scrollY > 10);
+    };
+    window.addEventListener("scroll", handleScroll);
+    return () => window.removeEventListener("scroll", handleScroll);
+  }, []);
+
   return (
-    <nav className="w-full  bg-[#101010] sticky top-0 z-50">
+  <nav
+  className={`w-full sticky top-0 z-50 transition-all duration-300 ${
+    isScrolled ? "shadow-lg bg-[#101010]" : "bg-[#101010]"
+  }`}
+>
       <div className=" flex items-center justify-between px-4 py-4">
         <div className=" flex items-center justify-between w-full ">
           {/* mobile menu */}
@@ -96,7 +104,7 @@ after:bg-current"
             </nav>
 
             <div className="md:ms-100 sm:ms-45  lg:m-0">
-            <LanguageSelect/>
+              <LanguageSelect />
             </div>
           </div>
 
@@ -108,7 +116,7 @@ after:bg-current"
             >
               <span
                 className="absolute top-1/2 left-1/2 w-[400%] h-[400%] bg-white 
-            -translate-x-1/2 -translate-y-1/2 rotate-45 
+            -translate-x-1/2 -translate-y-1/2 rotate-[-25deg] 
             scale-0 group-hover:scale-110 
             transition-transform duration-500 ease-out"
               ></span>

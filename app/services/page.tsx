@@ -11,6 +11,7 @@ import { useTheme } from "next-themes";
 
 import AOS from "aos";
 import "aos/dist/aos.css";
+import BreadcrumbWrapper from "@/components/BreadcrumbWrapper";
 
 interface Service {
   icon: string;
@@ -89,55 +90,12 @@ const page = () => {
   return (
     <>
       {/*HERO*/}
-      <div className="relative  sm:h-[100vh] md:h-[100vh] lg:-mt-20  lg:h-[100vh] overflow-hidden">
-        {/* Background Image */}
-      <div className="absolute inset-0 overflow-hidden">
-  <div className="w-full h-[100%]">
-    <HeroBackground />
-  </div>
-</div>
+      <section className="page-header relative consultant min-h-[50vh] sm:min-h-[40vh] md:min-h-[60vh] flex items-center">
+        <div className="absolute h-full bg-img inset-0 bg-gray-200 dark:bg-gray-900" />
+        <div className="absolute overlay hidden dark:block" />
 
-        {/* Overlay */}
-        {/* <div className="absolute inset-0 bg-gradient-to-b from-[#646060] via-black/60 to-black"></div> */}
-        <div
-          className="
-    absolute inset-0 transition-all duration-500
-
-    bg-gradient-to-t
-    from-white/80
-    via-white/40
-    to-transparent
-
-dark:bg-gradient-to-t
-    dark:from-black
-    dark:via-black/60
-    dark:to-black/40
-  "
-        ></div>
-        {/* Content */}
-        <div
-          className="
-      relative z-10 theme-text
-      px-6 sm:px-10 md:px-20 lg:px-40
-      pt-24 sm:pt-28 md:pt-36 lg:pt-44
-      text-left mt-6 mb-4 lg:mt-18
-    "
-        >
-          {/* Breadcrumb */}
-          <div className="mb-1 md:mt-[0px] mt-1 text-[12px] font-semibold sm:text-sm md:text-xl lg:text-base lg:-ml-[110px] flex items-center gap-2">
-            <span className="hover:text-orange-400  cursor-pointer">Home</span>
-            <span className="inline-block mt-2 w-1 h-1  theme-bg rounded-full  lg:w-0.5 lg:h-0.5"></span>
-            <span className="hover:text-orange-400 cursor-pointer">
-              Services
-            </span>
-          </div>
-
-          {/* Hero Heading */}
-          <h1 className="mt-2 sm:mt-3 md:mt-8 lg:mt-5 text-4xl sm:text-5xl md:text-5xl lg:text-[60px] font-extrabold lg:-ml-[110px]">
-            Services
-          </h1>
-        </div>
-      </div>
+        <BreadcrumbWrapper />
+      </section>
 
       {/*SECOND SECTION  */}
       <div className="theme-bg theme-text  px-6 py-16 sm:py-10 text-center  sm:mt-0 md:-mt-10 md:mb-12">
