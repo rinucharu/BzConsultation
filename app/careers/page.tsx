@@ -4,14 +4,16 @@ import React from 'react'
 
 const page = () => {
   return (
-    <div>
+    <div className='bg-black'>
          <section className="page-header relative consultant min-h-[50vh] sm:min-h-[40vh] md:min-h-[60vh] flex items-center">
         <div className="absolute h-full bg-img inset-0 bg-gray-200 dark:bg-gray-900" />
         <div className="absolute overlay hidden dark:block" />
 
         <BreadcrumbWrapper />
       </section>
-      <div className="theme-bg theme-text  px-6 py-16 sm:py-10 text-center  sm:mt-0 md:-mt-10 md:mb-12">
+      
+      <div className="bg-black text-white px-6 py-16 sm:py-10 text-center sm:mt-0 md:-mt-10 md:mb-12">
+ 
         <div className="flex justify-center mt-10 sm:mt-16 ">
           <span className="w-2 h-2 -mt-5 bg-orange-400 rounded-full text-2xl"></span>
         </div>
