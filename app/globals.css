@@ -248,13 +248,17 @@ Input {
   }
 }
 .input {
-  @apply w-full px-4 py-3 rounded-md
+  @apply w-full 
   
   text-black dark:text-white
-  placeholder-gray-500 dark:placeholder-gray-400
+  placeholder-gray-500 dark:placeholder-amber-50
   focus:outline-none ;
-
+   padding-left: 30px;
+   padding-right: 30px;
+   padding-bottom: 1px;
+   padding-top: 1px;
   background-color: #EAEAEA; 
+  
 }
 
 .dark .input {
