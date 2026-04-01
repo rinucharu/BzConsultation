@@ -225,7 +225,6 @@ border: none;
 }
 .input {
   @apply w-full 
-  
   text-black dark:text-white
   placeholder-gray-500 dark:placeholder-amber-50
   focus:outline-none ;
