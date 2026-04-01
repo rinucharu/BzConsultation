@@ -57,21 +57,21 @@ const ConsultationForm = () => {
   const [state, formAction] = useActionState(validateForm, { errors: {} });
   const { theme, setTheme } = useTheme();
   return (
-    <section className="py-10 px-4">
+    <section className="py-15 px-4 bg-white dark:bg-black">
       <form action={formAction}>
         <div className="max-w-6xl mx-auto grid grid-cols-1 lg:grid-cols-2 gap-10 lg:gap-x-40">
           {/* col-1 */}
           <div>
             <div className="my-8">
               <div className="mb-5">
-                <label className="font-medium">First Name</label>
+                <label className="font-medium mb-1">First Name</label>
               </div>
 
               <Input
                 name="firstName"
                 type="text"
                 placeholder="First Name"
-                className="bg-[#EAEAEA] dark:bg-[#101010] font-medium px-5 py-5 w-full mt-4"
+                className="bg-[#EAEAEA] dark:bg-[#101010] font-medium px-7.5 py-5 w-full mt-4"
               />
 
               {state?.errors?.firstName && (
@@ -82,14 +82,14 @@ const ConsultationForm = () => {
             </div>
             <div className="my-8">
               <div className="mb-5">
-                <label className="font-medium">Last Name</label>
+                <label className="font-medium mb-1">Last Name</label>
               </div>
 
               <Input
                 name="lastName"
                 type="text"
                 placeholder="Last Name"
-                className="bg-[#EAEAEA] px-5 py-5 dark:bg-[#101010]   font-medium w-full mt-4"
+                className="bg-[#EAEAEA] px-7.5 py-5 dark:bg-[#101010]   font-medium w-full mt-4"
               />
 
               {state?.errors?.lastName && (
@@ -102,14 +102,14 @@ const ConsultationForm = () => {
             <div className="my-8">
               <div className="mb-5">
                 {" "}
-                <label className="font-medium">Email Address</label>
+                <label className="font-medium mb-1">Email Address</label>
               </div>
 
               <Input
                 name="email"
                 type="email"
                 placeholder="Email Address"
-                className=" bg-[#EAEAEA]  font-medium px-5 py-5 w-full mt-4"
+                className=" bg-[#EAEAEA]  font-medium px-7.5 py-5 w-full mt-4"
               />
               {state?.errors?.email && (
                 <p className="text-red-500 text-sm mt-2">
@@ -121,14 +121,14 @@ const ConsultationForm = () => {
             <div className="my-8">
               <div className="mb-5">
                 {" "}
-                <label className="font-medium">Phone Number</label>
+                <label className="font-medium mb-1">Phone Number</label>
               </div>
 
               <Input
                 name="phone"
                 type="tel"
                 placeholder="Phone Number"
-                className="bg-[#eaeaea]  font-medium px-5 py-5 w-full mt-4"
+                className="bg-[#eaeaea]  font-medium px-7.5 py-5 w-full mt-4"
               />
               {state?.errors?.phone && (
                 <p className="text-red-500 text-sm mt-2">
@@ -141,15 +141,15 @@ const ConsultationForm = () => {
           {/* col-2 */}
           <div>
             <div className="my-8">
-              <div className="m-5">
+              <div className="mb-5">
                 {" "}
-                <label className="font-medium">Select Date</label>
+                <label className="font-medium mb-1">Select Date</label>
               </div>
 
               <Input
                 name="date"
                 type="date"
-                className=" px-5 py-5 bg-[#eaeaea]  font-medium w-full mt-4"
+                className=" px-7.5 py-5 bg-[#eaeaea]  font-medium w-full mt-4"
               />
 
               {state?.errors?.date && (
@@ -160,13 +160,13 @@ const ConsultationForm = () => {
             <div className="mt-8">
               <div className="mb-5">
                 {" "}
-                <label className="font-medium">Select Time Zone</label>
+                <label className="font-medium mb-1">Select Time Zone</label>
               </div>
 
               <select
                 dir="ltr"
                 name="timeZone"
-                className="w-full mt-4 bg-[#eaeaea] px-5 py-4 font-medium dark:bg-[#101010]"
+                className="w-full mt-4 bg-[#eaeaea] px-7.5 py-4 font-medium dark:bg-[#101010]"
                 defaultValue=""
               >
                 <option value="" disabled>
@@ -270,7 +270,7 @@ const ConsultationForm = () => {
             <div className="mt-8">
               <div className="mb-5">
                 {" "}
-                <label className="font-medium">Select Time</label>
+                <label className="font-medium mb-1">Select Time</label>
               </div>
 
               <div className="space-y-3 max-h-[300px] overflow-y-auto  mt-6 flex flex-col items-center">
@@ -339,7 +339,7 @@ const ConsultationForm = () => {
               className="absolute top-1/2 left-1/2 
                w-[300%] h-[300%] sm:w-[400%] sm:h-[400%]
                bg-white 
-               -translate-x-1/2 -translate-y-1/2 rotate-45
+               -translate-x-1/2 -translate-y-1/2 rotate-[-25deg]
                scale-0 group-hover:scale-100
                transition-transform duration-500 ease-out"
             ></span>

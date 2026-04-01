@@ -1,9 +1,12 @@
 "use client";
 import { Linkedin, Facebook, Instagram } from "lucide-react";
+import { FaLinkedinIn,FaFacebook,FaInstagram ,} from "react-icons/fa";
+import { FaXTwitter } from "react-icons/fa6";
 import Image from "next/image";
 import { FaYoutube } from "react-icons/fa";
 import "animate.css";
 import "aos";
+import Link from "next/link";
 
 export default function Footer() {
   return (
@@ -22,12 +25,13 @@ export default function Footer() {
           {/* Left Column */}
           <div className="flex-1 lg:max-w-[750px]">
             <div className="mb-8">
-              <p className="mb-2 text-[14px] font-normal text-white">
+              <p className="mb-2 text-[14px] md:text-[26px] font-normal text-white">
                 Let&apos;s start working together
               </p>
               <h2 className="text-4xl font-bold tracking-tight md:text-[30px] lg:text-[54px] hover:text-orange-400">
+              <Link href={"mailto:hello@bzanalytics.ai"} className="text-3xl font-bold tracking-tight md:text-[30px] lg:text-[54px] hover:text-[#f5900d] transition-all duration-500 cursor-pointer">
                 hello@bzanalytics.ai
-              </h2>
+              </Link>
             </div>
 
             <div className="mb-12 h-[1px] w-full bg-white/10"></div>
@@ -51,105 +55,99 @@ export default function Footer() {
 
                 {/* Social Icons */}
                 <div className="mt-22 ms-3 flex flex-wrap justify-start md:justify-start items-center  gap-4">
-                  <a
-                    href="#"
-                    className="flex h-10 w-10 md:h-12 md:w-12 shrink-0 items-center justify-center rounded-full bg-black transition-all hover:bg-primary"
+                  <Link
+                    href="https://www.linkedin.com/company/bzanalytics/posts/?feedView=all"
+                    className="flex h-10 w-10 md:h-14 md:w-14 shrink-0 items-center justify-center rounded-full bg-black transition-all hover:bg-primary duration-400"
                   >
-                    <Linkedin className="h-5 w-5 fill-white text-white" />
-                  </a>
-                  <a
-                    href="#"
-                    className="flex h-10 w-10 md:h-12 md:w-12 shrink-0 items-center justify-center rounded-full bg-black transition-all hover:bg-primary"
+                    <FaLinkedinIn size={22} className=" fill-white text-white" />
+                  </Link>
+                  <Link
+                    href="https://x.com/Bzanalytics_AI"
+                    className="flex h-10 w-10 md:h-13 md:w-13 shrink-0 items-center justify-center rounded-full bg-black transition-all hover:bg-primary  duration-400"
                   >
-                    <svg
-                      className="h-5 w-5 fill-current text-white"
-                      viewBox="0 0 24 24"
-                      xmlns="http://www.w3.org/2000/svg"
-                    >
-                      <path d="M18.901 1.153h3.68l-8.04 9.19L24 22.846h-7.406l-5.8-7.584-6.638 7.584H.474l8.6-9.83L0 1.154h7.594l5.243 6.932ZM17.61 20.644h2.039L6.486 3.24H4.298Z" />
-                    </svg>
-                  </a>
-                  <a
-                    href="#"
-                    className="flex h-10 w-10 md:h-12 md:w-12 shrink-0 items-center justify-center rounded-full bg-black transition-all hover:bg-primary"
+                   <FaXTwitter size={22} className=" fill-white text-white" />
+                  </Link>
+                  <Link
+                    href="https://www.facebook.com/people/BzAnalytics-Private-Limited/100086903766563/#"
+                    className="flex h-10 w-10 md:h-13 md:w-13 shrink-0 items-center justify-center rounded-full bg-black transition-all hover:bg-primary duration-400"
                   >
-                    <Facebook className="h-6 w-6 fill-white text-white" />
-                  </a>
-                  <a
-                    href="#"
-                    className="flex h-10 w-10 md:h-12 md:w-12 shrink-0 items-center justify-center rounded-full bg-black transition-all hover:bg-primary"
+                    <FaFacebook size={22} className=" fill-white text-white" />
+                  </Link>
+                  <Link
+                    href="https://www.instagram.com/bzanalytics/"
+                    className="flex h-10 w-10 md:h-13 md:w-13 shrink-0 items-center justify-center rounded-full bg-black transition-all hover:bg-primary duration-400"
                   >
-                    <Instagram className="h-6 w-6 text-white" />
-                  </a>
-                  <a
-                    href="#"
-                    className="flex h-10 w-10 md:h-12 md:w-12 shrink-0 items-center justify-center rounded-full bg-black transition-all hover:bg-primary"
+                    <FaInstagram size={22} className="fill-white text-white" />
+                  </Link>
+                  <Link
+                    href="https://www.youtube.com/@bzanalytics8849"
+                    className="flex h-10 w-10 md:h-13 md:w-13 shrink-0 items-center justify-center rounded-full bg-black transition-all hover:bg-primary duration-400"
                   >
-                    <FaYoutube className="h-6 w-6 text-white" />
-                  </a>
+                    <FaYoutube size={22} className="fill-white text-white" />
+                  </Link>
                 </div>
               </div>
 
-              <div className="grid grid-cols-1 md:grid-cols-2 gap-4 md:gap-0.5 lg:ml-8">
-                <div className="flex flex-col gap-4 pt-2">
-                  <a
-                    href="#"
+              <div className="grid grid-cols-1 md:grid-cols-2 gap-0 md:gap-0.5 lg:ml-8">
+                <div className="flex flex-col gap-0.5 pt-2">
+                  <Link
+                    href="/"
                     style={{ lineHeight: "36px" }}
-                    className="text-[16px] font-medium tracking-wide text-gray-300 transition-colors hover:text-primary "
+                    className="text-[18px] font-medium tracking-wide text-gray-300 transition-colors hover:text-primary  duration-400"
                   >
                     Home
-                  </a>
-                  <a
-                    href="#"
+                  </Link>
+                  <Link
+                    href="/about"
                     style={{ lineHeight: "36px" }}
-                    className="text-[16px] font-medium tracking-wide text-gray-300 transition-colors hover:text-primary"
+                    className="text-[18px] font-medium tracking-wide text-gray-300 transition-colors hover:text-primary duration-400"
                   >
                     About Us
-                  </a>
-                  <a
-                    href="#"
+                  </Link>
+                  <Link
+                    href="/services"
                     style={{ lineHeight: "36px" }}
-                    className="text-[16px] font-medium tracking-wide text-gray-300 transition-colors hover:text-primary"
+                    className="text-[18px] font-medium tracking-wide text-gray-300 transition-colors hover:text-primary"
                   >
                     Services
-                  </a>
-                  <a
-                    href="#"
+                  </Link>
+                  <Link
+                    href="/portfolio"
                     style={{ lineHeight: "36px" }}
-                    className="text-[16px] font-medium tracking-wide text-gray-300 transition-colors hover:text-primary"
+                    className="text-[18px] font-medium tracking-wide text-gray-300 transition-colors hover:text-primary duration-400"
                   >
                     Success Stories
-                  </a>
+                  </Link>
                 </div>
-                <div className="flex flex-col gap-4 pt-2">
-                  <a
-                    href="#"
+                <div className="flex flex-col gap-0.5 pt-2">
+                  <Link
+                    href="/blogs"
                     style={{ lineHeight: "36px" }}
-                    className="text-[16px] font-medium tracking-wide text-gray-300 transition-colors hover:text-primary"
+                    className="text-[18px] font-medium tracking-wide text-gray-300 transition-colors hover:text-primary duration-400"
                   >
                     Blogs
-                  </a>
-                  <a
-                    href="#"
+                  </Link>
+                  <Link
+                    href="/careers"
                     style={{ lineHeight: "36px" }}
-                    className="text-[16px] font-medium tracking-wide text-gray-300 transition-colors hover:text-primary"
+                    className="text-[18px] font-medium tracking-wide text-gray-300 transition-colors hover:text-primary"
                   >
                     Careers
-                  </a>
-                  <a
-                    href="#"
+                  </Link>
+                  <Link
+                    href="/contact"
                     style={{ lineHeight: "36px" }}
-                    className="text-[16px] font-medium tracking-wide text-gray-300 transition-colors hover:text-primary"
+                    className="text-[18px] font-medium tracking-wide text-gray-300 transition-colors hover:text-primary"
                   >
                     Contact Us
-                  </a>
+                  </Link>
                 </div>
               </div>
             </div>
           </div>
 
           <div className="mt-8 ml-auto w-full shrink-0  lg:mb-auto lg:w-[300px]">
-            <div className="flex flex-col justify-center rounded-sm bg-[#0b0b0b] p-6 shadow-2xl sm:p-8">
+            <div className="flex flex-col justify-center rounded-sm  bg-[#0000004D] p-6 shadow-2xl sm:p-8">
               <div className="mb-6 flex w-full justify-center">
                 <Image
                   src="/logof.png"
@@ -165,13 +163,13 @@ export default function Footer() {
               </h3>
               <p className="mb-4 text-xs text-gray-400">Empower Every Mind</p>
 
-              <div className="space-y-5">
+              <div className="space-y-10">
                 <input
                   type="email"
                   placeholder="Email"
-                  className="w-full rounded-sm border border-transparent bg-[#151515] px-4 py-2 text-sm text-white transition-colors placeholder:text-gray-500 focus:border-white/20 focus:outline-none"
+                  className="w-full  border border-transparent bg-[#151515] px-4 py-2 text-sm text-white transition-colors placeholder:text-gray-500 focus:border-white/20 focus:outline-none"
                 />
-                <button className="w-full bg-[#ff9100] py-2 text-sm font-semibold text-black transition-colors hover:bg-[#e68200]">
+                <button className="w-full bg-primary py-2 text-sm font-semibold text-white transition-colors hover:bg-white hover:text-primary cursor-pointer">
                   Submit
                 </button>
               </div>

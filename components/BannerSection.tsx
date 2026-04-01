@@ -27,7 +27,10 @@ const BannerSection: React.FC<Props> = ({ items }) => {
             <React.Fragment key={index}>
               <BreadcrumbItem>
                 {item.href ? (
-                  <BreadcrumbLink className="text-black dark:text-white text-[16px] md:text-[16px] font-medium hover:text-primary transition">
+                  <BreadcrumbLink
+                    asChild
+                    className="text-black dark:text-white text-[16px] md:text-[16px] font-medium hover:text-primary transition"
+                  >
                     <Link href={item.href}>{item.label}</Link>
                   </BreadcrumbLink>
                 ) : (
@@ -36,7 +39,6 @@ const BannerSection: React.FC<Props> = ({ items }) => {
                   </BreadcrumbPage>
                 )}
               </BreadcrumbItem>
-
               {index < items.length - 1 && <BreadcrumbSeparator />}
             </React.Fragment>
           ))}

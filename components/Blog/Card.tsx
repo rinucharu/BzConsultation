@@ -1,6 +1,5 @@
 "use client";
 import Link from "next/link";
-import { useEffect, useState } from "react";
 
 type Blog = {
   id: number;
@@ -10,6 +9,7 @@ type Blog = {
   readTime: string;
   image: string;
 };
+
 const slugify = (text: string) =>
   text
     .toLowerCase()
@@ -18,69 +18,258 @@ const slugify = (text: string) =>
     .replace(/\s+/g, "-");
 
 const Blogcard = () => {
-  const [blogs, setBlogs] = useState<Blog[]>([]);
-
-  const fetchBlogs = async () => {
-    try {
-      const res = await fetch("/api/blogs", { cache: "no-store" });
-      if (!res.ok) throw new Error("Failed to fetch blogs");
-      const data = await res.json();
-      setBlogs(data);
-    } catch (err) {
-      console.error("API Error:", err);
-    }
-  };
-
-  useEffect(() => {
-    fetchBlogs();
-    const interval = setInterval(fetchBlogs, 3000);
-    return () => clearInterval(interval);
-  }, []);
+  const blogsData: Blog[] = [
+    {
+      id: 1,
+      title:
+        "Bridging the Gap: How RAG (Retrieval Augmented Generation) is Transforming Generative AI",
+      category: "Technology & Business",
+      date: "Apr 15",
+      readTime: "10 min read",
+      image: "https://bzanalytics.ai/assets/images/blog/rag-l.jpg",
+    },
+    {
+      id: 2,
+      title:
+        "Unlocking the Future of Fashion : The Power of Virtual Try-On and Digital Innovation",
+      category: "Technology & Business",
+      date: "Apr 14",
+      readTime: "10 min read",
+      image: "https://bzanalytics.ai/assets/images/blog/fashion-l.jpg",
+    },
+    {
+      id: 3,
+      title: "Applications Of Machine Learning In The Fashion Industry",
+      category: "Technology & Business",
+      date: "Oct 20",
+      readTime: "10 min read",
+      image: "https://bzanalytics.ai/assets/images/blog/Blog_L11.jpg",
+    },
+    {
+      id: 4,
+      title: "AI in Ecommerce",
+      category: "Technology & Business",
+      date: "July 08",
+      readTime: "10 min read",
+      image: "https://bzanalytics.ai/assets/images/blog/Blog_L10.jpg",
+    },
+    {
+      id: 5,
+      title: "Data Analytics : Intelligent Business",
+      category: "Technology & Business",
+      date: "Nov 18",
+      readTime: "10 min read",
+      image: "https://bzanalytics.ai/assets/images/blog/Blog_L9.jpg",
+    },
+    {
+      id: 6,
+      title: "What is Cloud Computing? Benefits and Services",
+      category: "Technology & Business",
+      date: "May 01",
+      readTime: "10 min read",
+      image: "https://bzanalytics.ai/assets/images/blog/Blog_L8.jpg",
+    },
+    {
+      id: 7,
+      title: "Transition from 2.0 to 3.0",
+      category: "Technology & Business",
+      date: "Feb 16",
+      readTime: "10 min read",
+      image: "https://bzanalytics.ai/assets/images/blog/Blog_L4.jpg",
+    },
+    {
+      id: 8,
+      title:
+        "Unity 3D Game Development And How It Will Revolutionize The Metaverse",
+      category: "Technology & Business",
+      date: "Dec 27",
+      readTime: "10 min read",
+      image: "https://bzanalytics.ai/assets/images/blog/Blog_L6.jpg",
+    },
+    {
+      id: 9,
+      title: "Top 7 Node Js Frameworks That Can Drive Success To Your Business",
+      category: "Technology & Business",
+      date: "Dec 07",
+      readTime: "10 min read",
+      image: "https://bzanalytics.ai/assets/images/blog/Blog_L7.jpg",
+    },
+    {
+      id: 10,
+      title: "Blockchain Is Opening Up A World Of Possibilities",
+      category: "Technology & Business",
+      date: "Jan 13",
+      readTime: "10 min read",
+      image: "https://bzanalytics.ai/assets/images/blog/Blog_L5.jpg",
+    },
+    {
+      id: 11,
+      title: "Revolutionize Your Front Desk with an AI-Powered Receptionist",
+      category: "Artificial Intelligence",
+      date: "Aug 21",
+      readTime: "10 min read",
+      image: "https://bzanalytics.ai/assets/images/blog/receptionist.jpg",
+    },
+    {
+      id: 12,
+      title: "Transforming Investment Management with AI-Managed Portfolios",
+      category: "Artificial Intelligence",
+      date: "Aug 21",
+      readTime: "10 min read",
+      image: "https://bzanalytics.ai/assets/images/blog/aiportfolio.jpg",
+    },
+    {
+      id: 13,
+      title: "Revolutionizing Clinical Development with GenAI",
+      category: "Technology & Business",
+      date: "Aug 21",
+      readTime: "10 min read",
+      image: "https://bzanalytics.ai/assets/images/blog/clinical.jpg",
+    },
+    {
+      id: 14,
+      title:
+        "Optimized Trial Enrollment: Harnessing Generative AI for Patient Matching in Clinical Trials",
+      category: "Technology & Business",
+      date: "Aug 21",
+      readTime: "10 min read",
+      image: "https://bzanalytics.ai/assets/images/blog/clinicaltrial.jpg",
+    },
+    {
+      id: 15,
+      title:
+        "Transform Your Sales Strategy with GenAI: Personalized Content Creation",
+      category: "Technology & Business",
+      date: "Aug 21",
+      readTime: "10 min read",
+      image: "https://bzanalytics.ai/assets/images/blog/content.jpg",
+    },
+    {
+      id: 16,
+      title:
+        "Ambient Digital Scribe for Clinician-Patient Interaction: A New Era in Healthcare Documentation",
+      category: "Technology & Business",
+      date: "Aug 21",
+      readTime: "10 min read",
+      image: "https://bzanalytics.ai/assets/images/blog/digital.jpg",
+    },
+    {
+      id: 17,
+      title:
+        "Revolutionising Drug Discovery with Generative AI: Speed, Precision, and Innovation",
+      category: "Artificial Intelligenc",
+      date: "Aug 21",
+      readTime: "10 min read",
+      image: "https://bzanalytics.ai/assets/images/blog/drug.jpg",
+    },
+    {
+      id: 18,
+      title:
+        "Enhancing Employee Assistance Using GenAI and AWS: A Comprehensive Roadmap",
+      category: "Artificial Intelligenc",
+      date: "Aug 21",
+      readTime: "10 min read",
+      image: "https://bzanalytics.ai/assets/images/blog/employee-assist.jpg",
+    },
+    {
+      id: 19,
+      title: "Revolutionising Financial Report Generation with GenAI",
+      category: "Artificial Intelligenc",
+      date: "Aug 21",
+      readTime: "10 min read",
+      image: "https://bzanalytics.ai/assets/images/blog/finance.jpg",
+    },
+    {
+      id: 20,
+      title: "Intelligent Health Assist using GenAI solutions",
+      category: "Artificial Intelligenc",
+      date: "Aug 21",
+      readTime: "10 min read",
+      image: "https://bzanalytics.ai/assets/images/blog/genai-healthcare.jpg",
+    },
+    {
+      id: 21,
+      title:
+        "Enhancing Accuracy and Efficiency in Medical Coding with Generative AI",
+      category: "Artificial Intelligenc",
+      date: "Aug 21",
+      readTime: "10 min read",
+      image: "https://bzanalytics.ai/assets/images/blog/medicalcoding.jpg",
+    },
+    {
+      id: 22,
+      title:
+        "Personalized Medicine with Generative AI: Revolutionizing Healthcare",
+      category: "Artificial Intelligenc",
+      date: "Aug 21",
+      readTime: "10 min read",
+      image: "https://bzanalytics.ai/assets/images/blog/medicine1.png",
+    },
+    {
+      id: 23,
+      title: "Enhancing Operational Efficiency through GenAI",
+      category: "Artificial Intelligenc",
+      date: "Aug 21",
+      readTime: "10 min read",
+      image: "https://bzanalytics.ai/assets/images/blog/operations.jpg",
+    },
+    {
+      id: 24,
+      title: "The Role of AI in Hyper-Personalizing Customer Interactions",
+      category: "Artificial Intelligenc",
+      date: "Aug 21",
+      readTime: "10 min read",
+      image: "https://bzanalytics.ai/assets/images/blog/personalization.jpg",
+    },
+    {
+      id: 25,
+      title:
+        "Enhancing Supply Chain Traceability with Generative AI: Transparency, Fraud Prevention, and Quality",
+      category: "Artificial Intelligenc",
+      date: "Aug 21",
+      readTime: "10 min read",
+      image: "https://bzanalytics.ai/assets/images/blog/supplychain.jpg",
+    },
+    {
+      id: 26,
+      title:
+        "Transforming Technical Support: A Guide to Using Revolutionary Generative AI in Maintenance Assistance",
+      category: "Artificial Intelligenc",
+      date: "Aug 21",
+      readTime: "10 min read",
+      image: "https://bzanalytics.ai/assets/images/blog/techsupport.jpg",
+    },
+  ];
 
   return (
     <div>
       <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6 sm:gap-8 mt-10 items-stretch">
-        {blogs.map((blog) => (
-        <Link href={`/blog/${slugify(blog.title)}`} key={blog.id}>
-          <div
-           
-            className="w-full max-w-[374px] h-full
-            bg-[#f7f7f7]
-            rounded-[10px]
-            shadow-[0px_4px_8px_rgba(0,0,0,0.2),0px_6px_20px_rgba(0,0,0,0.19)]
-            pt-[10px] px-[10px] pb-[20px]
-            flex flex-col
-            text-[14px] sm:text-[16px] font-medium
-            leading-[24px] sm:leading-[30px] tracking-[0.5px]
-            transition-transform duration-300 ease-in
-            hover:scale-105"
-          >
-            {/* Image */}
-            <img
-              src={blog.image}
-              className="w-full h-[160px] sm:h-[180px] object-cover rounded-[10px]"
-              alt={blog.title}
-            />
+        {blogsData.map((blog) => (
+          <Link href={`/blogs/${slugify(blog.title)}`} key={blog.id}>
+            <div className="w-full max-w-[374px] h-full bg-[#f7f7f7] rounded-[10px] shadow-[0px_4px_8px_rgba(0,0,0,0.2),0px_6px_20px_rgba(0,0,0,0.19)] pt-[10px] px-[10px] pb-[20px] flex flex-col text-[14px] sm:text-[16px] font-medium leading-[24px] sm:leading-[30px] tracking-[0.5px] transition-transform duration-300 ease-in hover:scale-105">
+              <img
+                src={blog.image}
+                className="w-full h-[160px] sm:h-[180px] object-cover rounded-[10px]"
+                alt={blog.title}
+              />
 
-            {/* Content */}
-            <div className="flex flex-col flex-grow gap-[6px] mt-[8px]">
+              <div className="flex flex-col flex-grow gap-[6px] mt-[8px]">
+                <div className="flex items-center text-blue-800">
+                  <span className="text-xl sm:text-2xl mr-2 -translate-y-1">
+                    •
+                  </span>
+                  <span>{blog.category}</span>
+                </div>
 
-              <div className="flex items-center text-blue-800">
-                <span className="text-xl sm:text-2xl mr-2 -translate-y-1">•</span>
-                <span>{blog.category}</span>
+                <h6 className="text-black font-semibold text-[18px] leading-[22px] mb-2 tracking-[0.5px] line-clamp-2">
+                  {blog.title}
+                </h6>
+
+                <span className="text-black text-xs sm:text-sm mt-1">
+                  {blog.date} • {blog.readTime}
+                </span>
               </div>
-
-              <h6 className="text-black font-semibold text-[18px] leading-[22px] mb-5 tracking-[0.5px] line-clamp-2">
-                {blog.title}
-              </h6>
-
-             
-              <span className="text-black text-xs  sm:text-sm mt-auto">
-                {blog.date} • {blog.readTime}
-              </span>
-
             </div>
-          </div>
           </Link>
         ))}
       </div>

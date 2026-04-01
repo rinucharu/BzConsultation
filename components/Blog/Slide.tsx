@@ -35,10 +35,10 @@ const Slide = () => {
   shadow-2xl border border-gray-200
   ${plusJakarta.className}`}
               >
-                <h1 className="flex items-center text-xs sm:text-sm font-semibold text-blue-800 mb-3 sm:mb-4">
-                  <span className="text-4xl mr-2 leading-none -mt-1">•</span>
-                  <span>Technology & Business</span>
-                </h1>
+    <h1 className="flex items-center text-xs sm:text-sm font-semibold text-[rgb(73,0,167)] mb-3 sm:mb-4">
+  <span className="w-[16px] h-[16px] bg-[rgb(73,0,167)] rounded-full mr-2"></span>
+  <span className="text-[14px] font-normal">Technology & Business</span>
+</h1>
 
                 <h1 className="text-lg sm:text-4xl text-black leading-snug mb-3 sm:mb-5 font-semibold">
                   Bridging the Gap: How RAG <br />
@@ -71,10 +71,10 @@ const Slide = () => {
   shadow-2xl border border-gray-200
   ${plusJakarta.className}`}
               >
-                <h1 className="flex items-center text-xs sm:text-sm font-semibold text-blue-800 mb-3 sm:mb-4">
-                  <span className="text-4xl mr-2 leading-none -mt-1">•</span>
-                  <span>Technology & Business</span>
-                </h1>
+                <h1 className="flex items-center text-xs sm:text-sm font-semibold text-[rgb(73,0,167)] mb-3 sm:mb-4">
+  <span className="w-[16px] h-[16px] bg-[rgb(73,0,167)] rounded-full mr-2"></span>
+  <span className="text-[14px] font-normal">Technology & Business</span>
+</h1>
 
                 <h1 className="text-lg sm:text-4xl text-black leading-snug mb-3 sm:mb-5 font-semibold">
                   Unlocking the Future of <br />
@@ -107,10 +107,10 @@ const Slide = () => {
   shadow-2xl border border-gray-200
   ${plusJakarta.className}`}
               >
-                <h1 className="flex items-center text-xs sm:text-sm font-semibold text-blue-800 mb-3 sm:mb-4">
-                  <span className="text-4xl mr-2 leading-none -mt-1">•</span>
-                  <span>Technology & Business</span>
-                </h1>
+                  <h1 className="flex items-center text-xs sm:text-sm font-semibold text-[rgb(73,0,167)] mb-3 sm:mb-4">
+  <span className="w-[16px] h-[16px] bg-[rgb(73,0,167)] rounded-full mr-2"></span>
+  <span className="text-[14px] font-normal">Technology & Business</span>
+</h1>
 
                 <h1 className="text-lg sm:text-4xl text-black leading-snug mb-3 sm:mb-5 font-semibold">
                   Application Of Machine <br />
@@ -143,10 +143,10 @@ const Slide = () => {
   shadow-2xl border border-gray-200
   ${plusJakarta.className}`}
               >
-                <h1 className="flex items-center text-xs sm:text-sm font-semibold text-blue-800 mb-3 sm:mb-4">
-                  <span className="text-4xl mr-2 leading-none -mt-1">•</span>
-                  <span>Technology & Business</span>
-                </h1>
+                <h1 className="flex items-center text-xs sm:text-sm font-semibold text-[rgb(73,0,167)] mb-3 sm:mb-4">
+  <span className="w-[16px] h-[16px] bg-[rgb(73,0,167)] rounded-full mr-2"></span>
+  <span className="text-[14px] font-normal">Technology & Business</span>
+</h1>
 
                 <h1 className="text-lg sm:text-4xl text-black leading-snug mb-3 sm:mb-5 font-semibold">
                   AI In Ecommerce

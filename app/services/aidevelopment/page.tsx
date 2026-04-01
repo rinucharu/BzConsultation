@@ -1,7 +1,6 @@
 "use client";
+import BreadcrumbWrapper from "@/components/BreadcrumbWrapper";
 import React, { useEffect, useState } from "react";
-import { FaWhatsapp } from "react-icons/fa";
-import { FaArrowUpLong } from "react-icons/fa6";
 
 const services = [
   "AI Development",
@@ -49,54 +48,12 @@ const page = () => {
   return (
     <div>
       {/* ================= HERO ================= */}
-      <div className="relative min-h-screen overflow-hidden">
-  {/* Background Image */}
-  <div className="absolute inset-0 overflow-hidden">
-    <div
-      className="
-        absolute inset-0
-        w-full h-[100%] lg:-mt-20
-        bg-no-repeat
-        bg-center
-        bg-cover
-        bg-[url('/bg.jpg')]
-        dark:bg-[url('/bg.jpg')]
-      "
-    ></div>
-  </div>
+      <section className="page-header relative consultant min-h-[50vh] sm:min-h-[40vh] md:min-h-[60vh] flex items-center">
+        <div className="absolute h-full bg-img inset-0 bg-gray-200 dark:bg-gray-900" />
+        <div className="absolute overlay hidden dark:block" />
 
-  {/* Overlay */}
-  <div className="absolute inset-0 bg-gradient-to-b from-[#646060] via-black/60 to-black"></div>
-
-  {/* 🔥 STRONGER smudge blend */}
-  <div className="absolute bottom-0 left-0 w-full h-40 bg-gradient-to-b from-transparent via-black/70 to-black"></div>
-
-  {/* Content */}
-  <div
-    className="
-      relative z-10 text-white
-      px-6 sm:px-10 md:px-20 lg:px-40
-      pt-24 sm:pt-28 md:pt-36 lg:pt-44
-      text-left
-    "
-  >
-    {/* Breadcrumb */}
-    <div className="mb-5 text-sm sm:text-base md:text-lg lg:text-xl lg:-ml-[110px] text-[18px]">
-      <span className="hover:text-orange-400 cursor-pointer">Home</span>
-      <span className="mx-2">.</span>
-      <span className="hover:text-orange-400 cursor-pointer">Services</span>
-      <span className="mx-2">.</span>
-      <span className="hover:text-orange-400 cursor-pointer">
-        Services Details
-      </span>
-    </div>
-
-    {/* Heading */}
-    <h1 className="text-4xl sm:text-2xl sm:font-bold md:text-5xl lg:text-6xl font-extrabold lg:-ml-[110px]">
-      AI Development
-    </h1>
-  </div>
-</div>
+        <BreadcrumbWrapper />
+      </section>
 
       {/* 2 */}
       <div className="bg-black py-4 px-2">
@@ -128,7 +85,7 @@ const page = () => {
             </div>
 
             {/* Description Text */}
-            <div className="mt-6 text-white order-2">
+            <div className="mt-6 theme-text order-2">
               <h1 className="font-bold text-[30px]">AI Development</h1>
               <p className="mt-5 leading-loose text-[16px]">
                 By developing AI, we provide businesses with cutting-edge
@@ -266,7 +223,7 @@ const page = () => {
                     <span className="bg-orange-400 text-black dark:text-white w-3 h-3 flex items-center justify-center rounded-full text-xs font-bold">
                       ✓
                     </span>
-                    <span className="text-white font-semibold text-[16px]">
+                    <span className="theme-text font-semibold text-[16px]">
                       Accelerated Innovation
                     </span>
                   </li>
@@ -274,7 +231,7 @@ const page = () => {
                     <span className="bg-orange-400 text-black w-3 h-3 flex items-center justify-center rounded-full text-xs font-bold">
                       ✓
                     </span>
-                    <span className="text-white font-semibold text-[16px]">
+                    <span className="theme-text font-semibold text-[16px]">
                       Efficient Collaboration
                     </span>
                   </li>
@@ -282,7 +239,7 @@ const page = () => {
                     <span className="bg-orange-400 text-black w-3 h-3 flex items-center justify-center rounded-full text-xs font-bold">
                       ✓
                     </span>
-                    <span className="text-white font-semibold text-[16px]">
+                    <span className="theme-text font-semibold text-[16px]">
                       Enhanced Decision-Making
                     </span>
                   </li>
@@ -290,7 +247,7 @@ const page = () => {
                     <span className="bg-orange-400 text-black w-3 h-3 flex items-center justify-center rounded-full text-xs font-bold">
                       ✓
                     </span>
-                    <span className="text-white font-semibold text-[16px]">
+                    <span className="theme-text font-semibold text-[16px]">
                       Personalization at Scale
                     </span>
                   </li>
@@ -298,7 +255,7 @@ const page = () => {
                     <span className="bg-orange-400 text-black w-3 h-3 flex items-center justify-center rounded-full text-xs font-bold">
                       ✓
                     </span>
-                    <span className="text-white font-semibold text-[16px]">
+                    <span className="theme-text font-semibold text-[16px]">
                       Advanced Predictive Analytics
                     </span>
                   </li>
