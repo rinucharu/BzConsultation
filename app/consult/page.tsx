@@ -39,8 +39,8 @@ const page = () => {
 
       {/* INTRO SECTION */}
 
-      <section className="mt-0 px-4 intro">
-        <div className="max-w-6xl mx-auto text-center space-y-1 animate__animated animate__fadeInUp">
+      <section className="mt-0 px-4 intro bg-white dark:bg-black">
+        <div className="max-w-6xl mx-auto text-center space-y-1">
           {/* Dot */}
           <div className="flex justify-center text-primary text-sm">
             <GoDotFill />

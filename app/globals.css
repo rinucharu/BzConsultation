@@ -269,9 +269,9 @@ Input {
 .theme-fixed-nav,
 .theme-fixed-footer {
   background-color: #101010 !important;
-  color: #ffffff !important;
-}
 
+}
+/* 
 .theme-fixed-nav a,
 .theme-fixed-footer a,
 .theme-fixed-nav button,
@@ -289,7 +289,7 @@ Input {
 .theme-fixed-footer h5,
 .theme-fixed-footer p {
   color: #ffffff;
-}
+} */
 .input {
   @apply w-full px-4 py-3 rounded-md
   

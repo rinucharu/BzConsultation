@@ -39,7 +39,7 @@ const Navbar = () => {
     { label: "Home", href: "/" },
     { label: "About Us", href: "/about" },
     { label: "Services", href: "/services" },
-    { label: "Success Stories", href: "/SuccessStories" },
+    { label: "Success Stories", href: "/portfolio" },
     { label: "Blogs", href: "/blogs" },
     { label: "Careers", href: "/careers" },
     { label: "Contact Us", href: "/contact" },
@@ -59,7 +59,7 @@ const Navbar = () => {
   return (
   <nav
   className={`w-full sticky top-0 z-50 transition-all duration-300 ${
-    isScrolled ? "shadow-lg bg-[#101010]" : "bg-[#101010]"
+    isScrolled ? "shadow-lg bg-black" : "bg-black"
   }`}
 >
       <div className=" flex items-center justify-between px-4 py-4">
@@ -167,9 +167,9 @@ after:bg-current"
                       <button className="p-2 bg-primary rounded-full text-white">
                         <FaEnvelope />{" "}
                       </button>
-                      <h5 className="text-white font-semibold ">
+                      <Link href={"mailto:hello@bzanalytics.ai"} className="text-white font-semibold ">
                         hello@bzanalytics.ai
-                      </h5>
+                      </Link>
                     </div>
                   </div>
 

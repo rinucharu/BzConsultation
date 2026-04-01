@@ -57,7 +57,7 @@ const ConsultationForm = () => {
   const [state, formAction] = useActionState(validateForm, { errors: {} });
   const { theme, setTheme } = useTheme();
   return (
-    <section className="py-15 px-4">
+    <section className="py-15 px-4 bg-white dark:bg-black">
       <form action={formAction}>
         <div className="max-w-6xl mx-auto grid grid-cols-1 lg:grid-cols-2 gap-10 lg:gap-x-40">
           {/* col-1 */}
@@ -141,7 +141,7 @@ const ConsultationForm = () => {
           {/* col-2 */}
           <div>
             <div className="my-8">
-              <div className="m-5">
+              <div className="mb-5">
                 {" "}
                 <label className="font-medium mb-1">Select Date</label>
               </div>

@@ -4,12 +4,15 @@ import { FaRegCircle } from "react-icons/fa";
 import { Button } from "./ui/button";
 import { RxDotFilled } from "react-icons/rx";
 import Marquee from "react-fast-marquee";
+import Link from "next/link";
+import Image from "next/image";
 
 type Slide = {
   img: string;
   title: string;
   subtitle: string;
   btn: string;
+  href: string;
 };
 
 const Home = () => {
@@ -20,6 +23,7 @@ const Home = () => {
       subtitle:
         "AI-driven solutions tailored to innovate and transform digital landscapes.",
       btn: "Learn more about us",
+      href: "/about",
     },
     {
       img: "/image2.jpeg",
@@ -27,6 +31,7 @@ const Home = () => {
       subtitle:
         "Crafting seamless UI experiences that elevate user interactions worldwide.",
       btn: "Work with us",
+      href: "/contact",
     },
     {
       img: "/image3.jpeg",
@@ -34,6 +39,7 @@ const Home = () => {
       subtitle:
         "Innovative code crafted to meet your business needs and goals.",
       btn: "Work with us",
+      href: "/contact",
     },
   ];
 
@@ -54,11 +60,13 @@ const Home = () => {
       {/* banner section */}
       <section className="">
         <div className="w-full min-h-screen relative">
-          <div
-            style={{ backgroundImage: `url(${homeSlide[currentIndex].img})` }}
-            className="w-full h-[90vh] sm:h-screen bg-contain bg-cover lg:bg-no-repeat  duration-500"
-          ></div>
-
+          <div className=" absolute inset-0">
+            <img
+              src={homeSlide[currentIndex].img}
+              alt="slide"
+              className="object-cover w-full h-full"
+            />
+          </div>
           <div className=" max-w-7xl mx-auto flex justify-center gap-x-10 items-start">
             <div className="absolute left-0 md:left-50 inset-0 flex flex-col justify-center items-start gap-y-[1rem] px-4">
               <h6
@@ -72,10 +80,11 @@ const Home = () => {
                 {homeSlide[currentIndex].subtitle}
               </p>
 
-              <button
+              <Link
+                href={homeSlide[currentIndex].href}
                 className="relative inline-flex items-center justify-center 
              px-6 sm:px-8 lg:px-10 py-3 sm:py-4
-             bg-primary 
+             bg-primary hover:border-black hover:border-2
              overflow-hidden group cursor-pointer"
               >
                 {/* Animated background */}
@@ -83,7 +92,7 @@ const Home = () => {
                   className="absolute top-1/2 left-1/2 
                w-[300%] h-[300%] sm:w-[400%] sm:h-[400%]
                bg-white 
-               -translate-x-1/2 -translate-y-1/2 rotate-45
+               -translate-x-1/2 -translate-y-1/2 rotate-[-25deg]
                scale-0 group-hover:scale-100
                transition-transform duration-500 ease-out"
                 ></span>
@@ -98,7 +107,7 @@ const Home = () => {
                 >
                   {homeSlide[currentIndex].btn}
                 </span>
-              </button>
+              </Link>
             </div>
 
             <div className="absolute bottom-2/5 lg:right-40 right-5 flex flex-col gap-3">
@@ -107,11 +116,11 @@ const Home = () => {
                   key={slideIndex}
                   onClick={() => setCurrentIndex(slideIndex)}
                   className={`lg:text-3xl text-lg cursor-pointer  w-7 h-7 rounded-full border-4 hover:text-white hover:bg-white ${
-                    currentIndex === slideIndex ? "text-white bg-white border-white" : "border-white/40"
+                    currentIndex === slideIndex
+                      ? "text-white bg-white border-white"
+                      : "border-white/40"
                   }`}
-                >
-                 
-                </div>
+                ></div>
               ))}
             </div>
           </div>
@@ -120,7 +129,7 @@ const Home = () => {
 
       {/* infinite caraousal */}
       <section className="">
-        <div className="bg-[#101010] p-5   font-semibold text-white text-xl ">
+        <div className="bg-[#101010] p-5 w-full overflow-hidden   font-semibold text-white text-xl ">
           <Marquee gradient={false} speed={50} pauseOnHover={true}>
             <span className="mr-10 tracking-wider">
               UNLOCKING YOUR FULL POTENTIAL
