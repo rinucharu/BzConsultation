@@ -29,9 +29,10 @@ export default function Footer() {
                 Let&apos;s start working together
               </p>
               <h2 className="text-4xl font-bold tracking-tight md:text-[30px] lg:text-[54px] hover:text-orange-400">
-              <Link href={"mailto:hello@bzanalytics.ai"} className="text-3xl font-bold tracking-tight md:text-[30px] lg:text-[54px] hover:text-[#f5900d] transition-all duration-500 cursor-pointer">
-                hello@bzanalytics.ai
-              </Link>
+                <Link href={"mailto:hello@bzanalytics.ai"} className="text-3xl font-bold tracking-tight md:text-[30px] lg:text-[54px] hover:text-[#f5900d] transition-all duration-500 cursor-pointer">
+                  hello@bzanalytics.ai
+                </Link>
+              </h2>
             </div>
 
             <div className="mb-12 h-[1px] w-full bg-white/10"></div>
