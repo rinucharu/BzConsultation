@@ -28,6 +28,7 @@ export default function Footer() {
               <p className="mb-2 text-[14px] md:text-[26px] font-normal text-white">
                 Let&apos;s start working together
               </p>
+              <h2 className="text-4xl font-bold tracking-tight md:text-[30px] lg:text-[54px] hover:text-orange-400">
               <Link href={"mailto:hello@bzanalytics.ai"} className="text-3xl font-bold tracking-tight md:text-[30px] lg:text-[54px] hover:text-[#f5900d] transition-all duration-500 cursor-pointer">
                 hello@bzanalytics.ai
               </Link>
