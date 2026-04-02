@@ -9,7 +9,7 @@ export default function AboutSection() {
         <div className="row">
           <div className="col-lg-6">
             <div className="about-three__thumb about-photos">
-              <div className="about-three__thumb--two" data-wow-delay="200ms">
+              <div className="about-three__thumb--two about-three__thumb--reveal about-three__thumb--reveal-delay-1" data-wow-delay="200ms">
                 <Image
                 src="/about-assets/resources/about-3-2.jpg"
                  
@@ -19,7 +19,7 @@ export default function AboutSection() {
                   priority
                 />
               </div>
-              <div className="about-three__thumb--one" data-wow-delay="300ms">
+              <div className="about-three__thumb--one about-three__thumb--reveal about-three__thumb--reveal-delay-2" data-wow-delay="300ms">
                 <Image
                  src="/about-assets/resources/about-3-1.jpg"
                   
