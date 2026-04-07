@@ -21,9 +21,10 @@ const BreadcrumbWrapper = () => {
       const path = "/" + segments.slice(0, index + 1).join("/");
 
       const match = menuItems.find((item) => item.href === path);
+      const label = match?.label || formatLabel(segments[index]);
 
       return {
-        label: match?.label || formatLabel(segments[index]),
+        label,
         href: index === segments.length - 1 ? undefined : path,
       };
     }),

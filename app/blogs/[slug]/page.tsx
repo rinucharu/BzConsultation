@@ -1,7 +1,7 @@
 "use client";
 
-
-import BreadcrumbWrapper from "@/components/BreadcrumbWrapper";
+import BreadcrumbWrapper from "@/components/BannerSection";
+import BannerSection from "@/components/BannerSection";
 import Header from "@/components/Header";
 import { useParams } from "next/navigation";
 import { FaFacebookF, FaLinkedinIn } from "react-icons/fa";
@@ -11,12 +11,53 @@ export default function BlogPage() {
 
   return (
     <>
-    
+      <div></div>
+      <section className="blogdetail">
+        <div className=" max-w-5xl mx-auto p-4 ">
+          <div className="flex flex-col  lg:flex-row justify-center w-full ">
+            <div className="relative mb-5 flex-[2] w-full mr-4 overflow-hidden">
+              <img
+                src="/blogs/rag-l.jpg"
+                alt="girl working on computer"
+                loading="lazy"
+                className=" w-full sm:h-full lg:h-[430px] h-[360px] object-cover"
+              />
 
- 
+              <div className="absolute flex flex-col  z-10 bottom-0  w-full h-49 bg-black/15 backdrop-blur-sm">
+                <div className=" flex justify-start  lg:w-[330px] w-[calc(100%-2rem)] ml-2 translate-y-2  h-8   border bg-white border-white  rounded-full flex items-center justify-center z-20">
+                  <div className="w-4 h-4 translate-x-1 bg-purple-900 rounded-full"></div>
+                  <p className="!text-[13px]  translate-x-2 text-purple-900">
+                    Technology & Bussiness
+                  </p>
+                </div>
+                <div className="flex justify-start ">
+                  <p className="text-white py-3 font-jakartas px-3 max-sm:!text-xl !text-2xl font-bold">
+                    Bridging the Gap: How RAG (Retrieval Augmented Generation)
+                    is Transforming Generative AI
+                  </p>
+                </div>
+                <div className="flex  px-3 gap-2 translate-y-1 -sm:translate-y-4">
+                  <span className=" !text-[14px]">Apr 15 </span>
+                  <span className="!text-[13px]">10 min read</span>
+                </div>
+              </div>
+            </div>
+            <div className=" flex-[1] w-full sm:p-2 ">
+              <h5 className="!text-[18px] !font-normal">In this article</h5>
+              <div className="flex items-center gap-2">
+                <span className="w-[2px] h-10  bg-[#f79d0f] "></span>
+                <p className="text-[#f79d0f] !text-[15px] py-2 ">
+                  RAG transforming generative AI
+                </p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
       <div className="max-w-7xl mx-auto px-10 md:px-16 py-12">
         <div className="grid md:grid-cols-10 gap-6 items-start">
           {/* left side */}
+
           <div
             className="md:col-span-6 text-white
   [&>h1]:text-[29px] [&>h1]:font-light [&>h1]:mb-[13px] [&>h1]:mt-6
@@ -25,32 +66,6 @@ export default function BlogPage() {
   [&>img]:rounded-xl [&>img]:my-5 [&>img]:border [&>img]:border-white
 "
           >
-            <div className="relative overflow-hidden rounded-lg">
-              <img
-                src="https://bzanalytics.ai/assets/images/blog/rag-l.jpg"
-                alt="blog"
-                className="w-full h-[450px] object-cover"
-              />
-
-              <div className="absolute bottom-0 left-0 w-full h-[45%] backdrop-blur-sm bg-black/30"></div>
-
-              <div className="absolute bottom-6 left-6 right-6">
-                <div className="inline-flex items-center gap-2 bg-white px-3 py-1 rounded-md mb-3">
-                  <span className="w-2.5 h-2.5 bg-blue-500 rounded-full"></span>
-                  <p className="text-sm text-gray-700 font-medium">
-                    Technology & Business
-                  </p>
-                </div>
-
-                <h2 className="text-white text-[22px] font-bold leading-7 mb-2 max-w-[600px]">
-                  Bridging the Gap: How RAG (Retrieval Augmented Generation) is
-                  Transforming Generative AI
-                </h2>
-
-                <p className="text-gray-200 text-sm">Apr 15 • 10 min read</p>
-              </div>
-            </div>
-
             <p className="mt-20 text-white leading-7">
               In recent years, the field of artificial intelligence (AI) has
               witnessed a remarkable revolution, particularly in generative
@@ -136,32 +151,30 @@ export default function BlogPage() {
               to proactively address these ethical considerations and ensure
               responsible deployment and use of retrieval-augmented generation.
             </p>
- <h2>Revolutionizing Conversational AI</h2>
-              <img
-                src="https://bzanalytics.ai/assets/images/blog/blogdetails/rag/rag4.png"
-                alt=""
-              />
-              <p>
-                Conversational AI systems empowered by RAG are redefining
-                human-computer interactions. By usiing a wealth of knowledge
-                from diverse sources, RAG-equipped chatbots and virtual
-                assistants can engage in more meaningful and contextually rich
-                conversations. This enables them to provide more accurate and
-                personalized assistance, significantly enhancing the user
-                experience.
-              </p>
-               <h2>Unleashing the Potential of Large-Scale Knowledge Bases</h2>
-              <p>
-                RAG's integration with large-scale knowledge bases has unlocked
-                unprecedented potential in AI applications. By tapping into
-                extensive repositories of structured and unstructured data,
-                RAG-equipped models can provide comprehensive, well-informed,
-                and contextually relevant responses across a wide range of
-                domains. This capability has far-reaching implications for
-                fields such as education, healthcare, customer service, and
-                beyond.
-              </p>
-               <h1>Transforming Generative AI for a Brighter Future</h1>
+            <h2>Revolutionizing Conversational AI</h2>
+            <img
+              src="https://bzanalytics.ai/assets/images/blog/blogdetails/rag/rag4.png"
+              alt=""
+            />
+            <p>
+              Conversational AI systems empowered by RAG are redefining
+              human-computer interactions. By usiing a wealth of knowledge from
+              diverse sources, RAG-equipped chatbots and virtual assistants can
+              engage in more meaningful and contextually rich conversations.
+              This enables them to provide more accurate and personalized
+              assistance, significantly enhancing the user experience.
+            </p>
+            <h2>Unleashing the Potential of Large-Scale Knowledge Bases</h2>
+            <p>
+              RAG's integration with large-scale knowledge bases has unlocked
+              unprecedented potential in AI applications. By tapping into
+              extensive repositories of structured and unstructured data,
+              RAG-equipped models can provide comprehensive, well-informed, and
+              contextually relevant responses across a wide range of domains.
+              This capability has far-reaching implications for fields such as
+              education, healthcare, customer service, and beyond.
+            </p>
+            <h1>Transforming Generative AI for a Brighter Future</h1>
             <img
               src="https://bzanalytics.ai/assets/images/blog/blogdetails/rag/rag5.png"
               alt=""
@@ -177,7 +190,7 @@ export default function BlogPage() {
               future holds immense promise for the continued advancement of
               generative AI and its transformative impact on society.
             </p>
-              <img
+            <img
               src="https://bzanalytics.ai/assets/images/blog/blogdetails/rag/rag6.png"
               alt=""
             />
@@ -196,101 +209,79 @@ export default function BlogPage() {
               deployment and use of retrieval-augmented generation.
             </p>
 
-         
-           
-          
- <div
-  className="flex items-center justify-between flex-wrap"
-  style={{
-    marginTop: "24px",
-    padding: "16px 20px",
-    backgroundColor: "#f5900d",
-    width: "100%",
-    borderRadius: "14px",
-  }}
->
-  {/* LEFT: TEXT WITH BLUR BUBBLE */}
-  <div
-    style={{
-      position: "relative",
-      display: "inline-block",
-    }}
-  >
-  
- 
+            <div
+              className="flex items-center justify-between flex-wrap"
+              style={{
+                marginTop: "24px",
+                padding: "16px 20px",
+                backgroundColor: "#f5900d",
+                width: "100%",
+                borderRadius: "14px",
+              }}
+            >
+              {/* LEFT: TEXT WITH BLUR BUBBLE */}
+              <div
+                style={{
+                  position: "relative",
+                  display: "inline-block",
+                }}
+              >
+                {/* Text */}
+                <p
+                  style={{
+                    position: "relative",
+                    color: "white",
+                    margin: 0,
+                    fontSize: "16px",
+                    fontWeight: "600",
+                    zIndex: 1,
+                    padding: "6px 12px",
+                  }}
+                >
+                  Like what you see? Share with friends
+                </p>
+              </div>
 
-    {/* Text */}
-    <p
-      style={{
-        position: "relative",
-        color: "white",
-        margin: 0,
-        fontSize: "16px",
-        fontWeight: "600",
-        zIndex: 1,
-        padding: "6px 12px",
-      }}
-    >
-      Like what you see? Share with friends
-    </p>
-  </div>
-
-  {/* RIGHT: ICONS */}
-  <div
-    style={{
-      display: "flex",
-      alignItems: "center",
-      gap: "12px",
-    }}
-  >
-    {[FaFacebookF, FaXTwitter, FaLinkedinIn].map((Icon, i) => (
-      <div
-        key={i}
-        style={{
-          backgroundColor: "white",
-          width: "34px",
-          height: "34px",
-          display: "flex",
-          alignItems: "center",
-          justifyContent: "center",
-          borderRadius: "10px",
-          cursor: "pointer",
-          transition: "all 0.2s ease",
-        }}
-      >
-        <Icon style={{ color: "#f5900d", fontSize: "16px" }} />
-      </div>
-    ))}
-  </div>
-</div>
-<hr className="mt-7 border-t border-gray-300 opacity-50" />
-<h1 className="text-[32px] md:text-[36px] text-white font-black tracking-tight leading-tight mt-7 ml-2">
-  Related Articles
-</h1>
-
-
-
+              {/* RIGHT: ICONS */}
+              <div
+                style={{
+                  display: "flex",
+                  alignItems: "center",
+                  gap: "12px",
+                }}
+              >
+                {[FaFacebookF, FaXTwitter, FaLinkedinIn].map((Icon, i) => (
+                  <div
+                    key={i}
+                    style={{
+                      backgroundColor: "white",
+                      width: "34px",
+                      height: "34px",
+                      display: "flex",
+                      alignItems: "center",
+                      justifyContent: "center",
+                      borderRadius: "10px",
+                      cursor: "pointer",
+                      transition: "all 0.2s ease",
+                    }}
+                  >
+                    <Icon style={{ color: "#f5900d", fontSize: "16px" }} />
+                  </div>
+                ))}
+              </div>
+            </div>
+            <hr className="mt-7 border-t border-gray-300 opacity-50" />
+            <h1 className="text-[32px] md:text-[36px] text-white font-black tracking-tight leading-tight mt-7 ml-2">
+              Related Articles
+            </h1>
           </div>
 
           {/* rightside */}
-          <div className="md:col-span-4 space-y-4">
-            <h2 className="text-[20px] mb-6 font-semibold text-white leading-[24px]">
-              In this article
-            </h2>
-
-            <p className="border-l-[3px] border-orange-500 pl-3 py-2 text-[#f79d0f]">
-              RAG Transforming generative AI.
-            </p>
-          </div>
         </div>
 
-
         {/* card */}
- <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6 sm:gap-8 mt-10 items-stretch">
-       
-       
+        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6 sm:gap-8 mt-10 items-stretch">
           <div
-           
             className="w-full max-w-[374px] h-full
             bg-[#f7f7f7]
             rounded-[10px]
@@ -311,26 +302,25 @@ export default function BlogPage() {
 
             {/* Content */}
             <div className="flex flex-col flex-grow gap-[6px] mt-[8px]">
-
               <div className="flex items-center text-blue-800">
-                <span className="text-xl sm:text-2xl mr-2 -translate-y-1">•</span>
+                <span className="text-xl sm:text-2xl mr-2 -translate-y-1">
+                  •
+                </span>
                 <span>Technology & Business</span>
               </div>
 
               <h6 className="text-black font-semibold text-[18px] leading-[22px] mb-5 tracking-[0.5px] line-clamp-2">
-             Unlocking the Future of Fashion : The Power of Virtual Try-On and Digital Innovation
+                Unlocking the Future of Fashion : The Power of Virtual Try-On
+                and Digital Innovation
               </h6>
 
-             
               <span className="text-black text-xs  sm:text-sm mt-auto">
-                Apr 15  • 10 min read 
+                Apr 15 • 10 min read
               </span>
-
             </div>
           </div>
-         {/*  */}
-     <div
-           
+          {/*  */}
+          <div
             className="w-full max-w-[374px] h-full
             bg-[#f7f7f7]
             rounded-[10px]
@@ -351,28 +341,24 @@ export default function BlogPage() {
 
             {/* Content */}
             <div className="flex flex-col flex-grow gap-[6px] mt-[8px]">
-
               <div className="flex items-center text-blue-800">
-                <span className="text-xl sm:text-2xl mr-2 -translate-y-1">•</span>
+                <span className="text-xl sm:text-2xl mr-2 -translate-y-1">
+                  •
+                </span>
                 <span>Technology & Business</span>
               </div>
 
               <h6 className="text-black font-semibold text-[18px] leading-[22px] mb-5 tracking-[0.5px] line-clamp-2">
-             Applications Of Machine Learning In The Fashion Industry
+                Applications Of Machine Learning In The Fashion Industry
               </h6>
 
-             
               <span className="text-black text-xs  sm:text-sm mt-auto">
-              Oct 20    • 10 min read 
-
-
+                Oct 20 • 10 min read
               </span>
-
             </div>
           </div>
           {/*  */}
           <div
-           
             className="w-full max-w-[374px] h-full
             bg-[#f7f7f7]
             rounded-[10px]
@@ -393,29 +379,24 @@ export default function BlogPage() {
 
             {/* Content */}
             <div className="flex flex-col flex-grow gap-[6px] mt-[8px]">
-
               <div className="flex items-center text-blue-800">
-                <span className="text-xl sm:text-2xl mr-2 -translate-y-1">•</span>
+                <span className="text-xl sm:text-2xl mr-2 -translate-y-1">
+                  •
+                </span>
                 <span>Technology & Business</span>
               </div>
 
               <h6 className="text-black font-semibold text-[18px] leading-[22px] mb-5 tracking-[0.5px] line-clamp-2">
-              AI in Ecommerce
+                AI in Ecommerce
               </h6>
 
-             
               <span className="text-black text-xs  sm:text-sm mt-auto">
-             july 08  •  10 min read  
+                july 08 • 10 min read
               </span>
-
             </div>
           </div>
+        </div>
       </div>
-      
-
-      </div>
-
-     
     </>
   );
 }
