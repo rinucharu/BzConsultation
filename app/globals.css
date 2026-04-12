@@ -126,6 +126,28 @@
   }
 }
 
+
+@layer components {
+  .project h1 {
+    @apply relative;
+  }
+
+  .project h1::after {
+    content: "";
+    @apply inline-block absolute left-0 bottom-0 h-[1.5px] w-0 bg-black dark:bg-white transition-all duration-300;
+  }
+
+  .project:hover h1::after {
+
+    @apply w-full;
+
+  }
+}
+
+
+
+
+
 .consultant {
   position: relative;
   width: 100%;
@@ -160,9 +182,6 @@
   letter-spacing: 0.5px;
   line-height: 2rem;
 } */
-
-
-
 
 .intro h2 {
   font-size: 45px;
@@ -249,7 +268,6 @@ Input {
 }
 .input {
   @apply w-full 
-  
   text-black dark:text-white
   placeholder-gray-500 dark:placeholder-amber-50
   focus:outline-none ;
@@ -262,6 +280,7 @@ Input {
 }
 
 .dark .input {
+  
   background-color: #101010; 
 }
 

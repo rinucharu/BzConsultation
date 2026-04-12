@@ -10,13 +10,6 @@ type Blog = {
   image: string;
 };
 
-const slugify = (text: string) =>
-  text
-    .toLowerCase()
-    .replace(/[^a-z0-9\s-]/g, "")
-    .trim()
-    .replace(/\s+/g, "-");
-
 const Blogcard = () => {
   const blogsData: Blog[] = [
     {
@@ -244,8 +237,8 @@ const Blogcard = () => {
   return (
     <div>
       <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6 sm:gap-8 mt-10 items-stretch">
-        {blogsData.map((blog) => (
-          <Link href={`/blogs/${slugify(blog.title)}`} key={blog.id}>
+       {blogsData.map((blog) => (
+  <Link key={blog.id} href={`/blogs/${blog.id}`}>
             <div className="w-full max-w-[374px] h-full bg-[#f7f7f7] rounded-[10px] shadow-[0px_4px_8px_rgba(0,0,0,0.2),0px_6px_20px_rgba(0,0,0,0.19)] pt-[10px] px-[10px] pb-[20px] flex flex-col text-[14px] sm:text-[16px] font-medium leading-[24px] sm:leading-[30px] tracking-[0.5px] transition-transform duration-300 ease-in hover:scale-105">
               <img
                 src={blog.image}

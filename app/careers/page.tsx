@@ -1,6 +1,6 @@
-import BreadcrumbWrapper from '@/components/BreadcrumbWrapper'
-import Contact from '@/components/Contact'
-import React from 'react'
+import BreadcrumbWrapper from "@/components/BreadcrumbWrapper";
+import Contact from "@/components/Contact";
+import React from "react";
 
 const page = () => {
   return (
@@ -26,25 +26,23 @@ const page = () => {
           Join Bz Team!
         </h1>
 
-          <button className="bg-orange-400 px-[42px] py-[15px] text-[14px] md:text-[15px] font-semibold relative overflow-hidden group transition">
-            
-            <span className="absolute top-1/2 left-1/2 w-[400%] h-[400%] bg-white 
+        <button className="bg-orange-400 px-[42px] py-[15px] text-[14px] md:text-[15px] font-semibold relative overflow-hidden group transition">
+          <span
+            className="absolute top-1/2 left-1/2 w-[400%] h-[400%] bg-white 
             -translate-x-1/2 -translate-y-1/2 rotate-45 
             scale-0 group-hover:scale-100 
-            transition-transform duration-500 ease-out"></span>
+            transition-transform duration-500 ease-out"
+          ></span>
 
-            <span className="relative z-10 group-hover:text-orange-500 transition-colors duration-300">
-              Apply Now!
-            </span>
-
-          </button>
-
+          <span className="relative z-10 group-hover:text-orange-500 transition-colors duration-300">
+            Apply Now!
+          </span>
+        </button>
       </div>
 
-   <Contact />
-
+      <Contact />
     </div>
-  )
-}
+  );
+};
 
-export default page
+export default page;
