@@ -99,6 +99,7 @@ const Home = () => {
   category: string;
   date: string;
   image: string;
+  slug?: string;
 };
 
 const newsData: NewsItem[] = [
@@ -108,6 +109,7 @@ const newsData: NewsItem[] = [
     category: "Alliance",
     date: "29 JULY",
     image: "/newsimage.jpg",
+    slug: "bzanalytics-cloudq-alliance",
   },
   {
     id: 2,
@@ -115,6 +117,7 @@ const newsData: NewsItem[] = [
     category: "Achieves",
     date: "30 NOV",
     image: "/newsimage2.jpg",
+    slug: "bzanalytics-recognition",
   },
   {
     id: 3,
@@ -122,6 +125,7 @@ const newsData: NewsItem[] = [
     category: "Journey",
     date: "16 APR",
     image: "/newsimage3.jpg",
+    slug: "bzanalytics-journey",
   },
 ];
   const [startIndex, setStartIndex] = useState(0);
@@ -1158,8 +1162,7 @@ px-4 sm:px-6 md:px-8
       <HomeReview />
 
       {/* newsletter section */}
-   
-   <section className='bg-white dark:bg-black px-4 sm:px-6 md:px-8 font-plus-jakarta transition-colors duration-500'>
+      <section className='bg-white dark:bg-black px-4 sm:px-6 md:px-8 font-plus-jakarta transition-colors duration-500'>
   <div className='flex flex-col items-center text-center max-w-4xl mx-auto'>
     <div className='w-2 h-2 bg-orange-400 rounded-full mb-3'></div>
 
@@ -1173,74 +1176,79 @@ px-4 sm:px-6 md:px-8
   </div>
 </section>
 
-<section className="bg-white dark:bg-black text-black dark:text-white py-16 px-4 transition-colors duration-500">
+<section  className="bg-white dark:bg-black text-black dark:text-white py-16 px-4 transition-colors duration-500">
   <div className="max-w-6xl mx-auto">
     
     <div className="grid gap-8 sm:grid-cols-2 lg:grid-cols-3">
-      {newsData.map((item) => (
-        <div key={item.id} className="group cursor-pointer">
+{newsData.map((item,index) => (
+  <Link data-aos="fade-right" data-aos-delay={index * 150}   // ✅ stagger effect
+    data-aos-duration="500"
+    data-aos-once="true"
+ key={item.id} href={`/news/${item.slug}`} className="block">
+    <div className="group cursor-pointer">
 
-          {/* Image Section */}
-          <div className="relative overflow-hidden group/img">
-            <Image
-              src={item.image}
-              alt={item.title}
-              width={500}
-              height={300}
-              className="w-full h-full object-cover"
-            />
+      {/* Image Section */}
+      <div className="relative overflow-hidden group/img">
+        <Image
+          src={item.image}
+          alt={item.title}
+          width={500}
+          height={300}
+          className="w-full h-full object-cover"
+        />
 
-            {/* Overlay */}
-            <div className="absolute inset-0 bg-black/50 opacity-0 translate-y-[-20%] group-hover/img:opacity-100 group-hover/img:translate-y-0 transition-all duration-700 ease-[cubic-bezier(0.22,1,0.36,1)]"></div>
+        {/* Overlay */}
+        <div className="absolute inset-0 bg-black/50 opacity-0 translate-y-[-20%] group-hover/img:opacity-100 group-hover/img:translate-y-0 transition-all duration-700 ease-[cubic-bezier(0.22,1,0.36,1)]"></div>
 
-            {/* Plus Icon */}
-            <div className="absolute inset-0 flex items-center justify-center pointer-events-none">
-              <div className="relative w-8 h-8 opacity-0 -translate-y-[120%] group-hover/img:opacity-100 group-hover/img:translate-y-0 transition-all duration-700 delay-100">
-                <div className="absolute left-1/2 top-0 -translate-x-1/2 w-[2px] h-full bg-white"></div>
-                <div className="absolute top-1/2 left-0 -translate-y-1/2 h-[2px] w-full bg-white"></div>
-              </div>
-            </div>
-
-            {/* Date Badge */}
-            <div className="absolute bottom-4 right-4 bg-white text-black text-xs px-4 py-2 font-medium z-10">
-              {item.date}
-            </div>
-          </div>
-
-          {/* Content */}
-          <div className="mt-6">
-
-            {/* Category */}
-            <div className="flex items-center gap-3 mb-3">
-              <div className="w-8 h-[1px] bg-orange-400"></div>
-              <p className="text-gray-600 dark:text-gray-300 hover:text-orange-400 font-medium text-[14px] transition-colors">
-                {item.category}
-              </p>
-            </div>
-
-            {/* Title */}
-            <h3 className="text-[24px] font-extrabold leading-[1.4] text-black dark:text-white">
-              <span className="inline bg-gradient-to-r from-current to-current bg-no-repeat bg-[length:0%_1px] bg-[position:0_100%] transition-all duration-500 group-hover:bg-[length:100%_1px] hover:text-orange-400 [box-decoration-break:clone] [-webkit-box-decoration-break:clone] pb-1 cursor-pointer">
-                {item.title}
-              </span>
-            </h3>
-
-            {/* Divider */}
-            <div className="border-b border-gray-200 dark:border-gray-800 my-6"></div>
-
-            {/* Read More */}
-            <div className="group/readmore flex w-fit items-center gap-2 font-medium text-[14px] text-gray-600 dark:text-gray-300 cursor-pointer">
-              <span className="group-hover/readmore:text-orange-400 transition-colors duration-300">
-                Read More
-              </span>
-              <span className="text-[20px] transition-transform duration-300 group-hover/readmore:-rotate-45 group-hover/readmore:text-orange-400">
-                <FiArrowDownRight />
-              </span>
-            </div>
+        {/* Plus Icon */}
+        <div className="absolute inset-0 flex items-center justify-center pointer-events-none">
+          <div className="relative w-8 h-8 opacity-0 -translate-y-[120%] group-hover/img:opacity-100 group-hover/img:translate-y-0 transition-all duration-700 delay-100">
+            <div className="absolute left-1/2 top-0 -translate-x-1/2 w-[2px] h-full bg-white"></div>
+            <div className="absolute top-1/2 left-0 -translate-y-1/2 h-[2px] w-full bg-white"></div>
           </div>
         </div>
-      ))}
+
+        {/* Date Badge */}
+        <div className="absolute bottom-4 right-4 bg-white text-black text-xs px-4 py-2 font-medium z-10">
+          {item.date}
+        </div>
+      </div>
+
+      {/* Content */}
+      <div className="mt-6">
+
+        {/* Category */}
+        <div className="flex items-center gap-3 mb-3">
+          <div className="w-8 h-[1px] bg-orange-400"></div>
+          <p className="text-gray-600 dark:text-gray-300 hover:text-orange-400 font-medium text-[14px] transition-colors">
+            {item.category}
+          </p>
+        </div>
+
+        {/* Title */}
+        <h3 className="text-[24px] font-extrabold leading-[1.4] text-black dark:text-white">
+          <span className="inline bg-gradient-to-r from-current to-current bg-no-repeat bg-[length:0%_1px] bg-[position:0_100%] transition-all duration-500 group-hover:bg-[length:100%_1px] hover:text-orange-400 [box-decoration-break:clone] [-webkit-box-decoration-break:clone] pb-1 cursor-pointer">
+            {item.title}
+          </span>
+        </h3>
+
+        {/* Divider */}
+        <div className="border-b border-gray-200 dark:border-gray-800 my-6"></div>
+
+        {/* Read More */}
+        <div className="group/readmore flex w-fit items-center gap-2 font-medium text-[14px] text-gray-600 dark:text-gray-300 cursor-pointer">
+          <span className="group-hover/readmore:text-orange-400 transition-colors duration-300">
+            Read More
+          </span>
+          <span className="text-[20px] transition-transform duration-300 group-hover/readmore:-rotate-45 group-hover/readmore:text-orange-400">
+            <FiArrowDownRight />
+          </span>
+        </div>
+      </div>
+
     </div>
+  </Link>
+))}    </div>
 
     {/* Button */}
     <div className="flex justify-end mt-12"> <Link href="/news" className="relative bg-[#F6931D] text-white font-bold py-4 px-10 text-[16px] overflow-hidden transition-all duration-500 cursor-pointer group hover:border-black hover:border-2" > <span className="absolute left-1/2 top-1/2 w-[160%] h-0 bg-white -translate-x-1/2 -translate-y-1/2 rotate-[-25deg] transition-all duration-500 group-hover:h-[500%] z-0" ></span> {/* Button Text */} <span className="relative z-10 group-hover:text-orange-400 transition-colors duration-500 "> View All News </span> </Link> </div>
