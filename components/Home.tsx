@@ -12,6 +12,66 @@ import "aos";
 import Image from "next/image";
 import HomeReview from "./about/HomeReview";
 
+import { FaArrowRight } from "react-icons/fa6";
+
+interface CardItem {
+  title: string;
+  img: string;
+  desc: string;
+}
+
+const cards: CardItem[] = [
+  {
+    title: "Metaverse & Gaming",
+    img: "/img1.jpg",
+    desc: "Empowering Metaverse & Gaming with Innovative Solutions.",
+  },
+  {
+    title: "Energy & Manufacturing",
+    img: "/img2.jpg",
+    desc: "Optimizing Operations: Solutions for Energy & Manufacturing.",
+  },
+  {
+    title: "SDG",
+    img: "/img3.jpg",
+    desc: "Tech-Driven Sustainability: Achieving Goals with Innovation.",
+  },
+  {
+    title: "Healthcare",
+    img: "/img4.jpg",
+    desc: "Revolutionizing Healthcare: Better Patient Care through Innovation.",
+  },
+  {
+    title: "Textile",
+    img: "/img5.jpg",
+    desc: "Digital Transformation in Textile: Innovation-Led Progress.",
+  },
+  {
+    title: "Corporate",
+    img: "/img6.jpg",
+    desc: "Strategic Solutions for Corporate Success.",
+  },
+  {
+    title: "Advertising",
+    img: "/img7.jpg",
+    desc: "Elevating Brands: Creative Solutions for Advertising.",
+  },
+  {
+    title: "PSU",
+    img: "/img8.jpg",
+    desc: "Efficiency Redefined: Excellence in Public Sector Undertakings.",
+  },
+  {
+    title: "Finance",
+    img: "/img9.jpg",
+    desc: "Transforming Finance: Cutting-Edge Solutions.",
+  },
+];
+
+const CARD_WIDTH = 380;
+const GAP = 24;
+const VISIBLE_CARDS = 4;
+
 type Slide = {
   img: string;
   title: string;
@@ -19,6 +79,35 @@ type Slide = {
   btn: string;
   href: string;
 };
+
+type WorkProcessStep = {
+  id: string;
+  title: string;
+  description: string;
+  image: string;
+};
+
+const workProcessSteps: WorkProcessStep[] = [
+  {
+    id: "01",
+    title: "Clients",
+    description:
+      "25 + Clients CPG Leaders (fortune 500 global entrepreneur clients)",
+    image: "/work-process-1.jpg",
+  },
+  {
+    id: "02",
+    title: "Productivity",
+    description: "10 X Productivity Improvement by automation",
+    image: "/work-process-2.jpg",
+  },
+  {
+    id: "03",
+    title: "Revenue",
+    description: "65 M+$s Revenue bagged from products and service.",
+    image: "/work-process-3.jpg",
+  },
+];
 
 const Home = () => {
   const homeSlide: Slide[] = [
@@ -61,12 +150,62 @@ const Home = () => {
     return () => clearInterval(interval);
   }, []);
 
-  const handleMouseMove = (e: any) => {
+  const handleProjectHover = (e: any) => {
     const rect = e.currentTarget.getBoundingClientRect();
 
-    let xPos = e.clientX - rect.left;
+    const xPos =
+      typeof e.clientX === "number" ? e.clientX - rect.left : rect.width / 2;
 
     setX(xPos);
+  };
+
+  type NewsItem = {
+    id: number;
+    title: string;
+    category: string;
+    date: string;
+    image: string;
+    slug?: string;
+  };
+
+  const newsData: NewsItem[] = [
+    {
+      id: 1,
+      title:
+        "BzAnalytics and CloudQ Forge a Formidable Alliance to Redefine Business Solutions in 2023",
+      category: "Alliance",
+      date: "29 JULY",
+      image: "/newsimage.jpg",
+      slug: "bzanalytics-cloudq-alliance",
+    },
+    {
+      id: 2,
+      title:
+        "BzAnalytics Achieves Outstanding Recognition: Among Top 5 Companies at Prestigious Entrepreneurship Expo",
+      category: "Achieves",
+      date: "30 NOV",
+      image: "/newsimage2.jpg",
+      slug: "bzanalytics-recognition",
+    },
+    {
+      id: 3,
+      title: "From Vision to Reality: BzAnalytics's Journey from 2020 to 2023",
+      category: "Journey",
+      date: "16 APR",
+      image: "/newsimage3.jpg",
+      slug: "bzanalytics-journey",
+    },
+  ];
+  const [startIndex, setStartIndex] = useState(0);
+
+  const maxIndex = cards.length - VISIBLE_CARDS;
+
+  const nextSlide = () => {
+    if (startIndex < maxIndex) setStartIndex(startIndex + 1);
+  };
+
+  const prevSlide = () => {
+    if (startIndex > 0) setStartIndex(startIndex - 1);
   };
 
   return (
@@ -74,13 +213,17 @@ const Home = () => {
       {/* banner section */}
       <section className="">
         <div className="w-full min-h-[90vh] relative">
-          <div
-            style={{ backgroundImage: `url(${homeSlide[currentIndex].img})` }}
-            className="w-full h-full object-scale-down duration-500 absolute inset-0 bg-center bg-no-repeat bg-cover top-0 left-0 right-0 bottom-0"
-          ></div>
+          <div className="pt-[80px]">
+            {" "}
+            {/* adjust based on navbar height */}
+            <div
+              style={{ backgroundImage: `url(${homeSlide[currentIndex].img})` }}
+              className="w-full h-[calc(100vh-80px)] bg-center bg-no-repeat bg-cover absolute inset-0"
+            ></div>
+          </div>
 
-          <div className=" max-w-7xl mx-auto flex justify-center gap-x-10 items-start">
-            <div className="absolute left-0 md:left-50 inset-0 flex flex-col justify-center items-start gap-y-[1rem] px-4">
+          <div className=" max-w-7xl  flex justify-between gap-x-10 items-center">
+            <div className="absolute left-0 md:left-50 inset-0 flex flex-col justify-center items-start gap-3 px-4">
               <h6
                 style={{ textShadow: "2px 2px 4px rgba(0 ,0 ,0 ,0.6)" }}
                 className="text-[1.5rem] md:text-4xl font-bold text-white"
@@ -88,7 +231,7 @@ const Home = () => {
                 {homeSlide[currentIndex].title}
               </h6>
 
-              <p className="mt-4 text-sm p-lead  sm:text-lg md:text-xl inline-block min-w-full text-white">
+              <p className="mt-4 text-sm p-lead lead sm:text-lg md:text-xl inline-block md:min-w-full  w-60 text-white">
                 {homeSlide[currentIndex].subtitle}
               </p>
 
@@ -122,7 +265,7 @@ const Home = () => {
               </Link>
             </div>
 
-            <div className="absolute bottom-2/5 lg:right-60 right-5 flex flex-col gap-3">
+            <div className="absolute bottom-[50%] lg:right-30 right-5 flex flex-col gap-3">
               {homeSlide.map((eachSlide, slideIndex) => (
                 <div
                   key={slideIndex}
@@ -217,7 +360,306 @@ const Home = () => {
       </section>
 
       {/* card section */}
+      <section className="w-full bg-white dark:bg-black py-10 mt-40 overflow-hidden">
+        <div className="relative px-5">
+          {/* LEFT ARROW */}
+          {startIndex > 0 && (
+            <button
+              onClick={prevSlide}
+              className="
+    absolute left-2 top-1/2 -translate-y-1/2 z-40
+    w-[28px] h-[60px]
+    bg-black text-white
+    border border-white border-2
+    rounded-2xl
+    overflow-hidden
+    flex items-center justify-center
+    group
+    transition-all duration-500
+    cursor-pointer
+    "
+            >
+              {/* Sweep Animation */}
+              <span
+                className="
+      absolute left-1/2 top-1/2
+      w-[150%] h-0
+      bg-white
+      -translate-x-1/2 -translate-y-1/2
+      rotate-[-25deg]
+      transition-all duration-300
+      group-hover:h-[400%]
+      -z-10
+      "
+              />
+
+              {/* Arrow */}
+              <span className="relative z-10 text-white text-2xl font-bold group-hover:text-orange-500 transition-colors duration-300">
+                ‹
+              </span>
+            </button>
+          )}
+
+          {/* RIGHT ARROW */}
+          {startIndex < maxIndex && (
+            <button
+              onClick={nextSlide}
+              className="
+    absolute right-2 top-1/2 -translate-y-1/2 z-40
+   w-[28px] h-[60px]
+    bg-black text-white
+    border border-white border-2
+    rounded-2xl
+    overflow-hidden
+    flex items-center justify-center
+    group
+    transition-all duration-500
+    cursor-pointer
+    "
+            >
+              {/* Sweep Animation */}
+              <span
+                className="
+      absolute left-1/2 top-1/2
+      w-[150%] h-0
+      bg-white
+      -translate-x-1/2 -translate-y-1/2
+      rotate-[-25deg]
+      transition-all duration-300
+      group-hover:h-[400%]
+      -z-10
+      "
+              />
+
+              {/* Arrow */}
+              <span className="relative z-10 text-white text-2xl font-bold  group-hover:text-orange-500 transition-colors duration-300">
+                ›
+              </span>
+            </button>
+          )}
+
+          {/* VIEWPORT */}
+          <div className="overflow-hidden pr-[120px]">
+            <div
+              className="flex gap-6 transition-transform duration-500 ease-[cubic-bezier(0.22,1,0.36,1)]"
+              style={{
+                transform: `translateX(-${startIndex * (CARD_WIDTH + GAP)}px)`,
+              }}
+            >
+              {cards.map((card, index) => (
+                <div
+                  key={index}
+                  className="group/card relative w-[380px] h-[250px] flex-shrink-0 rounded-[10px] overflow-hidden cursor-pointer
+           transition-transform duration-500 ease-[cubic-bezier(0.22,1,0.36,1)]
+           group-hover:translate-x-3 hover:!translate-x-0
+           hover:scale-110 hover:z-20"
+                >
+                  {/* Image */}
+                  <Image
+                    src={card.img}
+                    alt={card.title}
+                    fill
+                    className="object-cover "
+                  />
+
+                  {/* Overlay */}
+                  <div className="absolute inset-0  transition-all duration-500" />
+
+                  {/* Content */}
+                  <div className="absolute bottom-10 w-fit p-4 bg-black opacity-60 mb-0">
+                    <h3 className="text-white text-[20px]  font-semibold">
+                      {card.title}
+                    </h3>
+                  </div>
+                </div>
+              ))}
+            </div>
+          </div>
+        </div>
+      </section>
       {/* text-content section */}
+
+      <section className="w-full px-4 sm:px-6   bg-white dark:bg-black">
+        <div className="grid grid-cols-1 md:grid-cols-2 gap-x-8 lg:gap-x-15 mx-auto max-w-7xl">
+          <div className="flex flex-col gap-y-2 md:gap-y-2  md:text-left">
+            <span className=" w-2 h-2 rounded-full bg-yellow-600" />
+
+            <p className="dark:text-[#eaeaea] uppercase text-base">
+              What we’re offering
+            </p>
+
+            <h2 className="text-2xl sm:text-3xl md:text-4xl lg:text-[45px]  font-extrabold leading-tight">
+              What your business needs,
+            </h2>
+          </div>
+
+          <div className="mt-6 md:mt-20">
+            <ul className="flex flex-col gap-y-6 sm:gap-y-8 md:gap-y-10">
+              <li
+                className="text-sm sm:text-base md:text-lg font-medium flex items-start gap-2"
+                style={{ letterSpacing: "1px" }}
+              >
+                <RxDotFilled className="min-w-[24px]" size={24} />
+                BzAnalytics works with the world's leading Enterprises, SMEs &
+                Startups – to plan, develop, test and expand their digital
+                initiatives.
+              </li>
+
+              <li
+                className="text-sm sm:text-base md:text-lg font-medium flex items-start gap-2"
+                style={{ letterSpacing: "1px" }}
+              >
+                <RxDotFilled className="min-w-[24px]" size={24} />
+                We assure your business grows with innovative and sustainable
+                technologies built to brand your identity.
+              </li>
+            </ul>
+          </div>
+        </div>
+      </section>
+      <section className="w-full  bg-white dark:bg-black text-white py-20 px-6 md:px-12 lg:px-20">
+        {/* cards */}
+        <div
+          className="w-full theme-bg 
+py-12 sm:py-14 md:py-16
+px-4 sm:px-6 md:px-8
+ lg:-mt-[20px]  
+"
+        >
+          <div className="max-w-7xl mx-auto grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
+            {/* Card 1 */}
+            <div className="relative w-full max-w-sm overflow-hidden shadow-lg group cursor-pointer">
+              <img
+                src="/ux_1.jpg"
+                alt="UX Design"
+                className="w-full h-[350px] object-cover"
+              />
+
+              {/* Orange Circle */}
+              <div className="absolute inset-0 flex items-center justify-center pointer-events-none">
+                <div className="w-56 h-56 rounded-full bg-orange-400/80 flex items-center justify-center transition-opacity duration-500 group-hover:opacity-0 p-4">
+                  <p className="text-white font-extrabold text-center leading-[1.1]">
+                    <span className="block text-2xl sm:text-3xl">UX/UI</span>
+                    <span className="block text-2xl sm:text-3xl">Design</span>
+                  </p>
+                </div>
+              </div>
+
+              {/* Black Overlay */}
+              <div className="absolute inset-0 bg-black/60 -translate-y-full flex flex-col items-center justify-center text-center p-4 transition-transform duration-500 group-hover:translate-y-0">
+                <p className="text-white mb-3 text-sm sm:text-base">
+                  Enhancing user experiences through research, wireframes, and
+                  prototypes, creating visually appealing and user-friendly
+                  interfaces.
+                </p>
+                <p className="flex items-center gap-2 text-sm font-medium cursor-pointer transition-all duration-300 ease-in-out text-white hover:text-orange-400 group">
+                  Read More
+                  <FaArrowRight className="transition-transform duration-300 ease-in-out rotate-[45deg] group-hover:rotate-[0deg]" />
+                </p>
+              </div>
+            </div>
+
+            {/* Card 2 */}
+            <div className="relative w-full max-w-sm  overflow-hidden shadow-lg group cursor-pointer">
+              <img
+                src="/ux_2.jpg"
+                alt="UX Design 2"
+                className="w-full h-[350px] object-cover"
+              />
+
+              <div className="absolute inset-0 flex items-center justify-center pointer-events-none">
+                <div className="w-56 h-56 rounded-full bg-orange-400/80 flex items-center justify-center transition-opacity duration-500 group-hover:opacity-0 p-4">
+                  <p className="text-white font-extrabold text-center leading-[1.1]">
+                    <span className="block text-2xl sm:text-3xl">
+                      On Demand
+                    </span>
+                    <span className="block text-2xl sm:text-3xl">Product</span>
+                    <span className="block text-2xl sm:text-3xl">Team</span>
+                  </p>
+                </div>
+              </div>
+
+              <div className="absolute inset-0 bg-black/60 -translate-y-full flex flex-col items-center justify-center text-center p-4 transition-transform duration-500 group-hover:translate-y-0">
+                <p className="text-white mb-3 text-sm sm:text-base">
+                  Flexible teams for custom software development, scaling, and
+                  extending your internal team's capabilities, led by dedicated
+                  developers and product owners.
+                </p>
+                <p className="flex items-center gap-2 text-sm font-medium cursor-pointer transition-all duration-300 ease-in-out text-white hover:text-orange-400 group">
+                  Read More
+                  <FaArrowRight className="transition-transform duration-300 ease-in-out rotate-[45deg] group-hover:rotate-[0deg]" />
+                </p>
+              </div>
+            </div>
+
+            {/* Card 3 */}
+            <div className="relative w-full max-w-sm overflow-hidden shadow-lg group cursor-pointer">
+              <img
+                src="/ux_3.jpg"
+                alt="UX Design 3"
+                className="w-full h-[350px] object-cover"
+              />
+
+              <div className="absolute inset-0 flex items-center justify-center pointer-events-none">
+                <div className="w-56 h-56 rounded-full bg-orange-400/80 flex items-center justify-center transition-opacity duration-500 group-hover:opacity-0 p-4">
+                  <p className="text-white font-extrabold text-center leading-[1.1]">
+                    <span className="block text-2xl sm:text-3xl">
+                      Mobile App
+                    </span>
+                    <span className="block text-2xl sm:text-3xl">
+                      Development
+                    </span>
+                  </p>
+                </div>
+              </div>
+
+              <div className="absolute inset-0 bg-black/60 -translate-y-full flex flex-col items-center justify-center text-center p-4 transition-transform duration-500 group-hover:translate-y-0">
+                <p className="text-white mb-3 text-sm sm:text-base">
+                  Building iOS and Android apps, including cross-platform
+                  development using Flutter, tailored for both consumer and
+                  enterprise needs.
+                </p>
+                <p className="flex items-center gap-2 text-sm font-medium cursor-pointer transition-all duration-300 ease-in-out text-white hover:text-orange-400 group">
+                  Read More
+                  <FaArrowRight className="transition-transform duration-300 ease-in-out rotate-[45deg] group-hover:rotate-[0deg]" />
+                </p>
+              </div>
+            </div>
+
+            {/* Card 4 */}
+            <div className="relative w-full max-w-sm overflow-hidden shadow-lg group cursor-pointer">
+              <img
+                src="/ux_4.jpg"
+                alt="UX Design 4"
+                className="w-full h-[350px] object-cover"
+              />
+
+              <div className="absolute inset-0 flex items-center justify-center pointer-events-none">
+                <div className="w-56 h-56 rounded-full bg-orange-400/80 flex items-center justify-center transition-opacity duration-500 group-hover:opacity-0 p-4">
+                  <p className="text-white font-extrabold text-center leading-[1.1]">
+                    <span className="block text-2xl sm:text-3xl">Web</span>
+                    <span className="block text-2xl sm:text-3xl">
+                      Development
+                    </span>
+                  </p>
+                </div>
+              </div>
+
+              <div className="absolute inset-0 bg-black/60 -translate-y-full flex flex-col items-center justify-center text-center p-4 transition-transform duration-500 group-hover:translate-y-0">
+                <p className="text-white mb-3 text-sm sm:text-base">
+                  Crafting websites, web applications, and custom software,
+                  along with creating web portals for specific business
+                  purposes.
+                </p>
+                <p className="flex items-center gap-2 text-sm font-medium cursor-pointer transition-all duration-300 ease-in-out text-white hover:text-orange-400 group">
+                  Read More
+                  <FaArrowRight className="transition-transform duration-300 text-white ease-in-out rotate-[45deg] group-hover:rotate-[0deg]" />
+                </p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
       {/* card section */}
 
       <section className="w-full px-4 sm:px-6 lg:px-8 mx-auto max-w-7xl">
@@ -273,16 +715,19 @@ const Home = () => {
         <div className=" flex flex-col mt-10 mb-5 hidden md:block">
           <div
             data-aos="fade-up"
-            onMouseMove={handleMouseMove}
-            className="flex justify-between items-center project  border-t border-b py-7.5 dark:border-white border-black group cursor-pointer relative"
+            onMouseMove={handleProjectHover}
+            onMouseEnter={handleProjectHover}
+            className="flex w-full justify-between items-center project  border-t border-b py-7.5 dark:border-white border-black group cursor-pointer relative"
           >
             <div className=" flex justify-center items-center gap-x-10">
               <span className=" text-2xl font-extrabold group-hover:text-primary">
                 01
               </span>
-              <h1 className=" text-2xl font-extrabold relative">
-                Digital Twin of Dubai
-              </h1>
+              <h2 className=" text-2xl font-extrabold relative">
+                <span className="inline bg-gradient-to-r from-current to-current bg-no-repeat bg-[length:0%_1px] bg-[position:0_100%] transition-all duration-500 group-hover:bg-[length:100%_1px] hover:text-orange-400 [box-decoration-break:clone] [-webkit-box-decoration-break:clone] pb-1 cursor-pointer">
+                  Digital Twin of Dubai
+                </span>
+              </h2>
             </div>
             <div className="">
               <button
@@ -313,8 +758,9 @@ const Home = () => {
 
           <div
             data-aos="fade-up"
-            onMouseMove={handleMouseMove}
-            className="flex justify-between items-center relative project border-b py-7.5 dark:border-white border-black group cursor-pointer"
+            onMouseMove={handleProjectHover}
+            onMouseEnter={handleProjectHover}
+            className="flex w-full justify-between items-center relative project border-b py-7.5 dark:border-white border-black group cursor-pointer"
           >
             <div className=" flex justify-center items-center gap-x-10">
               <span className=" text-2xl font-extrabold group-hover:text-primary">
@@ -351,8 +797,9 @@ const Home = () => {
 
           <div
             data-aos="fade-up"
-            onMouseMove={handleMouseMove}
-            className="flex relative justify-between items-center group project border-b py-7.5 dark:border-white border-black cursor-pointer"
+            onMouseMove={handleProjectHover}
+            onMouseEnter={handleProjectHover}
+            className="flex w-full relative justify-between items-center group project border-b py-7.5 dark:border-white border-black cursor-pointer"
           >
             <div className=" flex justify-center items-center gap-x-10">
               <span className=" text-2xl font-extrabold group-hover:text-primary">
@@ -374,7 +821,7 @@ const Home = () => {
             {/* project-img */}
             <div
               style={{
-                transform: `translateX(${x - 150}px) translateY(-50%) scale(1) `,
+                transform: `translateX(${x - 150}px) translateY(-50%) `,
               }}
               className="project-img absolute w-84.25 h-55.75 top-12.5   pointer-events-none overflow-hidden opacity-0 transform scale-[0.8] transition-all duration-500 ease-in-out z-0 group-hover:opacity-100 group-hover:-z-10 group-hover:scale-100 group-hover:rotate-[5deg]"
             >
@@ -389,8 +836,9 @@ const Home = () => {
 
           <div
             data-aos="fade-up"
-            onMouseMove={handleMouseMove}
-            className="flex group relative justify-between items-center project border-b py-7.5 dark:border-white border-black cursor-pointer"
+            onMouseMove={handleProjectHover}
+            onMouseEnter={handleProjectHover}
+            className="flex w-full group relative justify-between items-center project border-b py-7.5 dark:border-white border-black cursor-pointer"
           >
             <div className=" flex justify-center items-center gap-x-10">
               <span className=" text-2xl font-extrabold group-hover:text-primary">
@@ -412,12 +860,12 @@ const Home = () => {
             {/* project-img */}
             <div
               style={{
-                transform: `translateX(${x - 150}px) translateY(-50%) scale(1) `,
+                transform: `translateX(${x - 150}px) translateY(-50%) `,
               }}
-              className="project-img absolute w-84.25 h-55.75 top-12.5   pointer-events-none overflow-hidden opacity-0 transform scale-[0.8] transition-all duration-500 ease-in-out z-0 group-hover:opacity-100 group-hover:-z-10 group-hover:scale-100 group-hover:rotate-[5deg]"
+              className="project-img absolute w-84.25 h-55.75 top-12.5 pointer-events-none overflow-hidden opacity-0 transform scale-[0.8] transition-all duration-500 ease-in-out z-0 group-hover:opacity-100 group-hover:z-10 group-hover:scale-100 group-hover:rotate-[5deg]"
             >
               <img
-                className="w-full h-full object-cover relative transition-all duration-300 ease-in-out dark:mix-blend-normal mix-blend-luminosity"
+                className="w-full h-full object-cover relative transition-all duration-300 ease-in-out mix-blend-normal"
                 src="/turf.jpg"
                 alt="Turf"
                 loading="lazy"
@@ -519,7 +967,7 @@ const Home = () => {
 
               <div className="my-5">
                 <Link
-                  href={"/"}
+                  href={"/services"}
                   className="relative inline-flex items-center justify-center 
              px-8 sm:px-10 md:px-12.5 py-3 sm:py-4
              bg-primary hover:border-black hover:border-2
@@ -564,7 +1012,7 @@ const Home = () => {
             src="/award-bg.png"
             width={645}
             height={165}
-            className="w-[80%] sm:w-[70%] md:w-[60%] object-contain"
+            className=" object-contain"
           />
         </div>
 
@@ -624,7 +1072,7 @@ const Home = () => {
               src="/award.png"
               width={314}
               height={535}
-              className="w-[200px] sm:w-[240px] md:w-[260px] object-contain"
+              className="w-[150px] sm:w-[240px] md:w-[260px] object-contain"
             />
           </div>
         </div>
@@ -705,7 +1153,7 @@ const Home = () => {
           <div
             data-aos="fade-up"
             data-aos-duration="4000"
-            className="flex flex-col gap-y-10"
+            className="flex flex-col gap-y-10 ml-20"
           >
             {/* same cards */}
             {/* Card 1 */}
@@ -743,7 +1191,7 @@ const Home = () => {
           <div
             data-aos="fade-up"
             data-aos-duration="3000"
-            className="award-trophy"
+            className="award-trophy mt-20"
           >
             <Image
               alt="award"
@@ -758,7 +1206,7 @@ const Home = () => {
           <div
             data-aos="fade-up"
             data-aos-duration="4000"
-            className="flex flex-col gap-y-10"
+            className="flex flex-col gap-y-10 mr-20"
           >
             {/* same cards */}
             <div
@@ -793,8 +1241,222 @@ const Home = () => {
         </div>
       </section>
 
+      <section className="relative overflow-hidden pt-0 pb-16 md:pt-1 md:pb-20 lg:pt-3 lg:pb-24">
+        <div
+          className="absolute inset-0"
+          style={{
+            position: "absolute",
+            opacity: 0.2,
+            width: "100%",
+            height: "100%",
+            backgroundImage: "url('/feature-1.jpg')",
+            backgroundRepeat: "no-repeat",
+            backgroundPosition: "center",
+            backgroundSize: "cover",
+          }}
+        />
+        <div className="absolute inset-0 bg-black/25" />
+
+        <div className="relative mx-auto w-full max-w-7xl px-4 sm:px-6 lg:px-8">
+          <div
+            className="mx-auto max-w-[760px] -mt-2 text-center md:-mt-3 lg:-mt-4"
+            style={{ transform: "translateY(5px)" }}
+          >
+            <p className="work-process-kicker">Simple Work Process</p>
+            <h2
+              style={{
+                fontSize: "45px",
+                fontFamily: "'Plus Jakarta Sans', sans-serif",
+                fontWeight: 800,
+                color: "#ffffff",
+                margin: 0,
+                padding: 0,
+                lineHeight: 1.2,
+                letterSpacing: "normal",
+                textAlign: "center",
+              }}
+            >
+              Check how we works in
+              <br />3 easy steps
+            </h2>
+          </div>
+
+          <div className="relative mt-14">
+            <div className="absolute left-4 right-4 top-[112px] hidden h-[2px] bg-[#f5900d] md:block">
+              <span className="absolute -left-2 top-1/2 h-3 w-3 -translate-y-1/2 rounded-full bg-[#f5900d]" />
+              <span className="absolute -right-2 top-1/2 h-3 w-3 -translate-y-1/2 rounded-full bg-[#f5900d]" />
+            </div>
+
+            <div className="work-process-grid relative grid gap-10 md:grid-cols-3 md:gap-8 lg:gap-12">
+              {workProcessSteps.map((step) => (
+                <div key={step.id} className="work-process-step text-center">
+                  <div className="relative mx-auto mb-7 h-44 w-44 rounded-full border-[3px] border-[#f5900d] bg-black p-1.5 sm:h-52 sm:w-52">
+                    <div className="work-process-one__item__thumb relative h-full w-full overflow-hidden rounded-full bg-black">
+                      <Image
+                        src={step.image}
+                        alt={step.title}
+                        fill
+                        className="object-cover"
+                      />
+                    </div>
+                    <span className="absolute right-[-6px] top-[-6px] grid h-14 w-14 place-items-center rounded-full bg-[#f5900d] text-3xl font-extrabold text-white sm:h-16 sm:w-16 sm:text-4xl">
+                      {step.id}
+                    </span>
+                  </div>
+
+                  <h3
+                    style={{
+                      fontSize: "24px",
+                      fontFamily: "'Plus Jakarta Sans', sans-serif",
+                      fontWeight: 900,
+                      color: "#ffffff",
+                      WebkitTextStroke: "0.35px #ffffff",
+                      margin: "23px 0 14px",
+                      padding: 0,
+                      lineHeight: 1.2,
+                      letterSpacing: "0.5px",
+                      textAlign: "center",
+                      visibility: "visible",
+                      animationName: "fadeInUp",
+                      animationDelay: "200ms",
+                    }}
+                  >
+                    {step.title}
+                  </h3>
+                  <p
+                    className="mx-auto max-w-[390px]"
+                    style={{
+                      fontFamily: "'Plus Jakarta Sans', sans-serif",
+                      fontSize: "16px",
+                      fontWeight: 800,
+                      lineHeight: "30px",
+                      letterSpacing: "0.5px",
+                      color: "#ffffff",
+                      marginTop: 0,
+                      marginBottom: "1rem",
+                    }}
+                  >
+                    {step.description}
+                  </p>
+                </div>
+              ))}
+            </div>
+          </div>
+        </div>
+      </section>
+
       {/* clients tesinominal */}
       <HomeReview />
+
+      {/* newsletter section */}
+      <section className="bg-white dark:bg-black px-4 sm:px-6 md:px-8 font-plus-jakarta transition-colors duration-500">
+        <div className="flex flex-col items-center text-center max-w-4xl mx-auto">
+          <div className="w-2 h-2 bg-orange-400 rounded-full mb-3"></div>
+
+          <h5 className="text-gray-600 dark:text-white/80 font-medium text-[12px] sm:text-[13px] md:text-[14px] leading-tight mt-1">
+            OUR RECENT NEWS
+          </h5>
+
+          <h2 className="text-black dark:text-white font-extrabold text-[28px] sm:text-[36px] md:text-[45px] leading-tight mt-1">
+            Our latest <br className="hidden sm:block" /> News articles
+          </h2>
+        </div>
+      </section>
+
+      <section className="bg-white dark:bg-black text-black dark:text-white py-16 px-4 transition-colors duration-500">
+        <div className="max-w-6xl mx-auto">
+          <div className="grid gap-8 sm:grid-cols-2 lg:grid-cols-3">
+            {newsData.map((item, index) => (
+              <Link
+                data-aos="fade-right"
+                data-aos-delay={index * 150} // ✅ stagger effect
+                data-aos-duration="500"
+                data-aos-once="true"
+                key={item.id}
+                href={`/news/${item.slug}`}
+                className="block"
+              >
+                <div className="group cursor-pointer">
+                  {/* Image Section */}
+                  <div className="relative overflow-hidden group/img">
+                    <Image
+                      src={item.image}
+                      alt={item.title}
+                      width={500}
+                      height={300}
+                      className="w-full h-full object-cover"
+                    />
+
+                    {/* Overlay */}
+                    <div className="absolute inset-0 bg-black/50 opacity-0 translate-y-[-20%] group-hover/img:opacity-100 group-hover/img:translate-y-0 transition-all duration-700 ease-[cubic-bezier(0.22,1,0.36,1)]"></div>
+
+                    {/* Plus Icon */}
+                    <div className="absolute inset-0 flex items-center justify-center pointer-events-none">
+                      <div className="relative w-8 h-8 opacity-0 -translate-y-[120%] group-hover/img:opacity-100 group-hover/img:translate-y-0 transition-all duration-700 delay-100">
+                        <div className="absolute left-1/2 top-0 -translate-x-1/2 w-[2px] h-full bg-white"></div>
+                        <div className="absolute top-1/2 left-0 -translate-y-1/2 h-[2px] w-full bg-white"></div>
+                      </div>
+                    </div>
+
+                    {/* Date Badge */}
+                    <div className="absolute bottom-4 right-4 bg-white text-black text-xs px-4 py-2 font-medium z-10">
+                      {item.date}
+                    </div>
+                  </div>
+
+                  {/* Content */}
+                  <div className="mt-6">
+                    {/* Category */}
+                    <div className="flex items-center gap-3 mb-3">
+                      <div className="w-8 h-[1px] bg-orange-400"></div>
+                      <p className="text-gray-600 dark:text-gray-300 hover:text-orange-400 font-medium text-[14px] transition-colors">
+                        {item.category}
+                      </p>
+                    </div>
+
+                    {/* Title */}
+                    <h3 className="text-[24px] font-extrabold leading-[1.4] text-black dark:text-white">
+                      <span className="inline bg-gradient-to-r from-current to-current bg-no-repeat bg-[length:0%_1px] bg-[position:0_100%] transition-all duration-500 group-hover:bg-[length:100%_1px] hover:text-orange-400 [box-decoration-break:clone] [-webkit-box-decoration-break:clone] pb-1 cursor-pointer">
+                        {item.title}
+                      </span>
+                    </h3>
+
+                    {/* Divider */}
+                    <div className="border-b border-gray-200 dark:border-gray-800 my-6"></div>
+
+                    {/* Read More */}
+                    <div className="group/readmore flex w-fit items-center gap-2 font-medium text-[14px] text-gray-600 dark:text-gray-300 cursor-pointer">
+                      <span className="group-hover/readmore:text-orange-400 transition-colors duration-300">
+                        Read More
+                      </span>
+                      <span className="text-[20px] transition-transform duration-300 group-hover/readmore:-rotate-45 group-hover/readmore:text-orange-400">
+                        <FiArrowDownRight />
+                      </span>
+                    </div>
+                  </div>
+                </div>
+              </Link>
+            ))}{" "}
+          </div>
+
+          {/* Button */}
+          <div className="flex justify-end mt-12">
+            {" "}
+            <Link
+              href="/news"
+              className="relative bg-[#F6931D] text-white font-bold py-4 px-10 text-[16px] overflow-hidden transition-all duration-500 cursor-pointer group hover:border-black hover:border-2"
+            >
+              {" "}
+              <span className="absolute left-1/2 top-1/2 w-[160%] h-0 bg-white -translate-x-1/2 -translate-y-1/2 rotate-[-25deg] transition-all duration-500 group-hover:h-[500%] z-0"></span>{" "}
+              {/* Button Text */}{" "}
+              <span className="relative z-10 group-hover:text-orange-400 transition-colors duration-500 ">
+                {" "}
+                View All News{" "}
+              </span>{" "}
+            </Link>{" "}
+          </div>
+        </div>
+      </section>
 
       {/* above footer section */}
 
@@ -808,7 +1470,22 @@ const Home = () => {
         {/* Background */}
         <div
           className="cta-bg absolute inset-0 w-full h-full bg-cover bg-center bg-no-repeat"
-          style={{ backgroundImage: "url('/cta-bg-2.jpg')" }}
+          style={{
+            position: "absolute",
+            top: 0,
+            left: 0,
+            right: 0,
+            bottom: 0,
+            width: "100%",
+            height: "100%",
+            backgroundImage: "url('/cta-bg-2.jpg')",
+            backgroundRepeat: "no-repeat",
+            backgroundSize: "cover",
+            backgroundPosition: "center center",
+            opacity: 0.2,
+            fontSize: "16px",
+            letterSpacing: "0.5px",
+          }}
         ></div>
 
         {/* Content */}
@@ -832,7 +1509,7 @@ const Home = () => {
           {/* Button */}
           <div data-aos="fade-left" className="max-w-full">
             <Link
-              href={"/"}
+              href={"/contact"}
               className="relative inline-flex items-center justify-start 
         px-6 sm:px-8 md:px-10 lg:px-12.5 
         py-2.5 sm:py-3 md:py-4

@@ -34,7 +34,7 @@ export default function Header() {
 
       <nav className="hidden lg:flex items-center gap-10 text-[15px] font-medium mr-[25px]">
         {menuItems.map((item, index) => (
-          <a
+            <a
             key={index}
             href="#"
             className={`${inter.className} font-[14px] flex items-center gap-2 hover:text-orange-500 transition `}

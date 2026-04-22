@@ -1,5 +1,14 @@
 @import url("https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@200;300;400;500;600;700;800&display=swap");
 
+@font-face {
+  font-family: "icomoon";
+  src: url("/assets/vendors/ogency-icons/fonts/icomoon3f35.ttf")
+    format("truetype");
+  font-weight: normal;
+  font-style: normal;
+  font-display: swap;
+}
+
 .about-page {
   --about-bg: #ffffff;
   --about-surface: #f3f4f6;
@@ -765,6 +774,18 @@
     line-height: 1;
     font-size: 36px;
   }
+}
+
+.home-showcase-number {
+  color: #ffffff;
+  -webkit-text-fill-color: transparent;
+  -webkit-text-stroke-color: #ffffff;
+}
+
+.home-showcase-row:hover .home-showcase-number,
+.home-showcase-row:focus-within .home-showcase-number {
+  color: #f5900d;
+  -webkit-text-stroke-color: #f5900d;
 }
 
 /* Utility spacing overrides to play nicely with Tailwind */

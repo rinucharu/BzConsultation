@@ -938,7 +938,7 @@ const { slug } = useParams();
     <>
   <div className="max-w-7xl mx-auto pl-3 pr-6 md:pl-24 md:pr-16 py-12">
       
-      <div className="flex flex-col md:flex-row gap-6 items-start">
+      <div className="flex flex-col min-[1049px]:flex-row gap-6 items-start">
 
         {/* LEFT SIDE */}
         <div className="w-full md:w-[70%] text-white
@@ -949,7 +949,7 @@ const { slug } = useParams();
         >
 
           {/* TOP IMAGE */}
-          <div className="relative overflow-hidden">
+          <div className="relative overflow-hidden mb-20">
             <img
               src={blog.image}
               alt="blog"
@@ -974,7 +974,7 @@ const { slug } = useParams();
               </div>
 
               {/* TITLE */}
-              <h2 className="text-white text-[14px] md:text-[25px] font-bold leading-5 md:leading-9 mt-2 break-words">
+              <h2 className="text-white text-[14px] md:text-[28px] font-bold leading-5 md:leading-9 mt-2 break-words">
                 {blog.title}
               </h2>
 
@@ -984,17 +984,24 @@ const { slug } = useParams();
               </p>
             </div>
           </div>
+          {/*  */}
+<div className="block min-[1049px]:hidden mt-6 mb-20 space-y-6">
 
-          {/* ✅ MOBILE ONLY - BELOW IMAGE */}
-          <div className="block md:hidden mt-4">
-            <h2 className="text-[20px] mb-4 font-semibold text-white">
-              In this article
-            </h2>
+  <div>
+    <h2 className="text-[18px] mb-4 font-semibold text-white">
+      In this article
+    </h2>
 
-            <p className="border-l-[3px] border-orange-500 pl-3 py-2 text-[#f79d0f]">
-              RAG Transforming generative AI.
-            </p>
-          </div>
+    <p className="border-l-[3px] border-orange-500 pl-3 py-2 text-[#f79d0f]  text-[14px]">
+      RAG Transforming generative AI.
+    </p>
+  </div>
+
+
+
+</div>
+          
+      
 
           {/* BLOG CONTENT */}
           {blog.content.map((item, index) => {
@@ -1013,38 +1020,46 @@ const { slug } = useParams();
         </div>
 
         {/* RIGHT SIDE */}
-        <div className="w-full md:w-[40%] space-y-6">
+     <div className="w-full md:w-[40%] space-y-6">
 
-          {/* DESKTOP ONLY */}
-          <div className="hidden md:block">
-            <h2 className="text-[20px] mb-6 font-semibold text-white">
-              In this article
-            </h2>
+ 
+  <div className="hidden min-[1049px]:block">
+    <h2 className="text-[18px] lg:text-[20px] mb-4 lg:mb-6 font-semibold text-white">
+      In this article
+    </h2>
 
-            <p className="border-l-[3px] border-orange-500 pl-3 py-2 text-[#f79d0f]">
-              RAG Transforming generative AI.
-            </p>
-          </div>
+    <p className="border-l-[3px] border-orange-500 pl-3 py-2 text-[#f79d0f] text-[14px]">
+      RAG Transforming generative AI.
+    </p>
+  </div>
 
-        
-          <div className="hidden md:flex bg-[#f5900d] rounded-xl p-3 mt-[300px] flex-col w-[380px] items-start gap-4">
-            <p className="text-white font-semibold text-[18px]">
-              Share with your community!
-            </p>
+  {/* SHARE BOX */}
+  <div className="hidden md:flex bg-[#f5900d] mt-[380px] rounded-xl p-3 
+    h-[100px] flex-col 
+    w-[350px]
+    max-w-[280px] md:max-w-[300px] lg:max-w-[380px]
+    items-start gap-3
+    sticky top-20"
+  >
 
-            <div className="flex gap-3">
-              {[FaFacebookF, FaXTwitter, FaLinkedinIn].map((Icon, i) => (
-                <div
-                  key={i}
-                  className="w-10 h-10 bg-white rounded-lg flex items-center justify-center"
-                >
-                  <Icon className="text-[#f5900d]" />
-                </div>
-              ))}
-            </div>
-          </div>
+    <p className="text-white font-semibold text-[14px] md:text-[15px] lg:text-[16px]">
+      Share with your community!
+    </p>
 
+    <div className="flex gap-2 md:gap-3 mb-2">
+      {[FaFacebookF, FaXTwitter, FaLinkedinIn].map((Icon, i) => (
+        <div
+          key={i}
+          className="w-8 h-8 md:w-9 md:h-9 lg:w-10 lg:h-10 bg-white rounded-lg flex items-center justify-center"
+        >
+          <Icon className="text-[#f5900d] text-[16px] md:text-[18px] lg:text-[20px]" />
         </div>
+      ))}
+    </div>
+
+  </div>
+
+</div>
       </div>
 
       {/* RELATED */}
