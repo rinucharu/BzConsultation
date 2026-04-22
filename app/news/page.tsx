@@ -40,7 +40,7 @@ const page = () => {
       font-medium
       leading-[28.125px]
       tracking-[0.5px]
-      text-gray-600 dark:text-gray-300
+      text-gray-600 dark:text-gray-200
       px-0
       py-[25px]
       mt-0 sm:mt-[20px] md:mt-[40px]
@@ -59,7 +59,7 @@ const page = () => {
          <Slide/>
 
         {/* categories */}
-        <div className="">
+        <div className="p-6">
           <h1
             className="
     text-[36px]

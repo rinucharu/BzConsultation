@@ -72,7 +72,7 @@ const Slide = () => {
   ];
 
   return (
-    <div className="flex flex-col items-center w-full">
+    <div className="flex flex-col items-center w-full mt-14">
       <div className="relative w-full max-w-[1520px] h-[350px] sm:h-[650px] overflow-hidden">
         
         {/* SLIDER */}
@@ -95,7 +95,7 @@ const Slide = () => {
 
               {/* White Card */}
               <div
-                className={`relative mb-3 sm:mb-6 ml-3 sm:ml-10 
+                className={`relative mb-3 sm:mb-6 ml-3 sm:ml-15 
                 w-[80%] sm:w-[633px] 
                 px-3 py-4 sm:px-8 sm:py-10
                 bg-white rounded-2xl 
