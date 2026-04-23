@@ -450,15 +450,15 @@ hover:z-20
       {/* text-content section */}
 
       <section className="w-full px-4 sm:px-6   bg-white dark:bg-black">
-        <div className="grid grid-cols-1 md:grid-cols-2 gap-x-8 lg:gap-x-15 mx-auto max-w-7xl">
-          <div className="flex flex-col gap-y-2 md:gap-y-2  md:text-left">
+        <div className="grid grid-cols-1 md:grid-cols-2 gap-x-8 lg:gap-x-15 mx-auto max-w-7xl ">
+          <div className="flex flex-col gap-y-2 md:gap-y-2 text-[500px] md:text-left tracking-[0.5px] leading-[30px]">
             <span className=" w-2 h-2 rounded-full bg-yellow-600" />
 
-            <p className="dark:text-[#eaeaea] uppercase text-base">
+            <p className="dark:text-[#eaeaea] uppercase text-base tracking-[0.5px] leading-[30px]">
               What we’re offering
             </p>
 
-            <h2 className="text-2xl sm:text-3xl md:text-4xl lg:text-[45px]  font-extrabold leading-tight">
+            <h2 className="text-2xl sm:text-3xl md:text-4xl lg:text-[45px]  font-bold tracking-[0.5px] leading-[30px]">
               What your business needs,
             </h2>
           </div>
@@ -466,17 +466,17 @@ hover:z-20
           <div className="mt-6 md:mt-20">
             <ul className="flex flex-col gap-y-6 sm:gap-y-8 md:gap-y-10">
               <li
-                className="text-sm sm:text-base md:text-lg font-medium flex items-start gap-2"
+                className="text-sm sm:text-base md:text-lg font-medium flex text-xl items-start text-justify gap-2 tracking-[0.5px] leading-[30px]"
                 style={{ letterSpacing: "1px" }}
               >
-                <RxDotFilled className="min-w-[24px]" size={24} />
+                <RxDotFilled className="min-w-[24px]" size={24}  />
                 BzAnalytics works with the world's leading Enterprises, SMEs &
                 Startups – to plan, develop, test and expand their digital
                 initiatives.
               </li>
 
               <li
-                className="text-sm sm:text-base md:text-lg font-medium flex items-start gap-2"
+                className="text-sm sm:text-base md:text-lg font-medium flex items-start gap-2 tracking-[0.5px] leading-[30px]"
                 style={{ letterSpacing: "1px" }}
               >
                 <RxDotFilled className="min-w-[24px]" size={24} />
