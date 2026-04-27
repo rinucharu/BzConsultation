@@ -433,6 +433,8 @@
 .about-page.slider-text-one {
   position: relative;
   overflow: hidden;
+  display: flex;
+  align-items: center;
   width: 100%;
   background-color: var(--ogency-black);
   padding: 52px 0;
@@ -440,16 +442,18 @@
 }
 
 .about-page .slider-text-one__animate-text {
-  animation: about-text-scrolling 28s linear infinite;
-  animation-direction: reverse;
-  display: block;
+  animation: about-text-scrolling 34s linear infinite;
+  display: inline-flex;
+  align-items: center;
+  width: max-content;
   white-space: nowrap;
+  will-change: transform;
 }
 
 .about-page .slider-text-one__animate-text span {
   font-size: 80px;
   line-height: 1;
-  margin: 0;
+  margin: 0 28px 0 0;
   color: var(--ogency-white);
   font-weight: 800;
   display: inline-block;
@@ -473,10 +477,10 @@
 
 @keyframes about-text-scrolling {
   0% {
-    transform: translate3d(-100%, 0, 0);
+    transform: translate3d(0, 0, 0);
   }
   100% {
-    transform: translate3d(0%, 0, 0);
+    transform: translate3d(-50%, 0, 0);
   }
 }
 

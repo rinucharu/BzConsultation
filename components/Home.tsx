@@ -109,37 +109,33 @@ const workProcessSteps: WorkProcessStep[] = [
   },
 ];
 
-
-  const homeSlide: Slide[] = [
-    {
-      img: "/image1.jpeg",
-      title: "Future Tech",
-      subtitle:
-        "AI-driven solutions tailored to innovate and transform digital landscapes.",
-      btn: "Learn more about us",
-      href: "/about",
-    },
-    {
-      img: "/image2.jpeg",
-      title: "Smart Minds",
-      subtitle:
-        "Crafting seamless UI experiences that elevate user interactions worldwide.",
-      btn: "Work with us",
-      href: "/contact",
-    },
-    {
-      img: "/image3.jpeg",
-      title: "Talk to us",
-      subtitle:
-        "Innovative code crafted to meet your business needs and goals.",
-      btn: "Work with us",
-      href: "/contact",
-    },
-  ];
+const homeSlide: Slide[] = [
+  {
+    img: "/image1.jpeg",
+    title: "Future Tech",
+    subtitle:
+      "AI-driven solutions tailored to innovate and transform digital landscapes.",
+    btn: "Learn more about us",
+    href: "/about",
+  },
+  {
+    img: "/image2.jpeg",
+    title: "Smart Minds",
+    subtitle:
+      "Crafting seamless UI experiences that elevate user interactions worldwide.",
+    btn: "Work with us",
+    href: "/contact",
+  },
+  {
+    img: "/image3.jpeg",
+    title: "Talk to us",
+    subtitle: "Innovative code crafted to meet your business needs and goals.",
+    btn: "Work with us",
+    href: "/contact",
+  },
+];
 
 const Home = () => {
-
-
   const [currentIndex, setCurrentIndex] = useState(0);
   const [x, setX] = useState(0);
 
@@ -483,15 +479,15 @@ const Home = () => {
       {/* text-content section */}
 
       <section className="w-full px-4 sm:px-6   bg-white dark:bg-black">
-        <div className="grid grid-cols-1 md:grid-cols-2 gap-x-8 lg:gap-x-15 mx-auto max-w-7xl">
-          <div className="flex flex-col gap-y-2 md:gap-y-2  md:text-left">
+        <div className="grid grid-cols-1 md:grid-cols-2 gap-x-8 lg:gap-x-15 mx-auto max-w-7xl ">
+          <div className="flex flex-col gap-y-2 md:gap-y-2 text-[500px] md:text-left tracking-[0.5px] leading-[30px]">
             <span className=" w-2 h-2 rounded-full bg-yellow-600" />
 
-            <p className="dark:text-[#eaeaea] uppercase text-base">
+            <p className="dark:text-[#eaeaea] uppercase text-base tracking-[0.5px] leading-[30px]">
               What we’re offering
             </p>
 
-            <h2 className="text-2xl sm:text-3xl md:text-4xl lg:text-[45px]  font-extrabold leading-tight">
+            <h2 className="text-2xl sm:text-3xl md:text-4xl lg:text-[45px]  font-bold tracking-[0.5px] leading-[30px]">
               What your business needs,
             </h2>
           </div>
@@ -499,7 +495,7 @@ const Home = () => {
           <div className="mt-6 md:mt-20">
             <ul className="flex flex-col gap-y-6 sm:gap-y-8 md:gap-y-10">
               <li
-                className="text-sm sm:text-base md:text-lg font-medium flex items-start gap-2"
+                className="text-sm sm:text-base md:text-lg font-medium flex text-xl items-start text-justify gap-2 tracking-[0.5px] leading-[30px]"
                 style={{ letterSpacing: "1px" }}
               >
                 <RxDotFilled className="min-w-[24px]" size={24} />
@@ -509,7 +505,7 @@ const Home = () => {
               </li>
 
               <li
-                className="text-sm sm:text-base md:text-lg font-medium flex items-start gap-2"
+                className="text-sm sm:text-base md:text-lg font-medium flex items-start gap-2 tracking-[0.5px] leading-[30px]"
                 style={{ letterSpacing: "1px" }}
               >
                 <RxDotFilled className="min-w-[24px]" size={24} />
@@ -520,27 +516,31 @@ const Home = () => {
           </div>
         </div>
       </section>
-      <section className="w-full  bg-white dark:bg-black text-white py-20 px-6 md:px-12 lg:px-20">
+      <section className="w-full bg-white dark:bg-black text-white py-20 px-6 md:px-12 lg:px-20">
         {/* cards */}
-        <div
-          className="w-full theme-bg 
-py-12 sm:py-14 md:py-16
-px-4 sm:px-6 md:px-8
- lg:-mt-[20px]  
-"
-        >
+        <div className="w-full theme-bg py-12 sm:py-14 md:py-16 px-4 sm:px-6 md:px-8 lg:-mt-[20px]">
           <div className="max-w-7xl mx-auto grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
             {/* Card 1 */}
-            <div className="relative w-full max-w-sm overflow-hidden shadow-lg group cursor-pointer">
+            <div className="relative w-full max-w-sm overflow-hidden shadow-lg group cursor-pointer transition-all duration-500 ease-out hover:shadow-2xl">
               <img
                 src="/ux_1.jpg"
                 alt="UX Design"
-                className="w-full h-[350px] object-cover"
+                className="w-full h-[350px] object-cover transition-transform duration-700 ease-out group-hover:scale-110"
               />
 
               {/* Orange Circle */}
               <div className="absolute inset-0 flex items-center justify-center pointer-events-none">
-                <div className="w-56 h-56 rounded-full bg-orange-400/80 flex items-center justify-center transition-opacity duration-500 group-hover:opacity-0 p-4">
+                <div
+                  className="w-56 aspect-square flex-shrink-0 rounded-full bg-orange-400/80 
+          flex items-center justify-center p-4
+
+          transition-all duration-700 ease-[cubic-bezier(0.22,1,0.36,1)]
+
+          group-hover:scale-x-125 group-hover:scale-y-75
+          group-hover:translate-y-40
+          group-hover:opacity-0
+          "
+                >
                   <p className="text-white font-extrabold text-center leading-[1.1]">
                     <span className="block text-2xl sm:text-3xl">UX/UI</span>
                     <span className="block text-2xl sm:text-3xl">Design</span>
@@ -549,7 +549,16 @@ px-4 sm:px-6 md:px-8
               </div>
 
               {/* Black Overlay */}
-              <div className="absolute inset-0 bg-black/60 -translate-y-full flex flex-col items-center justify-center text-center p-4 transition-transform duration-500 group-hover:translate-y-0">
+              <div
+                className="absolute inset-0 bg-black/60 
+        flex flex-col items-center justify-center text-center p-4
+
+        -translate-y-[105%]
+        transition-all duration-500 ease-[cubic-bezier(0.22,1,0.36,1)]
+        delay-200
+
+        group-hover:translate-y-0"
+              >
                 <p className="text-white mb-3 text-sm sm:text-base">
                   Enhancing user experiences through research, wireframes, and
                   prototypes, creating visually appealing and user-friendly
@@ -563,15 +572,25 @@ px-4 sm:px-6 md:px-8
             </div>
 
             {/* Card 2 */}
-            <div className="relative w-full max-w-sm  overflow-hidden shadow-lg group cursor-pointer">
+            <div className="relative w-full max-w-sm overflow-hidden shadow-lg group cursor-pointer transition-all duration-500 ease-out hover:shadow-2xl">
               <img
                 src="/ux_2.jpg"
                 alt="UX Design 2"
-                className="w-full h-[350px] object-cover"
+                className="w-full h-[350px] object-cover transition-transform duration-700 ease-out group-hover:scale-110"
               />
 
               <div className="absolute inset-0 flex items-center justify-center pointer-events-none">
-                <div className="w-56 h-56 rounded-full bg-orange-400/80 flex items-center justify-center transition-opacity duration-500 group-hover:opacity-0 p-4">
+                <div
+                  className="w-56 aspect-square flex-shrink-0 rounded-full bg-orange-400/80 
+          flex items-center justify-center p-4
+
+          transition-all duration-700 ease-[cubic-bezier(0.22,1,0.36,1)]
+
+          group-hover:scale-x-125 group-hover:scale-y-75
+          group-hover:translate-y-40
+          group-hover:opacity-0
+          "
+                >
                   <p className="text-white font-extrabold text-center leading-[1.1]">
                     <span className="block text-2xl sm:text-3xl">
                       On Demand
@@ -582,7 +601,16 @@ px-4 sm:px-6 md:px-8
                 </div>
               </div>
 
-              <div className="absolute inset-0 bg-black/60 -translate-y-full flex flex-col items-center justify-center text-center p-4 transition-transform duration-500 group-hover:translate-y-0">
+              <div
+                className="absolute inset-0 bg-black/60 
+        flex flex-col items-center justify-center text-center p-4
+
+        -translate-y-[105%]
+        transition-all duration-500 ease-[cubic-bezier(0.22,1,0.36,1)]
+        delay-200
+
+        group-hover:translate-y-0"
+              >
                 <p className="text-white mb-3 text-sm sm:text-base">
                   Flexible teams for custom software development, scaling, and
                   extending your internal team's capabilities, led by dedicated
@@ -596,15 +624,25 @@ px-4 sm:px-6 md:px-8
             </div>
 
             {/* Card 3 */}
-            <div className="relative w-full max-w-sm overflow-hidden shadow-lg group cursor-pointer">
+            <div className="relative w-full max-w-sm overflow-hidden shadow-lg group cursor-pointer transition-all duration-500 ease-out hover:shadow-2xl">
               <img
                 src="/ux_3.jpg"
                 alt="UX Design 3"
-                className="w-full h-[350px] object-cover"
+                className="w-full h-[350px] object-cover transition-transform duration-700 ease-out group-hover:scale-110"
               />
 
               <div className="absolute inset-0 flex items-center justify-center pointer-events-none">
-                <div className="w-56 h-56 rounded-full bg-orange-400/80 flex items-center justify-center transition-opacity duration-500 group-hover:opacity-0 p-4">
+                <div
+                  className="w-56 aspect-square flex-shrink-0 rounded-full bg-orange-400/80 
+          flex items-center justify-center p-4
+
+          transition-all duration-700 ease-[cubic-bezier(0.22,1,0.36,1)]
+
+          group-hover:scale-x-125 group-hover:scale-y-75
+          group-hover:translate-y-40
+          group-hover:opacity-0
+          "
+                >
                   <p className="text-white font-extrabold text-center leading-[1.1]">
                     <span className="block text-2xl sm:text-3xl">
                       Mobile App
@@ -616,7 +654,16 @@ px-4 sm:px-6 md:px-8
                 </div>
               </div>
 
-              <div className="absolute inset-0 bg-black/60 -translate-y-full flex flex-col items-center justify-center text-center p-4 transition-transform duration-500 group-hover:translate-y-0">
+              <div
+                className="absolute inset-0 bg-black/60 
+        flex flex-col items-center justify-center text-center p-4
+
+        -translate-y-[105%]
+        transition-all duration-500 ease-[cubic-bezier(0.22,1,0.36,1)]
+        delay-200
+
+        group-hover:translate-y-0"
+              >
                 <p className="text-white mb-3 text-sm sm:text-base">
                   Building iOS and Android apps, including cross-platform
                   development using Flutter, tailored for both consumer and
@@ -630,15 +677,25 @@ px-4 sm:px-6 md:px-8
             </div>
 
             {/* Card 4 */}
-            <div className="relative w-full max-w-sm overflow-hidden shadow-lg group cursor-pointer">
+            <div className="relative w-full max-w-sm overflow-hidden shadow-lg group cursor-pointer transition-all duration-500 ease-out hover:shadow-2xl">
               <img
                 src="/ux_4.jpg"
                 alt="UX Design 4"
-                className="w-full h-[350px] object-cover"
+                className="w-full h-[350px] object-cover transition-transform duration-700 ease-out group-hover:scale-110"
               />
 
               <div className="absolute inset-0 flex items-center justify-center pointer-events-none">
-                <div className="w-56 h-56 rounded-full bg-orange-400/80 flex items-center justify-center transition-opacity duration-500 group-hover:opacity-0 p-4">
+                <div
+                  className="w-56 aspect-square flex-shrink-0 rounded-full bg-orange-400/80 
+          flex items-center justify-center p-4
+
+          transition-all duration-700 ease-[cubic-bezier(0.22,1,0.36,1)]
+
+          group-hover:scale-x-125 group-hover:scale-y-75
+          group-hover:translate-y-40
+          group-hover:opacity-0
+          "
+                >
                   <p className="text-white font-extrabold text-center leading-[1.1]">
                     <span className="block text-2xl sm:text-3xl">Web</span>
                     <span className="block text-2xl sm:text-3xl">
@@ -648,7 +705,16 @@ px-4 sm:px-6 md:px-8
                 </div>
               </div>
 
-              <div className="absolute inset-0 bg-black/60 -translate-y-full flex flex-col items-center justify-center text-center p-4 transition-transform duration-500 group-hover:translate-y-0">
+              <div
+                className="absolute inset-0 bg-black/60 
+        flex flex-col items-center justify-center text-center p-4
+
+        -translate-y-[105%]
+        transition-all duration-500 ease-[cubic-bezier(0.22,1,0.36,1)]
+        delay-200
+
+        group-hover:translate-y-0"
+              >
                 <p className="text-white mb-3 text-sm sm:text-base">
                   Crafting websites, web applications, and custom software,
                   along with creating web portals for specific business
@@ -723,9 +789,10 @@ px-4 sm:px-6 md:px-8
             className="flex w-full justify-between items-center project  border-t border-b py-7.5 dark:border-white border-black group cursor-pointer relative"
           >
             <div className=" flex justify-center items-center gap-x-10 ">
-              <span className=" text-2xl font-extrabold group-hover:text-primary num [-webkit-text-stroke:1px_black]">
-                
-              </span>
+              <span
+                className=" text-2xl font-extrabold group-hover:text-primary num text-transparent   [ -webkit-text-stroke:1px_black ] 
+  dark:[ -webkit-text-stroke:1px_white ]"
+              ></span>
               <h1 className=" text-2xl font-extrabold relative">
                 <span className="inline bg-gradient-to-r from-current to-current bg-no-repeat bg-[length:0%_1px] bg-[position:0_100%] transition-all duration-500 group-hover:bg-[length:100%_1.5px]  [box-decoration-break:clone] [-webkit-box-decoration-break:clone] pb-1 cursor-pointer">
                   Digital Twin of Dubai
@@ -766,9 +833,7 @@ px-4 sm:px-6 md:px-8
             className="flex w-full justify-between items-center relative project border-b py-7.5 dark:border-white border-black group cursor-pointer"
           >
             <div className=" flex justify-center items-center gap-x-10 ">
-              <span className=" text-2xl font-extrabold group-hover:text-primary num ">
-                
-              </span>
+              <span className=" text-2xl font-extrabold group-hover:text-primary num "></span>
               <h1 className=" text-2xl font-extrabold">
                 <span className="inline bg-gradient-to-r from-current to-current bg-no-repeat bg-[length:0%_1px] bg-[position:0_100%] transition-all duration-500 group-hover:bg-[length:100%_1.5px]  [box-decoration-break:clone] [-webkit-box-decoration-break:clone] pb-1 cursor-pointer">
                   BzNFTMart
@@ -809,9 +874,7 @@ px-4 sm:px-6 md:px-8
             className="flex w-full relative justify-between items-center group project border-b py-7.5 dark:border-white border-black cursor-pointer"
           >
             <div className=" flex justify-center items-center gap-x-10">
-              <span className=" text-2xl font-extrabold group-hover:text-primary num">
-                
-              </span>
+              <span className=" text-2xl font-extrabold group-hover:text-primary num"></span>
               <h1 className=" text-2xl font-extrabold">
                 <span className="inline bg-gradient-to-r from-current to-current bg-no-repeat bg-[length:0%_1px] bg-[position:0_100%] transition-all duration-500 group-hover:bg-[length:100%_1.5px]  [box-decoration-break:clone] [-webkit-box-decoration-break:clone] pb-1 cursor-pointer">
                   AI Medical Imaging
@@ -852,9 +915,7 @@ px-4 sm:px-6 md:px-8
             className="flex w-full group relative justify-between items-center project border-b py-7.5 dark:border-white border-[#1a1a1a] cursor-pointer"
           >
             <div className=" flex justify-center items-center gap-x-10">
-              <span className=" text-2xl font-extrabold group-hover:text-primary num">
-                
-              </span>
+              <span className=" text-2xl font-extrabold group-hover:text-primary num"></span>
               <h1 className=" text-2xl font-extrabold">
                 <span className="inline bg-gradient-to-r from-current to-current bg-no-repeat bg-[length:0%_1px] bg-[position:0_100%] transition-all duration-500 group-hover:bg-[length:100%_1.5px]  [box-decoration-break:clone] [-webkit-box-decoration-break:clone] pb-1 cursor-pointer">
                   AI Sustainability
@@ -1304,7 +1365,10 @@ px-4 sm:px-6 md:px-8
 
             <div className="work-process-grid relative grid gap-10 md:grid-cols-3 md:gap-8 lg:gap-12">
               {workProcessSteps.map((step) => (
-                <div key={step.id} className="work-process-step text-center">
+                <div
+                  key={step.id}
+                  className="work-process-step group text-center"
+                >
                   <div className="relative mx-auto mb-7 h-44 w-44 rounded-full border-[3px] border-[#f5900d] bg-black p-1.5 sm:h-52 sm:w-52">
                     <div className="work-process-one__item__thumb relative h-full w-full overflow-hidden rounded-full bg-black">
                       <Image
@@ -1314,7 +1378,17 @@ px-4 sm:px-6 md:px-8
                         className="object-cover"
                       />
                     </div>
-                    <span className="absolute right-[-6px] top-[-6px] grid h-14 w-14 place-items-center rounded-full bg-[#f5900d] text-3xl font-extrabold text-white sm:h-16 sm:w-16 sm:text-4xl">
+                    <span
+                      className="work-process-step-badge absolute right-[-6px] top-[-6px] grid h-14 w-14 scale-100 place-items-center rounded-full bg-[#f5900d] transform-gpu transition-transform duration-500 [transition-timing-function:cubic-bezier(0.22,1,0.36,1)] [will-change:transform] group-hover:scale-[0.92] group-focus-within:scale-[0.92] sm:h-16 sm:w-16"
+                      style={{
+                        fontFamily:
+                          "var(--ogency-font, 'Plus Jakarta Sans', sans-serif)",
+                        fontSize: "20px",
+                        fontWeight: 800,
+                        lineHeight: 0.8,
+                        color: "var(--ogency-white, #ffffff)",
+                      }}
+                    >
                       {step.id}
                     </span>
                   </div>
@@ -1341,14 +1415,15 @@ px-4 sm:px-6 md:px-8
                   <p
                     className="mx-auto max-w-[390px]"
                     style={{
-                      fontFamily: "'Plus Jakarta Sans', sans-serif",
+                      fontFamily:
+                        "var(--ogency-font, 'Plus Jakarta Sans', sans-serif)",
                       fontSize: "16px",
-                      fontWeight: 800,
+                      fontWeight: 500,
                       lineHeight: "30px",
                       letterSpacing: "0.5px",
-                      color: "#ffffff",
+                      color: "var(--ogency-white, #ffffff)",
                       marginTop: 0,
-                      marginBottom: "1rem",
+                      marginBottom: 0,
                     }}
                   >
                     {step.description}
