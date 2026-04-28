@@ -1,5 +1,4 @@
 "use client";
-
 import Threecard from "@/components/Blog/Threecard";
 import BreadcrumbWrapper from "@/components/BreadcrumbWrapper";
 import Header from "@/components/Header";
@@ -10,7 +9,7 @@ import { FaXTwitter } from "react-icons/fa6";
 const blogsData = [
   {
     id: 1,
-     slug: "rag-transforming-ai",
+    slug: "rag-transforming-ai",
     title:
       "Bridging the Gap: How RAG (Retrieval Augmented Generation) is Transforming Generative AI",
     category: "Technology & Business",
@@ -119,7 +118,7 @@ const blogsData = [
   },
   {
     id: 2,
-      slug: "virtual-try-on-digital-innovation",
+    slug: "virtual-try-on-digital-innovation",
     title:
       "Unlocking the Future of Fashion : The Power of Virtual Try-On and Digital Innovation",
     category: "Technology & Business",
@@ -251,7 +250,7 @@ const blogsData = [
   },
   {
     id: 3,
-      slug: "applications-of-machine-learning-in-the-fashion-industry",
+    slug: "applications-of-machine-learning-in-the-fashion-industry",
     title: "Applications Of Machine Learning In The Fashion Industry",
     category: "Technology & Business",
     date: "oct 20",
@@ -403,7 +402,6 @@ const blogsData = [
       {
         type: "p",
         text: "visit our website:WWW.BZANALYTICS.AI",
-        
       },
 
       {
@@ -414,7 +412,7 @@ const blogsData = [
   },
   {
     id: 5,
-     slug: "data-analytics-intelligent-business",
+    slug: "data-analytics-intelligent-business",
     title: "Data Analytics : Intelligent Business",
     category: "Technology & Business",
     date: "Nov 18",
@@ -460,7 +458,7 @@ const blogsData = [
   },
   {
     id: 6,
-     slug: "cloud-computing-benefits-services",
+    slug: "cloud-computing-benefits-services",
     title: "Data Analytics : Intelligent Business",
     category: "Technology & Business",
     date: "May 01",
@@ -549,7 +547,7 @@ const blogsData = [
   },
   {
     id: 7,
-     slug: "transition-from-2-to-3",
+    slug: "transition-from-2-to-3",
     title: "Data Analytics : Intelligent Business",
     category: "Technology & Business",
     date: "July 29",
@@ -613,7 +611,7 @@ const blogsData = [
   },
   {
     id: 8,
-      slug: "unity-3d-game-development",
+    slug: "unity-3d-game-development",
     title:
       "Unity 3D Game Development And How It Will Revolutionize The Metaverse",
     category: "Technology & Business",
@@ -634,20 +632,20 @@ const blogsData = [
         type: "h2",
         text: "As a platform and game engine, Unity has aligned itself over the years to be at the forefront of all trends. This is one of its USPs. It not only supports the development of mobile games but also supports AR and VR elements in games as well.Notable features that add to its popularity include:",
       },
-     
+
       {
         type: "p",
         text: "• Affordable Cost: Anyone can get started with Unity via its free version. And for veteran developers who are looking for extra features, affordable monthly plans do the trick.",
       },
       {
         type: "p",
-        text: "• Less Code Dependency:Unity is beginner-friendly and does not require much prior coding knowledge. In fact, it is possible to create a game from scratch without even writing a single line of code."
+        text: "• Less Code Dependency:Unity is beginner-friendly and does not require much prior coding knowledge. In fact, it is possible to create a game from scratch without even writing a single line of code.",
       },
-       {
+      {
         type: "p",
         text: "•Strong Community Support: Unity sports a friendly community environment where developers can always reach out for and receive prompt help. ",
       },
-       {
+      {
         type: "p",
         text: "• Graphic Suite: With a rich library of high-quality visual effects and high customization, Unity supports the development of intuitive games with smooth and natural movements and rendering.",
       },
@@ -927,7 +925,7 @@ const blogsData = [
 ];
 
 export default function BlogPage() {
-const { slug } = useParams();
+  const { slug } = useParams();
 
   const blog = blogsData.find((b) => b.slug === slug);
   if (!blog) {
@@ -936,139 +934,166 @@ const { slug } = useParams();
 
   return (
     <>
-  <div className="max-w-7xl mx-auto pl-3 pr-6 md:pl-24 md:pr-16 py-12">
-      
-      <div className="flex flex-col min-[1049px]:flex-row gap-6 items-start">
-
-        {/* LEFT SIDE */}
-        <div className="w-full md:w-[70%] text-white
+      <div className="max-w-7xl mx-auto pl-3 pr-6 md:pl-24 md:pr-16 py-12">
+        <div className="flex flex-col min-[1049px]:flex-row gap-6 items-start">
+          {/* LEFT SIDE */}
+          <div
+            className="w-full md:w-[70%] text-white
           [&>h1]:text-[30px] [&>h1]:font-light [&>h1]:mb-[13px] [&>h1]:mt-6
           [&>h2]:text-[20px] [&>h2]:font-bold [&>h2]:mb-[13px] [&>h2]:mt-5
           [&>p]:text-[16px] [&>p]:leading-[1.875] [&>p]:tracking-[0.5px] [&>p]:mt-4
           [&>img]:rounded-xl [&>img]:my-5 [&>img]:border [&>img]:border-white"
-        >
+          >
+            {/* TOP IMAGE */}
+            <div className="relative overflow-hidden mb-20">
+              <img
+                src={blog.image}
+                alt="blog"
+                className="w-full md:w-[700px] h-[360px] sm:h-[280px] md:h-[450px] object-cover"
+              />
 
-          {/* TOP IMAGE */}
-          <div className="relative overflow-hidden mb-20">
-            <img
-              src={blog.image}
-              alt="blog"
-              className="w-full md:w-[700px] h-[360px] sm:h-[280px] md:h-[450px] object-cover"
-            />
-
-            {/* OVERLAY */}
-            <div className="absolute bottom-0 left-0 w-full 
+              {/* OVERLAY */}
+              <div
+                className="absolute bottom-0 left-0 w-full 
               h-[85%] sm:h-[75%] md:h-[45%] 
-              bg-black/40 backdrop-blur-sm">
-            </div>
+              bg-black/40 backdrop-blur-sm"
+              ></div>
 
-            {/* CONTENT */}
-            <div className="absolute bottom-2 left-3 md:left-6 right-3 md:right-6 flex flex-col gap-1">
+              {/* CONTENT */}
+              <div className="absolute bottom-2 left-3 md:left-6 right-3 md:right-6 flex flex-col gap-1">
+                {/* BADGE */}
+                <div className="inline-flex items-center gap-2 bg-white px-2 py-1.5 rounded-2xl w-fit max-w-full">
+                  <span className="w-4 h-4 bg-[#4900a7] rounded-full shrink-0"></span>
+                  <p className="text-[10px] sm:text-sm text-[#4900a7] break-words">
+                    {blog.category}
+                  </p>
+                </div>
 
-              {/* BADGE */}
-              <div className="inline-flex items-center gap-2 bg-white px-2 py-1.5 rounded-2xl w-fit max-w-full">
-                <span className="w-4 h-4 bg-[#4900a7] rounded-full shrink-0"></span>
-                <p className="text-[10px] sm:text-sm text-[#4900a7] break-words">
-                  {blog.category}
+                {/* TITLE */}
+                <h2 className="text-white text-[14px] md:text-[28px] font-bold leading-5 md:leading-9 mt-2 break-words">
+                  {blog.title}
+                </h2>
+
+                {/* META */}
+                <p className="text-white text-[11px] sm:text-[14px] mt-1">
+                  {blog.date} • {blog.readTime}
                 </p>
               </div>
+            </div>
+            {/*  */}
+            <div className="block min-[1049px]:hidden mt-6 mb-20 space-y-6">
+              <div>
+                <h2 className="text-[18px] mb-4 font-semibold text-white">
+                  In this article
+                </h2>
 
-              {/* TITLE */}
-              <h2 className="text-white text-[14px] md:text-[28px] font-bold leading-5 md:leading-9 mt-2 break-words">
-                {blog.title}
+                <p className="border-l-[3px] border-orange-500 pl-3 py-2 text-[#f79d0f]  text-[14px]">
+                  RAG Transforming generative AI.
+                </p>
+              </div>
+            </div>
+            {/* BLOG CONTENT */}
+            {blog.content.map((item, index) => {
+              if (item.type === "h1") return <h1 key={index}>{item.text}</h1>;
+              if (item.type === "h2") return <h2 key={index}>{item.text}</h2>;
+              if (item.type === "p") return <p key={index}>{item.text}</p>;
+              if (item.type === "img")
+                return <img key={index} src={item.src} alt="" />;
+              if (item.type === "ol" && item.items)
+                return (
+                  <ul key={index} className="list-disc pl-5 mt-4 space-y-3">
+                    {item.items.map((li, i) => (
+                      <li key={i}>{li}</li>
+                    ))}
+                  </ul>
+                );
+              return null;
+            })}
+             {/* SHARE SECTION */}
+      <div
+        className="flex items-center justify-between flex-wrap gap-4"
+        style={{
+          marginTop: "24px",
+          padding: "16px 20px",
+          backgroundColor: "#f5900d",
+          width: "100%",
+          borderRadius: "14px",
+        }}
+      >
+        <p style={{ color: "white", fontWeight: "600" }}>
+          Like what you see? Share with friends
+        </p>
+
+        <div style={{ display: "flex", gap: "12px" }}>
+          {[FaFacebookF, FaXTwitter, FaLinkedinIn].map((Icon, i) => (
+            <div
+              key={i}
+              style={{
+                backgroundColor: "white",
+                width: "34px",
+                height: "34px",
+                display: "flex",
+                alignItems: "center",
+                justifyContent: "center",
+                borderRadius: "10px",
+              }}
+            >
+              <Icon style={{ color: "#f5900d" }} />
+            </div>
+          ))}
+        </div>
+      </div>
+
+      <hr className="mt-7 border-t border-gray-300 opacity-50" />
+          </div>
+
+          {/* RIGHT SIDE */}
+          <div className="w-full md:w-[40%] space-y-6">
+            <div className="hidden min-[1049px]:block">
+              <h2 className="text-[18px] lg:text-[20px] mb-4 lg:mb-6 font-semibold text-white">
+                In this article
               </h2>
 
-              {/* META */}
-              <p className="text-white text-[11px] sm:text-[14px] mt-1">
-                {blog.date} • {blog.readTime}
+              <p className="border-l-[3px] border-orange-500 pl-3 py-2 text-[#f79d0f] text-[14px]">
+                RAG Transforming generative AI.
               </p>
             </div>
-          </div>
-          {/*  */}
-<div className="block min-[1049px]:hidden mt-6 mb-20 space-y-6">
 
-  <div>
-    <h2 className="text-[18px] mb-4 font-semibold text-white">
-      In this article
-    </h2>
-
-    <p className="border-l-[3px] border-orange-500 pl-3 py-2 text-[#f79d0f]  text-[14px]">
-      RAG Transforming generative AI.
-    </p>
-  </div>
-
-
-
-</div>
-          
-      
-
-          {/* BLOG CONTENT */}
-          {blog.content.map((item, index) => {
-            if (item.type === "h1") return <h1 key={index}>{item.text}</h1>;
-            if (item.type === "h2") return <h2 key={index}>{item.text}</h2>;
-            if (item.type === "p") return <p key={index}>{item.text}</p>;
-            if (item.type === "img") return <img key={index} src={item.src} alt="" />;
-            if (item.type === "ol" && item.items)
-              return (
-                <ul key={index} className="list-disc pl-5 mt-4 space-y-3">
-                  {item.items.map((li, i) => <li key={i}>{li}</li>)}
-                </ul>
-              );
-            return null;
-          })}
-        </div>
-
-        {/* RIGHT SIDE */}
-     <div className="w-full md:w-[40%] space-y-6">
-
- 
-  <div className="hidden min-[1049px]:block">
-    <h2 className="text-[18px] lg:text-[20px] mb-4 lg:mb-6 font-semibold text-white">
-      In this article
-    </h2>
-
-    <p className="border-l-[3px] border-orange-500 pl-3 py-2 text-[#f79d0f] text-[14px]">
-      RAG Transforming generative AI.
-    </p>
-  </div>
-
-  {/* SHARE BOX */}
-  <div className="hidden md:flex bg-[#f5900d] mt-[380px] rounded-xl p-3 
+            {/* SHARE BOX */}
+            <div
+              className="hidden md:flex bg-[#f5900d] mt-[380px] rounded-xl p-3 
     h-[100px] flex-col 
     w-[350px]
     max-w-[280px] md:max-w-[300px] lg:max-w-[380px]
     items-start gap-3
     sticky top-20"
-  >
+            >
+              <p className="text-white font-semibold text-[14px] md:text-[15px] lg:text-[16px]">
+                Share with your community!
+              </p>
 
-    <p className="text-white font-semibold text-[14px] md:text-[15px] lg:text-[16px]">
-      Share with your community!
-    </p>
-
-    <div className="flex gap-2 md:gap-3 mb-2">
-      {[FaFacebookF, FaXTwitter, FaLinkedinIn].map((Icon, i) => (
-        <div
-          key={i}
-          className="w-8 h-8 md:w-9 md:h-9 lg:w-10 lg:h-10 bg-white rounded-lg flex items-center justify-center"
-        >
-          <Icon className="text-[#f5900d] text-[16px] md:text-[18px] lg:text-[20px]" />
+              <div className="flex gap-2 md:gap-3 mb-2">
+                {[FaFacebookF, FaXTwitter, FaLinkedinIn].map((Icon, i) => (
+                  <div
+                    key={i}
+                    className="w-8 h-8 md:w-9 md:h-9 lg:w-10 lg:h-10 bg-white rounded-lg flex items-center justify-center"
+                  >
+                    <Icon className="text-[#f5900d] text-[16px] md:text-[18px] lg:text-[20px]" />
+                  </div>
+                ))}
+              </div>
+            </div>
+          </div>
         </div>
-      ))}
-    </div>
 
-  </div>
 
-</div>
+        {/* RELATED */}
+        <h1 className="text-[20px] md:text-[29px] text-white font-black mt-7 ml-2">
+          Related Articles
+        </h1>
+
+        <Threecard />
       </div>
-
-      {/* RELATED */}
-      <h1 className="text-[20px] md:text-[29px] text-white font-black mt-7 ml-2">
-        Related Articles
-      </h1>
-
-      <Threecard />
-    </div>
     </>
   );
 }
