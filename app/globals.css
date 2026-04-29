@@ -129,6 +129,28 @@
 }
 
 
+@layer components {
+  .slide {
+    width: 100%;
+    height: 100%;
+    background-size: cover;
+    background-position: center;
+  }
+
+  .project h1 {
+    @apply relative;
+  }
+
+  .project h1::after {
+    content: "";
+    @apply block absolute left-0 bottom-0 h-[1.5px] w-0 bg-black dark:bg-white transition-all duration-300;
+  }
+
+  .project:hover h1::after {
+
+    @apply w-full;
+
+  }
   .work-process-kicker {
     font-size: 14px;
     font-family: "Plus Jakarta Sans", sans-serif;
@@ -193,11 +215,12 @@
       grid-template-columns: 1fr !important;
     }
 
-    .work-process-grid .work-process-step {
+  .work-process-grid .work-process-step {
       grid-column: auto !important;
       justify-self: stretch;
     }
   }
+}
 
 
 .consultant {

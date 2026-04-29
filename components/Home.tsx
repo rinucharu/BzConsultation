@@ -109,6 +109,10 @@ const workProcessSteps: WorkProcessStep[] = [
   },
 ];
 
+type HomeProps = {
+  showHero?: boolean;
+};
+
 const homeSlide: Slide[] = [
   {
     img: "/image1.jpeg",
@@ -135,7 +139,7 @@ const homeSlide: Slide[] = [
   },
 ];
 
-const Home = () => {
+const Home = ({ showHero = true }: HomeProps) => {
   const [currentIndex, setCurrentIndex] = useState(0);
   const [x, setX] = useState(0);
 
@@ -149,7 +153,9 @@ const Home = () => {
     return () => clearInterval(interval);
   }, []);
 
-  const handleProjectHover = (e: any) => {
+  const handleProjectHover = (
+    e: React.MouseEvent<HTMLDivElement, MouseEvent>,
+  ) => {
     const rect = e.currentTarget.getBoundingClientRect();
 
     const xPos =
@@ -209,77 +215,78 @@ const Home = () => {
 
   return (
     <>
-      {/* banner section */}
-      <section className="w-full h-screen">
-        <div className="w-full min-h-[90vh] relative">
-          <div className="pt-[80px]">
-            {" "}
-            {/* adjust based on navbar height */}
-            <div
-              style={{ backgroundImage: `url(${homeSlide[currentIndex].img})` }}
-              className="w-full h-full object-contain"
-            ></div>
-          </div>
+      {showHero ? (
+        <section className="">
+          <div className="w-full min-h-[90vh] relative">
+            <div className="pt-[80px]">
+              {" "}
+              {/* adjust based on navbar height */}
+              <div
+                style={{ backgroundImage: `url(${homeSlide[currentIndex].img})` }}
+                className="w-full h-[calc(100vh-80px)] bg-center bg-no-repeat bg-cover absolute inset-0"
+              ></div>
+            </div>
 
-          <div className=" max-w-7xl  flex justify-between gap-x-10 items-center">
-            <div className="absolute left-0 md:left-50 inset-0 flex flex-col justify-center items-start gap-3 px-4">
-              <h6
-                style={{ textShadow: "2px 2px 4px rgba(0 ,0 ,0 ,0.6)" }}
-                className="text-[1.5rem] md:text-4xl font-bold text-white"
-              >
-                {homeSlide[currentIndex].title}
-              </h6>
+            <div className=" max-w-7xl  flex justify-between gap-x-10 items-center">
+              <div className="absolute left-0 md:left-50 inset-0 flex flex-col justify-center items-start gap-3 px-4">
+                <h6
+                  style={{ textShadow: "2px 2px 4px rgba(0 ,0 ,0 ,0.6)" }}
+                  className="text-[1.5rem] md:text-4xl font-bold text-white"
+                >
+                  {homeSlide[currentIndex].title}
+                </h6>
 
-              <p className="mt-4 text-sm p-lead lead sm:text-lg md:text-xl inline-block md:min-w-full  w-60 text-white">
-                {homeSlide[currentIndex].subtitle}
-              </p>
+                <p className="mt-4 text-sm p-lead lead sm:text-lg md:text-xl inline-block md:min-w-full  w-60 text-white">
+                  {homeSlide[currentIndex].subtitle}
+                </p>
 
-              <Link
-                href={homeSlide[currentIndex].href}
-                className="relative inline-flex items-center justify-center 
+                <Link
+                  href={homeSlide[currentIndex].href}
+                  className="relative inline-flex items-center justify-center 
              px-6 sm:px-8 lg:px-10 py-3 sm:py-4
              bg-primary hover:border-black hover:border-2
              overflow-hidden group cursor-pointer"
-              >
-                {/* Animated background */}
-                <span
-                  className="absolute top-1/2 left-1/2 
+                >
+                  {/* Animated background */}
+                  <span
+                    className="absolute top-1/2 left-1/2 
                w-[300%] h-[300%] sm:w-[600%] sm:h-[600%]
                bg-white 
                -translate-x-1/2 -translate-y-1/2 rotate-[-25deg]
                scale-0 group-hover:scale-100
                transition-transform duration-500 ease-out"
-                ></span>
+                  ></span>
 
-                {/* Text */}
-                <span
-                  className="relative z-10 
+                  {/* Text */}
+                  <span
+                    className="relative z-10 
                text-white group-hover:text-primary
                transition-colors duration-300 
                font-bold sm:font-extrabold
                text-sm sm:text-base lg:text-[17px]"
-                >
-                  {homeSlide[currentIndex].btn}
-                </span>
-              </Link>
-            </div>
+                  >
+                    {homeSlide[currentIndex].btn}
+                  </span>
+                </Link>
+              </div>
 
-            <div className="absolute bottom-[50%] lg:right-30 right-5 flex flex-col gap-3">
-              {homeSlide.map((eachSlide, slideIndex) => (
-                <div
-                  key={slideIndex}
-                  onClick={() => setCurrentIndex(slideIndex)}
-                  className={`lg:text-3xl text-lg cursor-pointer  w-7 h-7 rounded-full border-4 hover:text-white hover:bg-white ${
-                    currentIndex === slideIndex
-                      ? "text-white bg-white border-white"
-                      : "border-white/60"
-                  }`}
-                ></div>
-              ))}
+              <div className="absolute bottom-[50%] lg:right-30 right-5 flex flex-col gap-3">
+                {homeSlide.map((eachSlide, slideIndex) => (
+                  <div
+                    key={slideIndex}
+                    onClick={() => setCurrentIndex(slideIndex)}
+                    className={`lg:text-3xl text-lg cursor-pointer  w-7 h-7 rounded-full border-4 hover:text-white hover:bg-white ${
+                      currentIndex === slideIndex
+                        ? "text-white bg-white border-white"
+                        : "border-white/60"
+                    }`}
+                  ></div>
+                ))}
+              </div>
             </div>
           </div>
-        </div>
-      </section>
+        </section>
+      ) : null}
 
       {/* infinite caraousal */}
       <section className="">
