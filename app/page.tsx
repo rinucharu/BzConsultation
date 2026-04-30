@@ -1,13 +1,12 @@
-import BreadcrumbWrapper from "@/components/BreadcrumbWrapper";
+import HomeHero from "@/components/home-hero";
 import Home from "@/components/Home";
 import "./about/about.css";
-
-import React from "react";
 
 const page = () => {
   return (
     <>
-      <Home />
+      <HomeHero />
+      <Home showHero={false} />
     </>
   );
 };
