@@ -455,7 +455,7 @@ const Home = ({ showHero = true }: HomeProps) => {
               {cards.map((card, index) => (
                 <div
                   key={index}
-                  className="group/card relative w-[380px] h-[250px] flex-shrink-0 rounded-[10px] overflow-hidden cursor-pointer
+                  className="group/card relative w-[380px] h-[250px] flex-shrink-0 rounded-[2px] overflow-hidden cursor-pointer
            transition-transform duration-500 ease-[cubic-bezier(0.22,1,0.36,1)]
            group-hover:translate-x-3 hover:!translate-x-0
            hover:scale-110 hover:z-20"
