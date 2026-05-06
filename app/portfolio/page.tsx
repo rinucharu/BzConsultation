@@ -3,6 +3,101 @@
 import Image from "next/image";
 import {useState } from 'react';
 import BreadcrumbWrapper from '@/components/BreadcrumbWrapper';
+import Link from "next/link";
+
+type story = {
+  id: number;
+  slug: string; 
+  title: string;
+  category: string;
+  date: string;
+  readTime: string;
+  image: string;
+};
+
+  const storyData: story[] = [
+    {
+        id: 1,
+        slug: "metaverse-gaming",
+        title: "metaverse and gaming projects showcase",
+        category: "Technology",
+        date: "2023-01-01",
+        readTime: "5 min",
+        image: "/img1.jpg"
+    },
+    {
+        id: 2,
+        slug: "energy",
+        title: "Energy & Manufacturing projects showcase",
+        category: "Industry",
+        date: "2023-01-01",
+        readTime: "5 min",
+        image: "/img2.jpg"
+    },
+    {
+        id: 3,
+        slug: "sdg",
+        title: "sdg projects showcase",
+        category: "Industry",
+        date: "2023-01-01",
+        readTime: "5 min",
+        image: "/img2.jpg"
+    },
+    {
+        id: 4,
+        slug: "healthcare",
+        title: "Energy & Manufacturing projects showcase",
+        category: "Industry",
+        date: "2023-01-01",
+        readTime: "5 min",
+        image: "/img2.jpg"
+    },
+    {
+        id: 5,
+        slug: "textile",
+        title: "Energy & Manufacturing projects showcase",
+        category: "Industry",
+        date: "2023-01-01",
+        readTime: "5 min",
+        image: "/img2.jpg"
+    },
+    {
+        id: 6,
+        slug: "corporate",
+        title: "Energy & Manufacturing projects showcase",
+        category: "Industry",
+        date: "2023-01-01",
+        readTime: "5 min",
+        image: "/img2.jpg"
+    },
+    {
+        id: 7,
+        slug: "advertising",
+        title: "Energy & Manufacturing projects showcase",
+        category: "Industry",
+        date: "2023-01-01",
+        readTime: "5 min",
+        image: "/img2.jpg"
+    },
+    {
+        id: 8,
+        slug: "psu",
+        title: "Energy & Manufacturing projects showcase",
+        category: "Industry",
+        date: "2023-01-01",
+        readTime: "5 min",
+        image: "/img2.jpg"
+    },
+    {
+        id: 9,
+        slug: "finance",
+        title: "Energy & Manufacturing projects showcase",
+        category: "Industry",
+        date: "2023-01-01",
+        readTime: "5 min",
+        image: "/img2.jpg"
+    },
+  ]
 
 interface CardItem {
   title: string;
@@ -91,15 +186,21 @@ const SuccessStories = () => {
 
  
 <div className="mt-4 md:mt-6">
-  <button className="group/btn relative overflow-hidden border-2 border-black/10 dark:border-white bg-black text-white px-5 py-2.5 md:px-6 md:py-3 text-[10px] sm:text-xs font-extrabold cursor-pointer transition-all duration-300 uppercase tracking-wider hover:text-orange-500">
-    
-    <span className="absolute left-1/2 top-1/2 w-[160%] h-0 bg-white -translate-x-1/2 -translate-y-1/2 rotate-[-25deg] transition-all duration-500 ease-in-out group-hover/btn:h-[500%] z-0"></span>
-    
-    <span className="relative z-10">
-      Know More &gt;&gt;
-    </span>
+  <Link
+    href={`/industries/${storyData[index]?.slug}`}
 
-  </button>
+  className="group/btn relative inline-block overflow-hidden border-2 border-black/10 dark:border-white bg-black text-white px-5 py-2.5 text-xs font-extrabold uppercase tracking-wider transition-all duration-300 hover:scale-105"
+>
+  
+  {/* Animated Background */}
+  <span className="absolute left-1/2 top-1/2 w-[150%] h-0 bg-white -translate-x-1/2 -translate-y-1/2 rotate-[-25deg] transition-all duration-500 ease-in-out group-hover/btn:h-[400%] z-0"></span>
+  
+  {/* Text */}
+  <span className="relative z-10 transition-colors duration-300 group-hover/btn:text-orange-400">
+    Know More &gt;&gt;
+  </span>
+
+</Link>
 </div>
                 </div>
                 <div className="absolute inset-x-0 bottom-0 h-4 bg-inherit z-10" />
