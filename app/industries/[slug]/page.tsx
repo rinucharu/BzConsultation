@@ -52,7 +52,7 @@ const pageData = [
    },
   { id: 7, slug: "advertising", title: "Advertising", img: "/img7.jpg",
         projects: [
-      { num: "01", title: "Synergy in Web Design", img: "/bztool.jpg" },
+      { num: "01", title: "Synergy in Web Design", img: "/web.jpg" },
     ]
    },
   { id: 8, slug: "psu", title: "PSU", img: "/img8.jpg",
