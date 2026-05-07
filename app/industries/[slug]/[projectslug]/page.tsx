@@ -23,7 +23,7 @@ interface ColumnItem {
 }
 
 interface ContentItem {
-  type: "text" | "image" | "grid" | "list" | "columns" | "image-grid" | "bullet-list" | "video";
+  type: "text" | "image" | "grid" | "list" | "columns" | "image-grid" | "bullet-list";
   heading?: string;
   subheading?: string;
   smallHeading?: string; 
@@ -40,11 +40,6 @@ interface ContentItem {
   mb?: string;
   gap?: string;
   reverse?: boolean; 
-  videoUrl?: string;
-  autoPlay?: boolean;
-  loop?: boolean;
-  muted?: boolean;
-  controls?: boolean;
 }
 
 interface Project {
@@ -1017,6 +1012,14 @@ const pageData: Industry[] = [
             text: "BzAnalytics set up an automated alarm system to notify key stakeholders when the customer happiness index diverged from established thresholds; this enabled proactive responses to key events, such as handling consumer complaints or finding areas for improvement." 
           },
           { 
+            type: "image", 
+            img: "/feedback2.gif", 
+            width: "1122px", 
+            height: "793px",
+            mt:"40px",
+            mb:"50px"
+          },
+          { 
             type: "text", 
             subheading: "Improved Decision-makingIntegration:", 
             text: "The Power BI dashboard helped several departments to make data-driven decisions that improved the entire customer experience, resulting in greater customer happiness and loyalty." 
@@ -1240,28 +1243,6 @@ if (item.type === "image-grid") {
             />
           </motion.div>
         ))}
-      </div>
-    </div>
-  );
-}
-
-// --- VIDEO RENDERER ---
-if (item.type === "video") {
-  return (
-    <div 
-      key={index} 
-      style={{ marginTop: item.mt || "0px", marginBottom: item.mb || "4rem" }}
-      className="w-full flex justify-center"
-    >
-      <div className="relative overflow-hidden rounded-lg shadow-2xl" style={{ width: item.width || "100%", height: item.height || "auto" }}>
-        <video
-          src={item.videoUrl}
-          autoPlay={item.autoPlay ?? true}
-          loop={item.loop ?? true}
-          muted={item.muted ?? true}
-          controls={item.controls ?? true}
-          className="w-full h-full object-cover"
-        />
       </div>
     </div>
   );
