@@ -58,7 +58,7 @@ const page = () => {
         {/* slider */}
         <Slide />
         {/* categories */}
-        <div className="">
+        <div className="pl-10">
           <h1
             className="
     text-[36px]

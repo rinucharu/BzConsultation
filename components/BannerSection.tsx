@@ -1,3 +1,5 @@
+"use client";
+
 import React from "react";
 import {
   Breadcrumb,
@@ -8,6 +10,7 @@ import {
   BreadcrumbSeparator,
 } from "@/components/ui/breadcrumb";
 import Link from "next/link";
+import { usePathname } from "next/navigation";
 
 type BreadcrumbItemType = {
   label: string;
@@ -19,8 +22,16 @@ type Props = {
 };
 
 const BannerSection: React.FC<Props> = ({ items }) => {
+  const pathname = usePathname();
+  const segments = pathname.split("/").filter(Boolean);
+
+  const isBlogDetail =
+    segments.length === 2 && segments[0] === "blogs";
+
   return (
-    <div className="relative z-10 max-w-6xl mx-auto  w-full space-y-4 px-[15px]">
+    <div className="relative z-10 max-w-6xl mx-auto w-full space-y-4 px-[15px]">
+      
+      {/* ✅ Breadcrumb */}
       <Breadcrumb>
         <BreadcrumbList>
           {items.map((item, index) => (
@@ -29,7 +40,7 @@ const BannerSection: React.FC<Props> = ({ items }) => {
                 {item.href ? (
                   <BreadcrumbLink
                     asChild
-                    className="text-black dark:text-white text-[16px] md:text-[16px] font-medium hover:text-primary transition"
+                    className="text-black dark:text-white text-[16px] font-medium hover:text-primary transition"
                   >
                     <Link href={item.href}>{item.label}</Link>
                   </BreadcrumbLink>
@@ -39,13 +50,16 @@ const BannerSection: React.FC<Props> = ({ items }) => {
                   </BreadcrumbPage>
                 )}
               </BreadcrumbItem>
+
               {index < items.length - 1 && <BreadcrumbSeparator />}
             </React.Fragment>
           ))}
         </BreadcrumbList>
       </Breadcrumb>
+
+      {/* ✅ Title */}
       <h1 className="text-3xl md:text-4xl lg:text-6xl font-extrabold text-black dark:text-white">
-        {items[items.length - 1]?.label}
+        {isBlogDetail ? "Blog Details" : items[items.length - 1]?.label}
       </h1>
     </div>
   );
