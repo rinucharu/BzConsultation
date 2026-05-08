@@ -18,17 +18,38 @@ const BreadcrumbWrapper = () => {
   const isBlogDetail =
     segments.length === 2 && segments[0] === "blogs";
 
+  const isIndustriesDetail =
+    segments.length >= 2 && segments[0] === "industries";
+
+  const isNewsDetail =
+    segments.length >= 2 && segments[0] === "news";
+
   const items = [
     { label: "Home", href: "/" },
 
     ...segments
-      .map((_, index) => {
-        if (isBlogDetail && index === 1) return null;
+      .map((segment, index) => {
+        if (
+          (isBlogDetail && index === 1) ||
+          (isIndustriesDetail && index > 0) ||
+          (isNewsDetail && index > 0)
+        ) {
+          return null;
+        }
 
         const path = "/" + segments.slice(0, index + 1).join("/");
 
         const match = menuItems.find((item) => item.href === path);
-        const label = match?.label || formatLabel(segments[index]);
+
+        let label = match?.label || formatLabel(segment);
+
+        if (segment === "industries") {
+          label = "Success Stories";
+        }
+
+        if (segment === "news") {
+          label = "News Details";
+        }
 
         return {
           label,
