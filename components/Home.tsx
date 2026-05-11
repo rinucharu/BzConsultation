@@ -7,10 +7,10 @@ import { FiArrowDownRight } from "react-icons/fi";
 import { IoSettings } from "react-icons/io5";
 import { BiCodeBlock } from "react-icons/bi";
 import "aos";
-import img from "next/image";
 import HomeReview from "./about/HomeReview";
 
 import { FaArrowRight } from "react-icons/fa6";
+import Image from "next/image";
 
 interface CardItem {
   title: string;
@@ -192,7 +192,8 @@ const Home = ({ showHero = true }: HomeProps) => {
     },
     {
       id: 3,
-      title: "From Vision to Reality: BzAnalytics&apos;s Journey from 2020 to 2023",
+      title:
+        "From Vision to Reality: BzAnalytics&apos;s Journey from 2020 to 2023",
       category: "Journey",
       date: "16 APR",
       image: "/newsimage3.jpg",
@@ -468,7 +469,6 @@ hover:w-[420px] hover:h-[280px] hover:z-20
                   <img
                     src={card.img}
                     alt={card.title}
-                     
                     className="object-cover "
                   />
 
@@ -510,9 +510,9 @@ hover:w-[420px] hover:h-[280px] hover:z-20
                 style={{ letterSpacing: "1px" }}
               >
                 <RxDotFilled className="min-w-[24px]" size={24} />
-                BzAnalytics works with the world&apos;s leading Enterprises, SMEs &
-                Startups – to plan, develop, test and expand their digital
-                initiatives.
+                BzAnalytics works with the world&apos;s leading Enterprises,
+                SMEs & Startups – to plan, develop, test and expand their
+                digital initiatives.
               </li>
 
               <li
@@ -528,38 +528,34 @@ hover:w-[420px] hover:h-[280px] hover:z-20
         </div>
       </section>
       <section className="w-full bg-white dark:bg-black text-white py-20 px-6 md:px-12 lg:px-20">
-<<<<<<< HEAD
         {/* cards */}
         <div className="w-full theme-bg py-12 sm:py-14 md:py-16 px-4 sm:px-6 md:px-8 lg:-mt-[20px]">
           <div className="max-w-7xl mx-auto grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
             {/* Card 1 */}
             <div className="relative w-full max-w-sm overflow-hidden shadow-lg group cursor-pointer transition-all duration-500 ease-out hover:shadow-2xl">
               <img
-              width={600}
-              height={350}
+                width={600}
+                height={350}
                 src="/ux_1.jpg"
                 alt="UX Design"
                 className="w-full h-[350px] object-cover transition-transform duration-700 ease-out group-hover:scale-110"
               />
-=======
-  {/* cards */}
-  <div className="w-full theme-bg py-12 sm:py-14 md:py-16 px-4 sm:px-6 md:px-8 lg:-mt-[20px]">
-    
-    <div className="max-w-7xl mx-auto grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
-      
-      {/* Card 1 */}
-      <div className="relative w-full max-w-sm overflow-hidden shadow-lg group cursor-pointer transition-all duration-500 ease-out hover:shadow-2xl">
-        
-        <img
-          src="/ux_1.jpg"
-          alt="UX Design"
-          className="w-full h-[350px] object-cover transition-transform duration-700 ease-out group-hover:scale-110"
-        />
->>>>>>> 2ff782285f46bf531c8684973295fed33363c7b8
 
-        {/* Orange Circle */}
-        <div className="absolute inset-0 flex items-center justify-center pointer-events-none">
-          <div className="w-56 aspect-square flex-shrink-0 rounded-full bg-orange-400/80 
+              {/* cards */}
+              <div className="w-full theme-bg py-12 sm:py-14 md:py-16 px-4 sm:px-6 md:px-8 lg:-mt-[20px]">
+                <div className="max-w-7xl mx-auto grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
+                  {/* Card 1 */}
+                  <div className="relative w-full max-w-sm overflow-hidden shadow-lg group cursor-pointer transition-all duration-500 ease-out hover:shadow-2xl">
+                    <img
+                      src="/ux_1.jpg"
+                      alt="UX Design"
+                      className="w-full h-[350px] object-cover transition-transform duration-700 ease-out group-hover:scale-110"
+                    />
+
+                    {/* Orange Circle */}
+                    <div className="absolute inset-0 flex items-center justify-center pointer-events-none">
+                      <div
+                        className="w-56 aspect-square flex-shrink-0 rounded-full bg-orange-400/80 
           flex items-center justify-center p-4
 
           transition-all duration-700 ease-[cubic-bezier(0.22,1,0.36,1)]
@@ -569,7 +565,209 @@ hover:w-[420px] hover:h-[280px] hover:z-20
           group-hover:opacity-0
 <<<<<<< HEAD
           "
-                >
+                      >
+                        <p className="text-white font-extrabold text-center leading-[1.1]">
+                          <span className="block text-2xl sm:text-3xl">
+                            UX/UI
+                          </span>
+                          <span className="block text-2xl sm:text-3xl">
+                            Design
+                          </span>
+                        </p>
+                      </div>
+                    </div>
+
+                    {/* Black Overlay */}
+                    <div
+                      className="absolute inset-0 bg-black/60 
+        flex flex-col items-center justify-center text-center p-4
+
+        -translate-y-[105%]
+        transition-all duration-500 ease-[cubic-bezier(0.22,1,0.36,1)]
+        delay-200
+
+        group-hover:translate-y-0"
+                    >
+                      <p className="text-white mb-3 text-sm sm:text-base">
+                        Enhancing user experiences through research, wireframes,
+                        and prototypes, creating visually appealing and
+                        user-friendly interfaces.
+                      </p>
+                      <p className="flex items-center gap-2 text-sm font-medium cursor-pointer transition-all duration-300 ease-in-out text-white hover:text-orange-400 group">
+                        Read More
+                        <FaArrowRight className="transition-transform duration-300 ease-in-out rotate-[45deg] group-hover:rotate-[0deg]" />
+                      </p>
+                    </div>
+                  </div>
+
+                  {/* Card 2 */}
+                  <div className="relative w-full max-w-sm overflow-hidden shadow-lg group cursor-pointer transition-all duration-500 ease-out hover:shadow-2xl">
+                    <img
+                      width={600}
+                      height={350}
+                      src="/ux_2.jpg"
+                      alt="UX Design 2"
+                      className="w-full h-[350px] object-cover transition-transform duration-700 ease-out group-hover:scale-110"
+                    />
+
+                    <div className="absolute inset-0 flex items-center justify-center pointer-events-none">
+                      <div
+                        className="w-56 aspect-square flex-shrink-0 rounded-full bg-orange-400/80 
+          flex items-center justify-center p-4
+
+          transition-all duration-700 ease-[cubic-bezier(0.22,1,0.36,1)]
+
+          group-hover:scale-x-125 group-hover:scale-y-75
+          group-hover:translate-y-40
+          group-hover:opacity-0
+          "
+                      >
+                        <p className="text-white font-extrabold text-center leading-[1.1]">
+                          <span className="block text-2xl sm:text-3xl">
+                            On Demand
+                          </span>
+                          <span className="block text-2xl sm:text-3xl">
+                            Product
+                          </span>
+                          <span className="block text-2xl sm:text-3xl">
+                            Team
+                          </span>
+                        </p>
+                      </div>
+                    </div>
+
+                    <div
+                      className="absolute inset-0 bg-black/60 
+        flex flex-col items-center justify-center text-center p-4
+
+        -translate-y-[105%]
+        transition-all duration-500 ease-[cubic-bezier(0.22,1,0.36,1)]
+        delay-200
+
+        group-hover:translate-y-0"
+                    >
+                      <p className="text-white mb-3 text-sm sm:text-base">
+                        Flexible teams for custom software development, scaling,
+                        and extending your internal team&apos;s capabilities,
+                        led by dedicated developers and product owners.
+                      </p>
+                      <p className="flex items-center gap-2 text-sm font-medium cursor-pointer transition-all duration-300 ease-in-out text-white hover:text-orange-400 group">
+                        Read More
+                        <FaArrowRight className="transition-transform duration-300 ease-in-out rotate-[45deg] group-hover:rotate-[0deg]" />
+                      </p>
+                    </div>
+                  </div>
+
+                  {/* Card 3 */}
+                  <div className="relative w-full max-w-sm overflow-hidden shadow-lg group cursor-pointer transition-all duration-500 ease-out hover:shadow-2xl">
+                    <img
+                      width={600}
+                      height={350}
+                      src="/ux_3.jpg"
+                      alt="UX Design 3"
+                      className="w-full h-[350px] object-cover transition-transform duration-700 ease-out group-hover:scale-110"
+                    />
+
+                    <div className="absolute inset-0 flex items-center justify-center pointer-events-none">
+                      <div
+                        className="w-56 aspect-square flex-shrink-0 rounded-full bg-orange-400/80 
+          flex items-center justify-center p-4
+
+          transition-all duration-700 ease-[cubic-bezier(0.22,1,0.36,1)]
+
+          group-hover:scale-x-125 group-hover:scale-y-75
+          group-hover:translate-y-40
+          group-hover:opacity-0
+          "
+                      >
+                        <p className="text-white font-extrabold text-center leading-[1.1]">
+                          <span className="block text-2xl sm:text-3xl">
+                            Mobile App
+                          </span>
+                          <span className="block text-2xl sm:text-3xl">
+                            Development
+                          </span>
+                        </p>
+                      </div>
+                    </div>
+
+                    <div
+                      className="absolute inset-0 bg-black/60 
+        flex flex-col items-center justify-center text-center p-4
+
+        -translate-y-[105%]
+        transition-all duration-500 ease-[cubic-bezier(0.22,1,0.36,1)]
+        delay-200
+
+        group-hover:translate-y-0"
+                    >
+                      <p className="text-white mb-3 text-sm sm:text-base">
+                        Building iOS and Android apps, including cross-platform
+                        development using Flutter, tailored for both consumer
+                        and enterprise needs.
+                      </p>
+                      <p className="flex items-center gap-2 text-sm font-medium cursor-pointer transition-all duration-300 ease-in-out text-white hover:text-orange-400 group">
+                        Read More
+                        <FaArrowRight className="transition-transform duration-300 ease-in-out rotate-[45deg] group-hover:rotate-[0deg]" />
+                      </p>
+                    </div>
+                  </div>
+
+                  {/* Card 4 */}
+                  <div className="relative w-full max-w-sm overflow-hidden shadow-lg group cursor-pointer transition-all duration-500 ease-out hover:shadow-2xl">
+                    <img
+                      width={600}
+                      height={350}
+                      src="/ux_4.jpg"
+                      alt="UX Design 4"
+                      className="w-full h-[350px] object-cover transition-transform duration-700 ease-out group-hover:scale-110"
+                    />
+
+                    <div className="absolute inset-0 flex items-center justify-center pointer-events-none">
+                      <div
+                        className="w-56 aspect-square flex-shrink-0 rounded-full bg-orange-400/80 
+          flex items-center justify-center p-4
+
+          transition-all duration-700 ease-[cubic-bezier(0.22,1,0.36,1)]
+
+          group-hover:scale-x-125 group-hover:scale-y-75
+          group-hover:translate-y-40
+          group-hover:opacity-0
+          "
+                      >
+                        <p className="text-white font-extrabold text-center leading-[1.1]">
+                          <span className="block text-2xl sm:text-3xl">
+                            Web
+                          </span>
+                          <span className="block text-2xl sm:text-3xl">
+                            Development
+                          </span>
+                        </p>
+                      </div>
+                    </div>
+
+                    <div
+                      className="absolute inset-0 bg-black/60 
+        flex flex-col items-center justify-center text-center p-4
+
+        -translate-y-[105%]
+        transition-all duration-500 ease-[cubic-bezier(0.22,1,0.36,1)]
+        delay-200
+
+        group-hover:translate-y-0"
+                    >
+                      <p className="text-white mb-3 text-sm sm:text-base">
+                        Crafting websites, web applications, and custom
+                        software, along with creating web portals for specific
+                        business purposes.
+                      </p>
+                      <p className="flex items-center gap-2 text-sm font-medium cursor-pointer transition-all duration-300 ease-in-out text-white hover:text-orange-400 group">
+                        Read More
+                        <FaArrowRight className="transition-transform duration-300 text-white ease-in-out rotate-[45deg] group-hover:rotate-[0deg]" />
+                      </p>
+                    </div>
+                  </div>
+
                   <p className="text-white font-extrabold text-center leading-[1.1]">
                     <span className="block text-2xl sm:text-3xl">UX/UI</span>
                     <span className="block text-2xl sm:text-3xl">Design</span>
@@ -603,8 +801,6 @@ hover:w-[420px] hover:h-[280px] hover:z-20
             {/* Card 2 */}
             <div className="relative w-full max-w-sm overflow-hidden shadow-lg group cursor-pointer transition-all duration-500 ease-out hover:shadow-2xl">
               <img
-               width={600}
-              height={350}
                 src="/ux_2.jpg"
                 alt="UX Design 2"
                 className="w-full h-[350px] object-cover transition-transform duration-700 ease-out group-hover:scale-110"
@@ -644,7 +840,7 @@ hover:w-[420px] hover:h-[280px] hover:z-20
               >
                 <p className="text-white mb-3 text-sm sm:text-base">
                   Flexible teams for custom software development, scaling, and
-                  extending your internal team&apos;s capabilities, led by dedicated
+                  extending your internal team's capabilities, led by dedicated
                   developers and product owners.
                 </p>
                 <p className="flex items-center gap-2 text-sm font-medium cursor-pointer transition-all duration-300 ease-in-out text-white hover:text-orange-400 group">
@@ -657,8 +853,6 @@ hover:w-[420px] hover:h-[280px] hover:z-20
             {/* Card 3 */}
             <div className="relative w-full max-w-sm overflow-hidden shadow-lg group cursor-pointer transition-all duration-500 ease-out hover:shadow-2xl">
               <img
-               width={600}
-              height={350}
                 src="/ux_3.jpg"
                 alt="UX Design 3"
                 className="w-full h-[350px] object-cover transition-transform duration-700 ease-out group-hover:scale-110"
@@ -712,8 +906,6 @@ hover:w-[420px] hover:h-[280px] hover:z-20
             {/* Card 4 */}
             <div className="relative w-full max-w-sm overflow-hidden shadow-lg group cursor-pointer transition-all duration-500 ease-out hover:shadow-2xl">
               <img
-               width={600}
-              height={350}
                 src="/ux_4.jpg"
                 alt="UX Design 4"
                 className="w-full h-[350px] object-cover transition-transform duration-700 ease-out group-hover:scale-110"
@@ -761,179 +953,9 @@ hover:w-[420px] hover:h-[280px] hover:z-20
                 </p>
               </div>
             </div>
-=======
-          ">
-            <p className="text-white font-extrabold text-center leading-[1.1]">
-              <span className="block text-2xl sm:text-3xl">UX/UI</span>
-              <span className="block text-2xl sm:text-3xl">Design</span>
-            </p>
->>>>>>> 2ff782285f46bf531c8684973295fed33363c7b8
           </div>
         </div>
-
-        {/* Black Overlay */}
-        <div className="absolute inset-0 bg-black/60 
-        flex flex-col items-center justify-center text-center p-4
-
-        -translate-y-[105%]
-        transition-all duration-500 ease-[cubic-bezier(0.22,1,0.36,1)]
-        delay-200
-
-        group-hover:translate-y-0">
-          <p className="text-white mb-3 text-sm sm:text-base">
-            Enhancing user experiences through research, wireframes, and
-            prototypes, creating visually appealing and user-friendly
-            interfaces.
-          </p>
-          <p className="flex items-center gap-2 text-sm font-medium cursor-pointer transition-all duration-300 ease-in-out text-white hover:text-orange-400 group">
-            Read More
-            <FaArrowRight className="transition-transform duration-300 ease-in-out rotate-[45deg] group-hover:rotate-[0deg]" />
-          </p>
-        </div>
-      </div>
-
-      {/* Card 2 */}
-      <div className="relative w-full max-w-sm overflow-hidden shadow-lg group cursor-pointer transition-all duration-500 ease-out hover:shadow-2xl">
-        
-        <img
-          src="/ux_2.jpg"
-          alt="UX Design 2"
-          className="w-full h-[350px] object-cover transition-transform duration-700 ease-out group-hover:scale-110"
-        />
-
-        <div className="absolute inset-0 flex items-center justify-center pointer-events-none">
-          <div className="w-56 aspect-square flex-shrink-0 rounded-full bg-orange-400/80 
-          flex items-center justify-center p-4
-
-          transition-all duration-700 ease-[cubic-bezier(0.22,1,0.36,1)]
-
-          group-hover:scale-x-125 group-hover:scale-y-75
-          group-hover:translate-y-40
-          group-hover:opacity-0
-          ">
-            <p className="text-white font-extrabold text-center leading-[1.1]">
-              <span className="block text-2xl sm:text-3xl">On Demand</span>
-              <span className="block text-2xl sm:text-3xl">Product</span>
-              <span className="block text-2xl sm:text-3xl">Team</span>
-            </p>
-          </div>
-        </div>
-
-        <div className="absolute inset-0 bg-black/60 
-        flex flex-col items-center justify-center text-center p-4
-
-        -translate-y-[105%]
-        transition-all duration-500 ease-[cubic-bezier(0.22,1,0.36,1)]
-        delay-200
-
-        group-hover:translate-y-0">
-          <p className="text-white mb-3 text-sm sm:text-base">
-            Flexible teams for custom software development, scaling, and
-            extending your internal team's capabilities, led by dedicated
-            developers and product owners.
-          </p>
-          <p className="flex items-center gap-2 text-sm font-medium cursor-pointer transition-all duration-300 ease-in-out text-white hover:text-orange-400 group">
-            Read More
-            <FaArrowRight className="transition-transform duration-300 ease-in-out rotate-[45deg] group-hover:rotate-[0deg]" />
-          </p>
-        </div>
-      </div>
-
-      {/* Card 3 */}
-      <div className="relative w-full max-w-sm overflow-hidden shadow-lg group cursor-pointer transition-all duration-500 ease-out hover:shadow-2xl">
-        
-        <img
-          src="/ux_3.jpg"
-          alt="UX Design 3"
-          className="w-full h-[350px] object-cover transition-transform duration-700 ease-out group-hover:scale-110"
-        />
-
-        <div className="absolute inset-0 flex items-center justify-center pointer-events-none">
-          <div className="w-56 aspect-square flex-shrink-0 rounded-full bg-orange-400/80 
-          flex items-center justify-center p-4
-
-          transition-all duration-700 ease-[cubic-bezier(0.22,1,0.36,1)]
-
-          group-hover:scale-x-125 group-hover:scale-y-75
-          group-hover:translate-y-40
-          group-hover:opacity-0
-          ">
-            <p className="text-white font-extrabold text-center leading-[1.1]">
-              <span className="block text-2xl sm:text-3xl">Mobile App</span>
-              <span className="block text-2xl sm:text-3xl">Development</span>
-            </p>
-          </div>
-        </div>
-
-        <div className="absolute inset-0 bg-black/60 
-        flex flex-col items-center justify-center text-center p-4
-
-        -translate-y-[105%]
-        transition-all duration-500 ease-[cubic-bezier(0.22,1,0.36,1)]
-        delay-200
-
-        group-hover:translate-y-0">
-          <p className="text-white mb-3 text-sm sm:text-base">
-            Building iOS and Android apps, including cross-platform
-            development using Flutter, tailored for both consumer and
-            enterprise needs.
-          </p>
-          <p className="flex items-center gap-2 text-sm font-medium cursor-pointer transition-all duration-300 ease-in-out text-white hover:text-orange-400 group">
-            Read More
-            <FaArrowRight className="transition-transform duration-300 ease-in-out rotate-[45deg] group-hover:rotate-[0deg]" />
-          </p>
-        </div>
-      </div>
-
-      {/* Card 4 */}
-      <div className="relative w-full max-w-sm overflow-hidden shadow-lg group cursor-pointer transition-all duration-500 ease-out hover:shadow-2xl">
-        
-        <img
-          src="/ux_4.jpg"
-          alt="UX Design 4"
-          className="w-full h-[350px] object-cover transition-transform duration-700 ease-out group-hover:scale-110"
-        />
-
-        <div className="absolute inset-0 flex items-center justify-center pointer-events-none">
-          <div className="w-56 aspect-square flex-shrink-0 rounded-full bg-orange-400/80 
-          flex items-center justify-center p-4
-
-          transition-all duration-700 ease-[cubic-bezier(0.22,1,0.36,1)]
-
-          group-hover:scale-x-125 group-hover:scale-y-75
-          group-hover:translate-y-40
-          group-hover:opacity-0
-          ">
-            <p className="text-white font-extrabold text-center leading-[1.1]">
-              <span className="block text-2xl sm:text-3xl">Web</span>
-              <span className="block text-2xl sm:text-3xl">Development</span>
-            </p>
-          </div>
-        </div>
-
-        <div className="absolute inset-0 bg-black/60 
-        flex flex-col items-center justify-center text-center p-4
-
-        -translate-y-[105%]
-        transition-all duration-500 ease-[cubic-bezier(0.22,1,0.36,1)]
-        delay-200
-
-        group-hover:translate-y-0">
-          <p className="text-white mb-3 text-sm sm:text-base">
-            Crafting websites, web applications, and custom software,
-            along with creating web portals for specific business
-            purposes.
-          </p>
-          <p className="flex items-center gap-2 text-sm font-medium cursor-pointer transition-all duration-300 ease-in-out text-white hover:text-orange-400 group">
-            Read More
-            <FaArrowRight className="transition-transform duration-300 text-white ease-in-out rotate-[45deg] group-hover:rotate-[0deg]" />
-          </p>
-        </div>
-      </div>
-
-    </div>
-  </div>
-</section>
+      </section>
       {/* card section */}
 
       <section className="w-full px-4 sm:px-6 lg:px-8 mx-auto max-w-7xl">
@@ -1022,10 +1044,10 @@ hover:w-[420px] hover:h-[280px] hover:z-20
               }}
               className="project-img absolute w-84.25 h-55.75 top-12.5   pointer-events-none overflow-hidden opacity-0 transform scale-[0.8] transition-all duration-500 ease-in-out z-0 group-hover:opacity-100 group-hover:-z-10 group-hover:scale-100 group-hover:rotate-[5deg]"
             >
-              <img
+              <Image
                 className="w-full h-full object-cover relative transition-all duration-300 ease-in-out dark:mix-blend-normal mix-blend-luminosity"
                 src="/dubai.jpg"
-                 
+                fill
                 alt="bzMart"
                 loading="lazy"
               />
@@ -1064,10 +1086,10 @@ hover:w-[420px] hover:h-[280px] hover:z-20
               }}
               className="project-img absolute w-84.25 h-55.75 top-12.5   pointer-events-none overflow-hidden opacity-0 transform scale-[0.8] transition-all duration-500 ease-in-out z-0 group-hover:opacity-100 group-hover:-z-10 group-hover:scale-100 group-hover:rotate-[5deg]"
             >
-              <img
+              <Image
                 className="w-full h-full object-cover relative transition-all duration-300 ease-in-out dark:mix-blend-normal mix-blend-luminosity"
                 src="/bzmart.jpg"
-                 
+                fill
                 alt="bzMart"
                 loading="lazy"
               />
@@ -1106,12 +1128,12 @@ hover:w-[420px] hover:h-[280px] hover:z-20
               }}
               className="project-img absolute w-84.25 h-55.75 top-12.5   pointer-events-none overflow-hidden opacity-0 transform scale-[0.8] transition-all duration-500 ease-in-out z-0 group-hover:opacity-100 group-hover:-z-10 group-hover:scale-100 group-hover:rotate-[5deg]"
             >
-              <img
+              <Image
                 className="w-full h-full object-cover relative transition-all duration-300 ease-in-out dark:mix-blend-normal mix-blend-luminosity"
                 src="/medical.jpg"
+                fill
                 alt="Medical AI"
                 loading="lazy"
-                 
               />
             </div>
           </div>
@@ -1148,12 +1170,12 @@ hover:w-[420px] hover:h-[280px] hover:z-20
               }}
               className="project-img absolute w-84.25 h-55.75 top-12.5   pointer-events-none overflow-hidden opacity-0 transform scale-[0.8] transition-all duration-500 ease-in-out z-0 group-hover:opacity-100 group-hover:-z-10 group-hover:scale-100 group-hover:rotate-[5deg]"
             >
-              <img
+              <Image
                 className="w-full h-full object-cover relative transition-all duration-300 ease-in-out mix-blend-normal"
                 src="/turf.jpg"
+                fill
                 alt="Turf"
                 loading="lazy"
-                 
               />
             </div>
           </div>
@@ -1161,7 +1183,7 @@ hover:w-[420px] hover:h-[280px] hover:z-20
       </section>
 
       {/* discover section */}
-      <section className="w-full px-4 sm:px-6 lg:px-8 mx-auto max-w-7xl">
+      <section className="w-full px-4 sm:px-6 mx-auto max-w-7xl">
         <div className="  grid grid-cols-1 md:grid-cols-1 lg:grid-cols-2 md:gap-x-25">
           {/* img section */}
           <div
@@ -1170,23 +1192,31 @@ hover:w-[420px] hover:h-[280px] hover:z-20
           >
             <div className=" flex flex-col gap-y-5">
               <div className="">
-                <img
+                <Image
+                  width={280}
+                  height={266}
                   src="/why-choose-2-1.jpg"
-                  alt=""
+                  alt="why choose"
                   className="w-full object-cover"
                 />
               </div>
 
               <div className="">
-                <img src="/why-choose-2-2.jpg" alt="" />
+                <Image
+                  width={280}
+                  height={266}
+                  src="/why-choose-2-2.jpg"
+                  alt="why choose 2"
+                />
               </div>
             </div>
 
-            <div className="">
-              <img
+            <div className="relative w-[266px] h-[426px]">
+              <Image
+                fill
                 src="/why-choose-2-3.jpg"
-                alt=""
-                className="w-full object-cover"
+                alt="why choose3"
+                className="object-cover"
               />
             </div>
           </div>
@@ -1292,7 +1322,7 @@ hover:w-[420px] hover:h-[280px] hover:z-20
       >
         {/* Background */}
         <div className="absolute inset-0 flex items-start justify-center">
-          <img
+          <Image
             alt="award"
             src="/award-bg.png"
             width={645}
@@ -1313,7 +1343,9 @@ hover:w-[420px] hover:h-[280px] hover:z-20
                 100+APIs that can connect with your existing infrastructure and
                 3rd party apps
               </p>
-              <img alt="icon" src="/award-icon.png" className="w-6 mt-2.5" />
+              <div className=" relative w-22 h-6">
+                 <Image fill alt="icon" src="/award-icon.png" className=" mt-2.5" />
+              </div>
             </div>
 
             {/* Card 2 */}
@@ -1324,7 +1356,9 @@ hover:w-[420px] hover:h-[280px] hover:z-20
               <p className="award_title text-white font-bold text-xl sm:text-">
                 Deploy on any cloud/on-premise environment
               </p>
-              <img alt="icon" src="/award-icon.png" className="w-6 mt-2.5" />
+              <div className=" relative w-18 h-6">
+                 <Image fill alt="icon" src="/award-icon.png" className=" mt-2.5" />
+              </div>
             </div>
 
             <div
@@ -1335,7 +1369,9 @@ hover:w-[420px] hover:h-[280px] hover:z-20
                 Improved customer and employee experience via mobile and web
                 apps.
               </p>
-              <img alt="icon" src="/award-icon.png" className="w-6 mt-2.5" />
+              <div className=" relative w-22 h-6.5">
+                 <Image fill alt="icon" src="/award-icon.png" className=" mt-2.5" />
+              </div>
             </div>
 
             {/* Card 4 */}
@@ -1347,12 +1383,14 @@ hover:w-[420px] hover:h-[280px] hover:z-20
                 Basic to advance machine learning models that fits into a
                 different level of data maturity
               </p>
-              <img alt="icon" src="/award-icon.png" className="w-6 mt-2.5" />
+             <div className=" relative w-24 h-6.5">
+                 <Image fill alt="icon" src="/award-icon.png" className=" mt-2.5" />
+              </div>
             </div>
           </div>
 
           <div className="">
-            <img
+            <Image
               alt="award"
               src="/award.png"
               width={314}
@@ -1375,7 +1413,10 @@ hover:w-[420px] hover:h-[280px] hover:z-20
                 100+APIs that can connect with your existing infrastructure and
                 3rd party apps
               </p>
-              <img alt="icon" src="/award-icon.png" className="w-6 mt-2.5" />
+              <div className=" relative w-22 h-6.5">
+                 <Image fill alt="icon" src="/award-icon.png" className=" mt-2.5" />
+              </div>
+             
             </div>
 
             {/* Card 2 */}
@@ -1386,12 +1427,14 @@ hover:w-[420px] hover:h-[280px] hover:z-20
               <p className="award_title text-white font-bold text-xl sm:text-">
                 Deploy on any cloud/on-premise environment
               </p>
-              <img alt="icon" src="/award-icon.png" className="w-6 mt-2.5" />
+              <div className=" relative w-20 h-6.5">
+                 <Image fill alt="icon" src="/award-icon.png" className=" mt-2.5" />
+              </div>
             </div>
           </div>
 
           {/* Center img */}
-          <img
+          <Image
             alt="award"
             src="/award.png"
             width={314}
@@ -1410,7 +1453,10 @@ hover:w-[420px] hover:h-[280px] hover:z-20
                 Improved customer and employee experience via mobile and web
                 apps.
               </p>
-              <img alt="icon" src="/award-icon.png" className="w-6 mt-2.5" />
+              <div className=" relative w-22 h-6.5">
+                 <Image fill alt="icon" src="/award-icon.png" className=" mt-2.5" />
+              </div>
+
             </div>
 
             {/* Card 4 */}
@@ -1422,7 +1468,9 @@ hover:w-[420px] hover:h-[280px] hover:z-20
                 Basic to advance machine learning models that fits into a
                 different level of data maturity
               </p>
-              <img alt="icon" src="/award-icon.png" className="w-6 mt-2.5" />
+             <div className=" relative w-22 h-6.5">
+                 <Image fill alt="icon" src="/award-icon.png" className=" mt-2.5" />
+              </div>
             </div>
           </div>
         </div>
@@ -1450,11 +1498,14 @@ hover:w-[420px] hover:h-[280px] hover:z-20
                 100+APIs that can connect with your existing infrastructure and
                 3rd party apps
               </p>
-              <img
-              alt="icon"
-                src="/award-icon.png"
-                className="mt-2.5 group-hover:scale-90 transition-all duration-1000 ease-in-out"
-              />
+              <div className=" relative w-25 h-7">
+                <Image
+                  fill
+                  alt="icon"
+                  src="/award-icon.png"
+                  className="mt-2.5 group-hover:scale-90 transition-all duration-1000 ease-in-out"
+                />
+              </div>
             </div>
 
             {/* Card 2 */}
@@ -1465,11 +1516,14 @@ hover:w-[420px] hover:h-[280px] hover:z-20
               <p className="award_title text-white font-bold text-xl sm:text-">
                 Deploy on any cloud/on-premise environment
               </p>
-              <img
-              alt="icon"
-                src="/award-icon.png"
-                className=" mt-2.5 group-hover:scale-90 transition-all duration-1000 ease-in-out"
-              />
+               <div className=" relative w-18 h-7">
+                <Image
+                  fill
+                  alt="icon"
+                  src="/award-icon.png"
+                  className="mt-2.5 group-hover:scale-90 transition-all duration-1000 ease-in-out"
+                />
+              </div>
             </div>
           </div>
 
@@ -1480,7 +1534,7 @@ hover:w-[420px] hover:h-[280px] hover:z-20
             data-aos-duration="3000"
             className="award-trophy mt-16"
           >
-            <img
+            <Image
               alt="award"
               src="/award.png"
               width={314}
@@ -1504,11 +1558,14 @@ hover:w-[420px] hover:h-[280px] hover:z-20
                 Improved customer and employee experience via mobile and web
                 apps.
               </p>
-              <img
-              alt="icon"
-                src="/award-icon.png"
-                className=" mt-2.5 group-hover:scale-90 transition-all duration-1000 ease-in-out"
-              />
+              <div className=" relative w-25 h-7">
+                <Image
+                  fill
+                  alt="icon"
+                  src="/award-icon.png"
+                  className="mt-2.5 group-hover:scale-90 transition-all duration-1000 ease-in-out"
+                />
+              </div>
             </div>
 
             {/* Card 4 */}
@@ -1520,11 +1577,14 @@ hover:w-[420px] hover:h-[280px] hover:z-20
                 Basic to advance machine learning models that fits into a
                 different level of data maturity
               </p>
-              <img
-              alt="icon"
-                src="/award-icon.png"
-                className=" mt-2.5 group-hover:scale-90 transition-all duration-1000 ease-in-out"
-              />
+               <div className=" relative w-25 h-6.5">
+                <Image
+                  fill
+                  alt="icon"
+                  src="/award-icon.png"
+                  className="mt-2.5 group-hover:scale-90 transition-all duration-1000 ease-in-out"
+                />
+              </div>
             </div>
           </div>
         </div>
@@ -1587,7 +1647,6 @@ hover:w-[420px] hover:h-[280px] hover:z-20
                       <img
                         src={step.image}
                         alt={step.title}
-                         
                         className="object-cover"
                       />
                     </div>
