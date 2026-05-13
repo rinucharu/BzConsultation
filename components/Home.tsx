@@ -528,20 +528,6 @@ hover:w-[420px] hover:h-[280px] hover:z-20
         </div>
       </section>
       <section className="w-full bg-white dark:bg-black text-white py-20 px-6 md:px-12 lg:px-20">
-<<<<<<< HEAD
-        {/* cards */}
-        <div className="w-full theme-bg py-12 sm:py-14 md:py-16 px-4 sm:px-6 md:px-8 lg:-mt-[20px]">
-          <div className="max-w-7xl mx-auto grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
-            {/* Card 1 */}
-            <div className="relative w-full max-w-sm overflow-hidden shadow-lg group cursor-pointer transition-all duration-500 ease-out hover:shadow-2xl">
-              <img
-              width={600}
-              height={350}
-                src="/ux_1.jpg"
-                alt="UX Design"
-                className="w-full h-[350px] object-cover transition-transform duration-700 ease-out group-hover:scale-110"
-              />
-=======
   {/* cards */}
   <div className="w-full theme-bg py-12 sm:py-14 md:py-16 px-4 sm:px-6 md:px-8 lg:-mt-[20px]">
     
@@ -555,7 +541,6 @@ hover:w-[420px] hover:h-[280px] hover:z-20
           alt="UX Design"
           className="w-full h-[350px] object-cover transition-transform duration-700 ease-out group-hover:scale-110"
         />
->>>>>>> 2ff782285f46bf531c8684973295fed33363c7b8
 
         {/* Orange Circle */}
         <div className="absolute inset-0 flex items-center justify-center pointer-events-none">
@@ -567,207 +552,11 @@ hover:w-[420px] hover:h-[280px] hover:z-20
           group-hover:scale-x-125 group-hover:scale-y-75
           group-hover:translate-y-40
           group-hover:opacity-0
-<<<<<<< HEAD
-          "
-                >
-                  <p className="text-white font-extrabold text-center leading-[1.1]">
-                    <span className="block text-2xl sm:text-3xl">UX/UI</span>
-                    <span className="block text-2xl sm:text-3xl">Design</span>
-                  </p>
-                </div>
-              </div>
-
-              {/* Black Overlay */}
-              <div
-                className="absolute inset-0 bg-black/60 
-        flex flex-col items-center justify-center text-center p-4
-
-        -translate-y-[105%]
-        transition-all duration-500 ease-[cubic-bezier(0.22,1,0.36,1)]
-        delay-200
-
-        group-hover:translate-y-0"
-              >
-                <p className="text-white mb-3 text-sm sm:text-base">
-                  Enhancing user experiences through research, wireframes, and
-                  prototypes, creating visually appealing and user-friendly
-                  interfaces.
-                </p>
-                <p className="flex items-center gap-2 text-sm font-medium cursor-pointer transition-all duration-300 ease-in-out text-white hover:text-orange-400 group">
-                  Read More
-                  <FaArrowRight className="transition-transform duration-300 ease-in-out rotate-[45deg] group-hover:rotate-[0deg]" />
-                </p>
-              </div>
-            </div>
-
-            {/* Card 2 */}
-            <div className="relative w-full max-w-sm overflow-hidden shadow-lg group cursor-pointer transition-all duration-500 ease-out hover:shadow-2xl">
-              <img
-               width={600}
-              height={350}
-                src="/ux_2.jpg"
-                alt="UX Design 2"
-                className="w-full h-[350px] object-cover transition-transform duration-700 ease-out group-hover:scale-110"
-              />
-
-              <div className="absolute inset-0 flex items-center justify-center pointer-events-none">
-                <div
-                  className="w-56 aspect-square flex-shrink-0 rounded-full bg-orange-400/80 
-          flex items-center justify-center p-4
-
-          transition-all duration-700 ease-[cubic-bezier(0.22,1,0.36,1)]
-
-          group-hover:scale-x-125 group-hover:scale-y-75
-          group-hover:translate-y-40
-          group-hover:opacity-0
-          "
-                >
-                  <p className="text-white font-extrabold text-center leading-[1.1]">
-                    <span className="block text-2xl sm:text-3xl">
-                      On Demand
-                    </span>
-                    <span className="block text-2xl sm:text-3xl">Product</span>
-                    <span className="block text-2xl sm:text-3xl">Team</span>
-                  </p>
-                </div>
-              </div>
-
-              <div
-                className="absolute inset-0 bg-black/60 
-        flex flex-col items-center justify-center text-center p-4
-
-        -translate-y-[105%]
-        transition-all duration-500 ease-[cubic-bezier(0.22,1,0.36,1)]
-        delay-200
-
-        group-hover:translate-y-0"
-              >
-                <p className="text-white mb-3 text-sm sm:text-base">
-                  Flexible teams for custom software development, scaling, and
-                  extending your internal team&apos;s capabilities, led by dedicated
-                  developers and product owners.
-                </p>
-                <p className="flex items-center gap-2 text-sm font-medium cursor-pointer transition-all duration-300 ease-in-out text-white hover:text-orange-400 group">
-                  Read More
-                  <FaArrowRight className="transition-transform duration-300 ease-in-out rotate-[45deg] group-hover:rotate-[0deg]" />
-                </p>
-              </div>
-            </div>
-
-            {/* Card 3 */}
-            <div className="relative w-full max-w-sm overflow-hidden shadow-lg group cursor-pointer transition-all duration-500 ease-out hover:shadow-2xl">
-              <img
-               width={600}
-              height={350}
-                src="/ux_3.jpg"
-                alt="UX Design 3"
-                className="w-full h-[350px] object-cover transition-transform duration-700 ease-out group-hover:scale-110"
-              />
-
-              <div className="absolute inset-0 flex items-center justify-center pointer-events-none">
-                <div
-                  className="w-56 aspect-square flex-shrink-0 rounded-full bg-orange-400/80 
-          flex items-center justify-center p-4
-
-          transition-all duration-700 ease-[cubic-bezier(0.22,1,0.36,1)]
-
-          group-hover:scale-x-125 group-hover:scale-y-75
-          group-hover:translate-y-40
-          group-hover:opacity-0
-          "
-                >
-                  <p className="text-white font-extrabold text-center leading-[1.1]">
-                    <span className="block text-2xl sm:text-3xl">
-                      Mobile App
-                    </span>
-                    <span className="block text-2xl sm:text-3xl">
-                      Development
-                    </span>
-                  </p>
-                </div>
-              </div>
-
-              <div
-                className="absolute inset-0 bg-black/60 
-        flex flex-col items-center justify-center text-center p-4
-
-        -translate-y-[105%]
-        transition-all duration-500 ease-[cubic-bezier(0.22,1,0.36,1)]
-        delay-200
-
-        group-hover:translate-y-0"
-              >
-                <p className="text-white mb-3 text-sm sm:text-base">
-                  Building iOS and Android apps, including cross-platform
-                  development using Flutter, tailored for both consumer and
-                  enterprise needs.
-                </p>
-                <p className="flex items-center gap-2 text-sm font-medium cursor-pointer transition-all duration-300 ease-in-out text-white hover:text-orange-400 group">
-                  Read More
-                  <FaArrowRight className="transition-transform duration-300 ease-in-out rotate-[45deg] group-hover:rotate-[0deg]" />
-                </p>
-              </div>
-            </div>
-
-            {/* Card 4 */}
-            <div className="relative w-full max-w-sm overflow-hidden shadow-lg group cursor-pointer transition-all duration-500 ease-out hover:shadow-2xl">
-              <img
-               width={600}
-              height={350}
-                src="/ux_4.jpg"
-                alt="UX Design 4"
-                className="w-full h-[350px] object-cover transition-transform duration-700 ease-out group-hover:scale-110"
-              />
-
-              <div className="absolute inset-0 flex items-center justify-center pointer-events-none">
-                <div
-                  className="w-56 aspect-square flex-shrink-0 rounded-full bg-orange-400/80 
-          flex items-center justify-center p-4
-
-          transition-all duration-700 ease-[cubic-bezier(0.22,1,0.36,1)]
-
-          group-hover:scale-x-125 group-hover:scale-y-75
-          group-hover:translate-y-40
-          group-hover:opacity-0
-          "
-                >
-                  <p className="text-white font-extrabold text-center leading-[1.1]">
-                    <span className="block text-2xl sm:text-3xl">Web</span>
-                    <span className="block text-2xl sm:text-3xl">
-                      Development
-                    </span>
-                  </p>
-                </div>
-              </div>
-
-              <div
-                className="absolute inset-0 bg-black/60 
-        flex flex-col items-center justify-center text-center p-4
-
-        -translate-y-[105%]
-        transition-all duration-500 ease-[cubic-bezier(0.22,1,0.36,1)]
-        delay-200
-
-        group-hover:translate-y-0"
-              >
-                <p className="text-white mb-3 text-sm sm:text-base">
-                  Crafting websites, web applications, and custom software,
-                  along with creating web portals for specific business
-                  purposes.
-                </p>
-                <p className="flex items-center gap-2 text-sm font-medium cursor-pointer transition-all duration-300 ease-in-out text-white hover:text-orange-400 group">
-                  Read More
-                  <FaArrowRight className="transition-transform duration-300 text-white ease-in-out rotate-[45deg] group-hover:rotate-[0deg]" />
-                </p>
-              </div>
-            </div>
-=======
           ">
             <p className="text-white font-extrabold text-center leading-[1.1]">
               <span className="block text-2xl sm:text-3xl">UX/UI</span>
               <span className="block text-2xl sm:text-3xl">Design</span>
             </p>
->>>>>>> 2ff782285f46bf531c8684973295fed33363c7b8
           </div>
         </div>
 
