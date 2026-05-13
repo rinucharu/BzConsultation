@@ -1144,28 +1144,32 @@ const nextProject =
   return (
     <>
       <section className="page-header relative consultant min-h-[50vh] sm:min-h-[40vh] md:min-h-[60vh] flex items-center">
-        <div className="absolute h-full bg-img inset-0 bg-gray-200 dark:bg-gray-900" />
-        <div className="absolute overlay hidden dark:block" />
-        <BreadcrumbWrapper />
-      </section>
+      <div className="absolute h-full bg-img inset-0 bg-gray-200 dark:bg-gray-900" />
+      <div className="absolute overlay hidden dark:block" />
+      <BreadcrumbWrapper />
+     </section>
 
-      <main className="bg-white dark:bg-black">
+      <main className="bg-white dark:bg-black px-4 md:px-6">
         <section className="relative w-full flex flex-col items-center justify-center overflow-hidden pt-20 bg-white dark:bg-black">
-          <div className="mt-8 px-4 flex justify-center w-full">
-             <img 
-               src={project.img} 
-               alt={project.title}
-               style={{
-                 width: project.width || "1150px",
-                 height: project.height || "auto",
-                 maxWidth: "100%"
-               }}
-               className="object-cover shadow-xl" 
-             />
-          </div>
+          <div className="mt-8 flex justify-center w-full">
+  <motion.img 
+    src={project.img} 
+    alt={project.title}
+    style={{
+      width: project.width || "1150px",
+      height: "auto",
+      maxWidth: "100%"
+    }}
+    className="object-cover shadow-xl h-auto"
+    initial={{ opacity: 0, y: 20 }}
+    whileInView={{ opacity: 1, y: 0 }}
+    viewport={{ once: true }}
+    transition={{ duration: 0.5, ease: "easeOut" }}
+  />
+</div>
         </section>
 
-        <section className="max-w-6xl mx-auto px-4 py-8">
+        <section className="max-w-6xl mx-auto py-8">
           {project.content?.map((item, index) => {
             if (item.type === "text") {
               return (
@@ -1174,36 +1178,34 @@ const nextProject =
                   whileInView={{ opacity: 1, y: 0 }}
                   viewport={{ once: true }}
                   key={index} 
-                  className="mb-8"
+                  className="mb-8 w-full"
                 >
-
-                  {/* Small Heading Component */}
                   {item.smallHeading && (
-                    <span className="text-black/50 dark:text-[#EAEAEA] text-[16px]  font-bold mb-2 block">
+                    <span className="text-black/50 dark:text-[#EAEAEA] text-[16px] font-bold mb-2 block">
                       {item.smallHeading}
                     </span>
                   )}
 
                   {item.subheading && (
-                    <span className="text-black dark:text-white text-[30px] font-extrabold leading-relaxed mb-6 block">
+                    <span className="text-black dark:text-white text-[clamp(20px,5vw,30px)] font-extrabold leading-relaxed mb-6 block">
                       {item.subheading}
                     </span>
                   )}
 
                   {item.imgdesc && (
-                    <span className="text-black/50 dark:text-white/90 font-medium md:text-[16px] max-w-7xl leading-relaxed block mb-4">
+                    <span className="text-black/60 dark:text-white/90 font-medium text-[16px] max-w-full leading-[1.8] block mb-4">
                       {item.imgdesc}
                     </span>
                   )}
 
                   {item.heading && (
-                    <h2 className="text-3xl md:text-[40px] font-extrabold mb-3 text-black dark:text-white">
+                    <h2 className="text-[clamp(24px,6vw,40px)] font-extrabold mb-3 text-black dark:text-white leading-tight">
                       {item.heading}
                     </h2>
                   )}
                   
                   {item.text && (
-                    <p className="text-black/50 dark:text-white/90 font-medium md:text-[16px] max-w-7xl leading-relaxed">
+                    <p className="text-black/60 dark:text-white/90 font-medium text-[16px] max-w-full leading-[1.8]">
                       {item.text}
                     </p>
                   )}
@@ -1211,81 +1213,76 @@ const nextProject =
               );
             }
 
-            // --- IMAGE GRID RENDERER  ---
-if (item.type === "image-grid") {
-  return (
-    <div 
-      key={index} 
-      style={{ marginTop: item.mt || "0px", marginBottom: item.mb || "4rem" }}
-      className="w-full"
-    >
-      <div 
-        className="grid grid-cols-1 md:grid-cols-2" 
-        style={{ gap: item.gap || "2rem" }}
-      >
-        {item.imageGridData?.slice(0, 2).map((image, iIndex) => (
-          <motion.div 
-            key={iIndex}
-            initial={{ opacity: 0, scale: 0.95 }}
-            whileInView={{ opacity: 1, scale: 1 }}
-            viewport={{ once: true }}
-            className="flex justify-center items-center"
-          >
-            <img 
-              src={image.img} 
-              alt={`grid-img-${iIndex}`}
-              style={{ 
-                width: image.width || "100%", 
-                height: image.height || "auto",
-                objectFit: "cover" 
-              }}
-              className=""
-            />
-          </motion.div>
-        ))}
-      </div>
-    </div>
-  );
-}
+            if (item.type === "image-grid") {
+              return (
+                <div 
+                  key={index} 
+                  style={{ marginTop: item.mt || "0px", marginBottom: item.mb || "4rem" }}
+                  className="w-full"
+                >
+                  <div 
+                    className="flex flex-wrap justify-center" 
+                    style={{ gap: item.gap || "2rem" }}
+                  >
+                    {item.imageGridData?.slice(0, 2).map((image, iIndex) => (
+                      <motion.div 
+                        key={iIndex}
+                        initial={{ opacity: 0, scale: 0.95 }}
+                        whileInView={{ opacity: 1, scale: 1 }}
+                        viewport={{ once: true }}
+                        className="flex-grow flex-shrink basis-[400px] max-w-full flex justify-center items-center"
+                      >
+                        <img 
+                          src={image.img} 
+                          alt={`grid-img-${iIndex}`}
+                          style={{ 
+                            width: image.width || "100%", 
+                            height: "auto",
+                            objectFit: "cover",
+                            maxWidth: "100%"
+                          }}
+                        />
+                      </motion.div>
+                    ))}
+                  </div>
+                </div>
+              );
+            }
 
-          // --- BULLET LIST RENDERER ---
-if (item.type === "bullet-list") {
-  return (
-    <div 
-      key={index} 
-      style={{ marginTop: item.mt || "0px", marginBottom: item.mb || "4rem" }}
-      className="max-w-6xl"
-    >
-      <ul className="space-y-2">
-        {item.bulletListData?.map((bullet, bIndex) => (
-          <motion.li 
-            key={bIndex}
-            initial={{ opacity: 0, x: -10 }}
-            whileInView={{ opacity: 1, x: 0 }}
-            viewport={{ once: true }}
-            transition={{ delay: bIndex * 0.05 }}
-            className="flex items-start gap-3"
-          >
-            {/* The Dot */}
-            <span className="text-white text-[16px] flex-shrink-0">•</span>
-            
-            <p className="text-[16px] leading-relaxed font-medium text-black/90 dark:text-[#EAEAEA]">
-              <strong className=" font-extrabold text-black/90 dark:text-[#EAEAEA]">{bullet.title}</strong> {bullet.desc}
-            </p>
-          </motion.li>
-        ))}
-      </ul>
-    </div>
-  );
-}
+            if (item.type === "bullet-list") {
+              return (
+                <div 
+                  key={index} 
+                  style={{ marginTop: item.mt || "0px", marginBottom: item.mb || "4rem" }}
+                  className="max-w-6xl w-full"
+                >
+                  <ul className="space-y-2">
+                    {item.bulletListData?.map((bullet, bIndex) => (
+                      <motion.li 
+                        key={bIndex}
+                        initial={{ opacity: 0, x: -10 }}
+                        whileInView={{ opacity: 1, x: 0 }}
+                        viewport={{ once: true }}
+                        transition={{ delay: bIndex * 0.05 }}
+                        className="flex items-start gap-3"
+                      >
+                        <span className="text-black dark:text-white text-[16px] flex-shrink-0">•</span>
+                        <p className="text-[16px] leading-relaxed font-medium text-black/90 dark:text-[#EAEAEA]">
+                          <strong className="font-extrabold text-black/90 dark:text-[#EAEAEA]">{bullet.title}</strong> {bullet.desc}
+                        </p>
+                      </motion.li>
+                    ))}
+                  </ul>
+                </div>
+              );
+            }
 
-            // --- NEW COLUMNS RENDERER ---
             if (item.type === "columns") {
               return (
                 <div 
                   key={index} 
                   style={{ marginTop: item.mt || "0px", marginBottom: item.mb || "4rem" }}
-                  className="grid grid-cols-1 md:grid-cols-2 gap-x-1 gap-y-3 pb-10 bg-[#101010]"
+                  className="flex flex-wrap pb-10 bg-[#101010]"
                 >
                   {item.columnData?.map((col, cIndex) => (
                     <motion.div 
@@ -1294,26 +1291,25 @@ if (item.type === "bullet-list") {
                       whileInView={{ opacity: 1, y: 0 }}
                       viewport={{ once: true }}
                       transition={{ delay: cIndex * 0.1 }}
-                      className="pt-10 pr-10 ps-15" 
+                      className="flex-1 min-w-[300px] pt-10 pr-6 ps-6 md:pr-10 md:ps-15" 
                     >
-<h3 className="text-3xl md:text-[30px] font-extrabold mb-[15px] text-white">
-  {col.heading}
-</h3>
-<p className="text-[#EAEAEA] text-[14px] border-b pb-8 leading-relaxed font-medium">
-  {col.text}
-</p>
+                      <h3 className="text-[clamp(24px,5vw,30px)] font-extrabold mb-[15px] text-white">
+                        {col.heading}
+                      </h3>
+                      <p className="text-[#EAEAEA] text-[14px] border-b pb-8 leading-relaxed font-medium">
+                        {col.text}
+                      </p>
                     </motion.div>
                   ))}
                 </div>
               );
             }
 
-            // --- LIST RENDERER ---
             if (item.type === "list") {
               return (
-                <div key={index} style={{ marginTop: item.mt || "0px", marginBottom: item.mb || "4rem" }}>
+                <div key={index} style={{ marginTop: item.mt || "0px", marginBottom: item.mb || "4rem" }} className="w-full">
                   {item.heading && (
-                    <h2 className="text-3xl md:text-[30px] font-extrabold mb-8 text-black dark:text-white">
+                    <h2 className="text-[clamp(24px,5vw,30px)] font-extrabold mb-8 text-black dark:text-white">
                       {item.heading}
                     </h2>
                   )}
@@ -1321,13 +1317,9 @@ if (item.type === "bullet-list") {
                     {item.points?.map((point, pIndex) => (
                       <motion.li 
                         key={pIndex}
-                        initial={{ opacity: 0, x: -10 }}
-                        whileInView={{ opacity: 1, x: 0 }}
-                        viewport={{ once: true }}
-                        transition={{ delay: pIndex * 0.1 }}
                         className="flex items-start mb-2 gap-4"
                       >
-                        <div className="mt-1">
+                        <div className="mt-1 flex-shrink-0">
                           <Check className="text-[#F5900D] w-4 h-4 stroke-[5px]" />
                         </div>
                         <p className="text-black/80 dark:text-white/90 text-[15px] font-bold leading-relaxed">
@@ -1340,35 +1332,24 @@ if (item.type === "bullet-list") {
               );
             }
 
-            // --- NEW GRID RENDERER ---
             if (item.type === "grid") {
               return (
                 <div 
                   key={index} 
                   style={{ marginTop: item.mt || "0px", marginBottom: item.mb || "4rem" }}
-                  className={`grid grid-cols-1 md:grid-cols-2 gap-12 items-center ${item.reverse ? 'md:flex-row-reverse' : ''}`}
+                  className={`flex flex-wrap items-center gap-12 ${item.reverse ? 'flex-row-reverse' : ''}`}
                 >
-                  <motion.div 
-                    initial={{ opacity: 0, x: item.reverse ? 20 : -20 }}
-                    whileInView={{ opacity: 1, x: 0 }}
-                    viewport={{ once: true }}
-                    className={`${item.reverse ? 'md:order-2' : 'md:order-1'}`}
-                  >
-                    {item.smallHeading && <span className="text-black dark:text-white text-[30px] font-extrabold leading-relaxed mb-6 block">{item.smallHeading}</span>}
-                    {item.heading && <h2 className="text-3xl md:text-[40px] font-extrabold mb-6 text-black dark:text-white leading-tight">{item.heading}</h2>}
+                  <motion.div className="flex-1 min-w-[300px]">
+                    {item.smallHeading && <span className="text-black dark:text-white text-[clamp(20px,4vw,30px)] font-extrabold leading-relaxed mb-6 block">{item.smallHeading}</span>}
+                    {item.heading && <h2 className="text-[clamp(28px,6vw,40px)] font-extrabold mb-6 text-black dark:text-white leading-tight">{item.heading}</h2>}
                     {item.text && <p className="text-black/50 dark:text-white/80 text-[18px] leading-relaxed">{item.text}</p>}
                   </motion.div>
 
-                  <motion.div 
-                    initial={{ opacity: 0, x: item.reverse ? -20 : 20 }}
-                    whileInView={{ opacity: 1, x: 0 }}
-                    viewport={{ once: true }}
-                    className={`${item.reverse ? 'md:order-1' : 'md:order-2'}`}
-                  >
+                  <motion.div className="flex-1 min-w-[300px]">
                     <img 
                       src={item.img} 
                       alt="Data analysis" 
-                      style={{ width: item.width || "100%", height: item.height || "auto" }}
+                      style={{ width: item.width || "100%", height: "auto", maxWidth: "100%" }}
                       className="shadow-lg object-contain"
                     />
                   </motion.div>
@@ -1377,46 +1358,47 @@ if (item.type === "bullet-list") {
             } 
 
             if (item.type === "image") {
-              return (
-                <motion.div 
-                  initial={{ opacity: 0, scale: 0.98 }}
-                  whileInView={{ opacity: 1, scale: 1 }}
-                  viewport={{ once: true }}
-                  key={index}
-                  style={{ 
-                    marginTop: item.mt || "0px", 
-                    marginBottom: item.mb || "0rem" 
-                  }}
-                  className="w-full mb-1 flex justify-start overflow-hidden"
-                >
-                  <img 
-                    src={item.img} 
-                    alt="Project section" 
-                    style={{
-                      width: item.width || "100%",
-                      height: item.height || "auto",
-                      maxWidth: "100%"
-                    }}
-                    className=" " 
-                  />
-                </motion.div>
-              );
-            }
+         return (
+           <div 
+             key={index}
+             style={{ marginTop: item.mt || "0px", marginBottom: item.mb || "0rem" }}
+             className="w-full mb-1 flex justify-start overflow-hidden"
+           >
+             <motion.img
+               src={item.img}
+               alt="Project section"
+               style={{
+                 width: item.width || "100%",
+                 height: "auto",
+                 maxWidth: "100%"
+               }}
+               initial={{ opacity: 0, y: 20 }}
+               whileInView={{ opacity: 1, y: 0 }}
+               viewport={{ once: true }}
+               transition={{ duration: 0.5, ease: "easeOut" }}
+             />
+           </div>
+  );
+}
 
             return null;
           })}
         </section>
 
-        {/* Navigation Section */}
-        <section className="max-w-7xl mx-auto px-6 pb-32 mt-10">
-          <div className="flex justify-between items-center border-t border-black dark:border-white/10 py-8 mb-20 border-b">
-            <button onClick={() => {
-  if (previousProject) {
-    router.push(
-      `/industries/${previousProject.industrySlug}/${previousProject.projectSlug}`
-    );
-  }
-}} className="flex items-center gap-4 group text-lg font-bold cursor-pointer dark:text-white">
+        <section className="max-w-6xl mx-auto pb-32 mt-10">
+<motion.div
+  initial={{ opacity: 0, y: 20 }}
+  whileInView={{ opacity: 1, y: 0 }}
+  viewport={{ once: true }}
+  transition={{ duration: 0.5 }}
+  className="flex flex-wrap justify-between items-center border-t border-black dark:border-white/10 py-8 mb-20 border-b gap-6"
+>            <button onClick={() => {
+              if (previousProject) {
+              router.push(
+            `/industries/${previousProject.industrySlug}/${previousProject.projectSlug}`
+             );
+            }
+            }} className="flex items-center gap-4 group text-lg font-bold cursor-pointer dark:text-white">
               <div className="p-4 rounded-full bg-[#101010] group-hover:bg-[#F5900D] transition-all">
                 <ChevronLeft className="text-white" />
               </div>
@@ -1424,41 +1406,33 @@ if (item.type === "bullet-list") {
             </button>
             
             <button onClick={() => {
-  if (nextProject) {
-    router.push(
-      `/industries/${nextProject.industrySlug}/${nextProject.projectSlug}`
-    );
-  }
-}} className="flex items-center gap-4 group text-lg font-bold cursor-pointer dark:text-white">
+               if (nextProject) {
+               router.push(
+             `/industries/${nextProject.industrySlug}/${nextProject.projectSlug}`
+             );
+             }
+            }} className="flex items-center gap-4 group text-lg font-bold cursor-pointer dark:text-white">
               <span className="group-hover:text-orange-400">Next</span>
               <div className="p-4 rounded-full bg-[#101010] group-hover:bg-[#F5900D] transition-all">
                 <ChevronRight className="text-white" />
               </div>
             </button>
-          </div>
+          </motion.div>
 
-          <div className="text-center mb-12">
-            <div className="w-2 h-2 bg-[#F5900D] rounded-full mx-auto mb-4" />
+<motion.div
+  initial={{ opacity: 0, y: 20 }}
+  whileInView={{ opacity: 1, y: 0 }}
+  viewport={{ once: true }}
+  transition={{ duration: 0.5, delay: 0.1 }}
+  className="text-center mb-12"
+>            <div className="w-2 h-2 bg-[#F5900D] rounded-full mx-auto mb-4" />
             <p className="uppercase text-[14px] text-black/50 dark:text-[#EAEAEA] mb-2 font-medium">Our Work Showcase</p>
-            <h2 className="text-4xl md:text-[45px] font-extrabold dark:text-white">Explore similar portfolio<br/>you might like it</h2>
-          </div>
+            <h2 className="text-[clamp(28px,7vw,45px)] font-extrabold dark:text-white leading-tight">Explore similar portfolio<br className="hidden md:block"/>you might like it</h2>
+          </motion.div>
 
-          <div className="grid grid-cols-1 md:grid-cols-3 gap-7">
-            {[
-              { name: "AI Sustainability", img: "/turf.jpg" },
-              { name: "Minecraft Game", img: "/minecraft.jpg" },
-              { name: "AI Medical Imaging", img: "/medical.jpg" }
-            ].map((item, i) => (
-              <motion.div whileHover={{ y: -10 }} key={i} className="group cursor-pointer">
-                <div className="w-full h-[350px] overflow-hidden">
-                  <img src={item.img} className="w-full h-full object-cover" alt={item.name} />
-                </div>
-                <h4 className="text-2xl text-black dark:text-white font-black">{item.name}</h4>
-              </motion.div>
-            ))}
-          </div>
+<div className="flex flex-wrap justify-center gap-7"> {[ { name: "AI Sustainability", img: "/turf.jpg" }, { name: "Minecraft Game", img: "/minecraft.jpg" }, { name: "AI Medical Imaging", img: "/medical.jpg" } ].map((item, i) => ( <motion.div whileHover={{ y: -10 }} key={i} className="group cursor-pointer flex-grow flex-shrink basis-[300px] max-w-[400px]"> <div className="w-full h-[350px] overflow-hidden"> <img src={item.img} className="w-full h-full object-cover" alt={item.name} /> </div> <h4 className="text-2xl text-black dark:text-white font-black mt-4">{item.name}</h4> </motion.div> ))} </div>
         </section>
       </main>
     </>
-  );
+);
 }
