@@ -221,7 +221,7 @@ const Home = ({ showHero = true }: HomeProps) => {
               {" "}
               {/* adjust based on navbar height */}
               <div
-                style={{ backgroundimg: `url(${homeSlide[currentIndex].img})` }}
+                style={{ backgroundImage: `url(${homeSlide[currentIndex].img})` }}
                 className="w-full h-[calc(100vh-80px)] bg-center bg-no-repeat bg-cover absolute inset-0"
               ></div>
             </div>
